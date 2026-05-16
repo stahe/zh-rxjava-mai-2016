@@ -1,0 +1,1439 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="RxJava入门：Swing和Android环境中的应用">
+      
+      
+        <meta name="author" content="Serge Tahé">
+      
+      
+        <link rel="canonical" href="https://stahe.github.io/zh-rxjava-mai-2016/java-8-lambda-iaoahi.html">
+      
+      
+        <link rel="prev" href="aningeiuangaeianing.html">
+      
+      
+        <link rel="next" href="java-8-honge-streamt-eiing.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>4. Java 8 lambda 表达式 - RxJava入门：Swing和Android环境中的应用</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="stylesheets/focus.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-EBZC3JVJNR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    var siteName = "RxJava入门：Swing和Android环境中的应用";
+    gtag('config', 'G-EBZC3JVJNR', {
+        'page_title': siteName
+    });
+  </script>
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#4-java-8-lambda" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="RxJava入门：Swing和Android环境中的应用" class="md-header__button md-logo" aria-label="RxJava入门：Swing和Android环境中的应用" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            RxJava入门：Swing和Android环境中的应用
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              4. Java 8 lambda 表达式
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="purple"  aria-label="切换至深色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换至深色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="purple"  aria-label="切换至浅色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换至浅色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://stahe.github.io/zh-rxjava-mai-2016" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="RxJava入门：Swing和Android环境中的应用" class="md-nav__button md-logo" aria-label="RxJava入门：Swing和Android环境中的应用" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    RxJava入门：Swing和Android环境中的应用
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://stahe.github.io/zh-rxjava-mai-2016" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    欢迎
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ianie.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. 简介
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="uenhii.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. 入门示例
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="aningeiuangaeianing.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. 泛型类与方法的签名
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Java 8 lambda 表达式
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="java-8-lambda-iaoahi.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Java 8 lambda 表达式
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#41-01-lambda" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1. 示例-01 - 功能接口与 Lambda 表达式
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#42-02-predicatet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2. 示例-02 - Predicate&lt;T&gt; 函数接口
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#43-03-functiontr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3. 示例-03 - 函数接口 Function&lt;T,R&gt;
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#44-04-consumert" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4. 示例-04 - Consumer&lt;T&gt; 函数接口
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#45-05-biconsumertu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.5. 示例-05 - BiConsumer&lt;T,U&gt; 函数接口
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#46-06-bifunctiontur" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.6. 示例-06 - BiFunction&lt;T,U,R&gt; 函数接口
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#47-07-suppliert" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.7. 示例-07 - Supplier&lt;T&gt; 函数接口
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="java-8-honge-streamt-eiing.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Java 8 中的 Stream<T> 类型
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="rxjava-ueongengieou.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. RxJava 库的功能接口
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="rxjava-u.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. RxJava 库
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="swing-uaninghonge-rxjava.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Swing 环境中的 RxJava
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="android-uaninghonge-rxjava.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Android 环境中的 RxJava
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="uu.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. 附录
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<p><a id="refheading2073031760159442"></a></p>
+<h1 id="4-java-8-lambda">4. <span style="color: #365f91">Java 8 lambda 表达式</span></h1>
+<p><a id="refheading104092374082361"></a></p>
+<h2 id="41-01-lambda">4.1. <span style="color: #4f81bd">示例-01 - 功能接口与 Lambda 表达式</span></h2>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000120000000F5EF8570C9.png" width="201" height="171" style="display:inline-block; margin:4px;width:5.33cm;height:4.533cm;" class="odt-zoomable" data-zoom-src="images/1000000000000120000000F5EF8570C9.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
+
+<p>请看以下代码：</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">package</span><span style="color:#000000"> dvp.java8.lambdas;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">class</span><span style="color:#000000"> Exemple01 {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">static</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> main(String[] </span><span style="color:#6a3e3e">args</span><span style="color:#000000">) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// anonymous classes</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    I1 </span><span style="color:#6a3e3e">ia1</span><span style="color:#000000"> = </span><span style="font-weight:bold;color:#7f0055">new</span><span style="color:#000000"> I1() {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="color:#646464">@Override</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> doSomething() {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        System.</span><span style="font-weight:bold;font-style:italic;color:#0000c0">out</span><span style="color:#000000">.println(</span><span style="color:#2a00ff">&quot;ia1.doSomething&quot;</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">      }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    };</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    I2 </span><span style="color:#6a3e3e">ia2</span><span style="color:#000000"> = </span><span style="font-weight:bold;color:#7f0055">new</span><span style="color:#000000"> I2() {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="color:#646464">@Override</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> String getSomething(</span><span style="font-weight:bold;color:#7f0055">double</span><span style="color:#000000"> </span><span style="color:#6a3e3e">value</span><span style="color:#000000">) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="font-weight:bold;color:#7f0055">return</span><span style="color:#000000"> String.</span><span style="font-style:italic;color:#000000">format</span><span style="color:#000000">(</span><span style="color:#2a00ff">&quot;ia2.getSomething(%s)&quot;</span><span style="color:#000000">, </span><span style="color:#6a3e3e">value</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">      }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    };</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// lambdas</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    I1 </span><span style="color:#6a3e3e">ib1</span><span style="color:#000000"> = () -&gt; System.</span><span style="font-weight:bold;font-style:italic;color:#0000c0">out</span><span style="color:#000000">.println(</span><span style="color:#2a00ff">&quot;ib1.lambda&quot;</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    I2 </span><span style="color:#6a3e3e">ib2</span><span style="color:#000000"> = (</span><span style="color:#6a3e3e">value</span><span style="color:#000000">) -&gt; String.</span><span style="font-style:italic;color:#000000">format</span><span style="color:#000000">(</span><span style="color:#2a00ff">&quot;ib2.lambda(%s)&quot;</span><span style="color:#000000">, </span><span style="color:#6a3e3e">value</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    I1 </span><span style="color:#6a3e3e">ib3</span><span style="color:#000000"> = () -&gt; {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      System.</span><span style="font-weight:bold;font-style:italic;color:#0000c0">out</span><span style="color:#000000">.println(</span><span style="color:#2a00ff">&quot;ib3.lambda&quot;</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    };</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    I2 </span><span style="color:#6a3e3e">ib4</span><span style="color:#000000"> = (</span><span style="font-weight:bold;color:#7f0055">double</span><span style="color:#000000"> </span><span style="color:#6a3e3e">value</span><span style="color:#000000">) -&gt; {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="font-weight:bold;color:#7f0055">return</span><span style="color:#000000"> String.</span><span style="font-style:italic;color:#000000">format</span><span style="color:#000000">(</span><span style="color:#2a00ff">&quot;ib4.lambda(%s)&quot;</span><span style="color:#000000">, </span><span style="color:#6a3e3e">value</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    };</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// app</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#6a3e3e">ia1</span><span style="color:#000000">.doSomething();</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    System.</span><span style="font-weight:bold;font-style:italic;color:#0000c0">out</span><span style="color:#000000">.println(</span><span style="color:#6a3e3e">ia2</span><span style="color:#000000">.getSomething(4.3));</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#6a3e3e">ib1</span><span style="color:#000000">.doSomething();</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    System.</span><span style="font-weight:bold;font-style:italic;color:#0000c0">out</span><span style="color:#000000">.println(</span><span style="color:#6a3e3e">ib2</span><span style="color:#000000">.getSomething(5.8));</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#6a3e3e">ib3</span><span style="color:#000000">.doSomething();</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    System.</span><span style="font-weight:bold;font-style:italic;color:#0000c0">out</span><span style="color:#000000">.println(</span><span style="color:#6a3e3e">ib4</span><span style="color:#000000">.getSomething(10.1));</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">@FunctionalInterface</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">interface</span><span style="color:#000000"> I1 {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> doSomething();</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">@FunctionalInterface</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">interface</span><span style="color:#000000"> I2 {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  String getSomething(</span><span style="font-weight:bold;color:#7f0055">double</span><span style="color:#000000"> </span><span style="color:#6a3e3e">value</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+</code></pre></div>
+
+<ul>
+  <li>第 41–44 行：定义一个函数接口 I1。函数接口是指仅包含一个方法的接口。它并不依赖于第 41 行是否带有 [@FunctionalInterface] 注解，该注解是可选的；
+  </li>
+  <li>第 46–49 行：第二个函数式接口 I2；
+  </li>
+  <li>第 6–19 行：接口 I1 和 I2 通过匿名类实现，这是在引入 lambda 表达式之前最常见的解决方案；
+  </li>
+  <li>第 21–29 行：使用 lambda 表达式实现接口 I1 和 I2；
+  </li>
+  <li>第 7–12 行：使用匿名类实现接口 I1。使用匿名类实现接口 I 的语法如下：
+  </li>
+</ul>
+
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>I i=new I(){
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    @Override
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    public T1 m1(...){
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>...
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    }
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    public T2 m2(...){
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>...
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>    }
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>}
+</code></pre></div>
+<p>其中 m1、m2、... 是接口 I 定义的方法。</p>
+<ul>
+  <li>第 14–19 行：使用匿名类实现接口 I2；
+  </li>
+  <li>第 22 行：使用 lambda 函数实现接口 I1。这里利用了函数接口仅有一个方法这一特性。该 lambda 函数随后实现了这个单一的方法 M。其语法如下：
+  </li>
+</ul>
+
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>(T1 param1, T2 param2, ...) -&gt; {implémentation de la méthode M ;}
+</code></pre></div>
+<p>如果编译器能从上下文中推断出类型（类型推断），则可以省略类型 T1、T2、Tn。</p>
+<ul>
+  <li>第 22 行：方法 [I1.doSomething] 的实现，其签名如下：
+  </li>
+</ul>
+
+<div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-text">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> doSomething();</span></span></span>
+</code></pre></div>
+
+<p>[doSomething] 是一个无参数且不返回结果的方法。其 lambda 实现可以像第 22 行那样编写，也可以像第 24–26 行那样编写，即可以在 lambda 函数的代码周围添加大括号。如果该代码仅包含一条语句（如本例所示），则可以省略这些大括号；</p>
+<ul>
+  <li>第 23 行：实现具有以下签名的 [I1.getSomething] 方法：
+  </li>
+</ul>
+
+<div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-text">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">String getSomething(</span><span style="font-weight:bold;color:#7f0055">double</span><span style="color:#000000"> </span><span style="color:#6a3e3e">value</span><span style="color:#000000">);</span></span></span>
+</code></pre></div>
+
+<p>[getSomething] 接受一个 [double] 类型的参数，并返回一个 [String] 类型的结果。它的 lambda 实现可以是第 23 行中的，也可以是第 27–29 行中的。在第 23 行的实现中：</p>
+<ul>
+  <li>[value] 参数的类型被省略。此时将使用 [getSomething] 签名中定义的 [double] 类型；
+  </li>
+  <li>lambda 代码未用圆括号包围。此时 lambda 的结果即为该代码中单个表达式的值，即：<span style="color: #000000">String.</span><i><span style="color: #000000">format</span></i><span style="color: #000000">(</span><span style="color: #2a00ff">&quot;ib2.lambda(%s)&quot;</span><span style="color: #000000">, </span><span style="color: #6a3e3e">value</span><span style="color: #000000">);</span>
+  </li>
+</ul>
+
+<p><span style="color: #000000">在第 27–29 行的实现中：</span></p>
+<ul>
+  <li><span style="color: #000000">显式声明了 [value] 参数的类型；</span>
+  </li>
+  <li><span style="color: #000000">我们使用 [return] 来返回 lambda 的结果。在此情况下，必须使用大括号；</span>
+  </li>
+  <li><span style="color: #000000">第 32–37 行：我们调用各种匿名函数和 lambda 表达式；</span>
+  </li>
+</ul>
+
+<p>所得结果如下：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
+<span class="normal"><a href="#__codelineno-2-2">2</a></span>
+<span class="normal"><a href="#__codelineno-2-3">3</a></span>
+<span class="normal"><a href="#__codelineno-2-4">4</a></span>
+<span class="normal"><a href="#__codelineno-2-5">5</a></span>
+<span class="normal"><a href="#__codelineno-2-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a>ia1.doSomething
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a>ia2.getSomething(4.3)
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a>ib1.lambda
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a>ib2.lambda(5.8)
+<a id="__codelineno-2-5" name="__codelineno-2-5"></a>ib3.lambda
+<a id="__codelineno-2-6" name="__codelineno-2-6"></a>ib4.lambda(10.1)
+</code></pre></div></td></tr></table></div>
+<p><a id="refheading84562127124322"></a></p>
+<h2 id="42-02-predicatet">4.2. <span style="color: #4f81bd">示例-02 - Predicate&lt;T&gt; 函数接口</span></h2>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000FE0000014851D8D378.png" width="178" height="229" style="display:inline-block; margin:4px;width:4.701cm;height:6.071cm;" class="odt-zoomable" data-zoom-src="images/10000000000000FE0000014851D8D378.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
+
+<p>大多数情况下，我们处理的是库中提供的函数接口，而非自己定义的函数接口。这里，我们关注的是 [java.util.function] 包中定义的 [Predicate] 函数接口，该包包含了 Java 8 中大部分的函数接口。其定义如下：</p>
+<p><img src="images/10000000000004EA0000022D5A002C6D.png" width="670" height="297" style="width:17.729cm;height:7.849cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000004EA0000022D5A002C6D.png" /></p>
+<p>我们曾提到，函数式接口通常只有一个方法。但这里却有四个。Java 8 引入的另一项创新是<strong>接口中的默认方法</strong>概念，它通过 [default] 关键字进行标记。这里有三个这样的方法。这些方法的特点是具有默认实现。 因此，实现包含默认方法的接口的类无需实现这些方法。所以，想要实现 [Predicate] 接口的类只需实现一个方法：即 [test] 方法。由此可见，[Predicate] 接口确实是一个函数式接口。因此，我们可以定义：函数式接口是指其实现中仅包含一个必选方法的接口。如果它包含多个方法，其余方法必须带有 [default] 关键字。</p>
+<p>[Predicate&lt;T&gt;.test] 方法接受类型为 T 的参数，并返回一个布尔值。该接口通常用于过滤集合。为说明其用法，我们将使用以下数据：</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">package</span><span style="color:#000000"> dvp.data;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> com.fasterxml.jackson.core.JsonProcessingException;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> com.fasterxml.jackson.databind.ObjectMapper;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">class</span><span style="color:#000000"> Personne {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">enum</span><span style="color:#000000"> Sexe {</span><span style="font-weight:bold;font-style:italic;color:#0000c0">HOMME</span><span style="color:#000000">,</span><span style="font-weight:bold;font-style:italic;color:#0000c0">FEMME</span><span style="color:#000000">};</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// data</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> String </span><span style="color:#0000c0">nom</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">int</span><span style="color:#000000"> </span><span style="color:#0000c0">age</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">double</span><span style="color:#000000"> </span><span style="color:#0000c0">poids</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> Sexe </span><span style="color:#0000c0">sexe</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// manufacturers</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> Personne() {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> Personne(String </span><span style="color:#6a3e3e">nom</span><span style="color:#000000">, Sexe </span><span style="color:#6a3e3e">sexe</span><span style="color:#000000">, </span><span style="font-weight:bold;color:#7f0055">int</span><span style="color:#000000"> </span><span style="color:#6a3e3e">age</span><span style="color:#000000">, </span><span style="font-weight:bold;color:#7f0055">double</span><span style="color:#000000"> </span><span style="color:#6a3e3e">poids</span><span style="color:#000000">) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">this</span><span style="color:#000000">.</span><span style="color:#0000c0">nom</span><span style="color:#000000"> = </span><span style="color:#6a3e3e">nom</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">this</span><span style="color:#000000">.</span><span style="color:#0000c0">sexe</span><span style="color:#000000">=</span><span style="color:#6a3e3e">sexe</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">this</span><span style="color:#000000">.</span><span style="color:#0000c0">age</span><span style="color:#000000"> = </span><span style="color:#6a3e3e">age</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">this</span><span style="color:#000000">.</span><span style="color:#0000c0">poids</span><span style="color:#000000"> = </span><span style="color:#6a3e3e">poids</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// getters and setters</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">...</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// toString</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="color:#646464">@Override</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> String toString(){</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">try</span><span style="color:#000000"> {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="font-weight:bold;color:#7f0055">return</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">new</span><span style="color:#000000"> ObjectMapper().writeValueAsString(</span><span style="font-weight:bold;color:#7f0055">this</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    } </span><span style="font-weight:bold;color:#7f0055">catch</span><span style="color:#000000"> (JsonProcessingException </span><span style="color:#6a3e3e">e</span><span style="color:#000000">) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="font-weight:bold;color:#7f0055">return</span><span style="color:#000000"> </span><span style="color:#6a3e3e">e</span><span style="color:#000000">.getMessage();</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+</code></pre></div>
+
+<ul>
+  <li>第 32–38 行：[toString] 方法返回该人的 JSON 字符串；
+  </li>
+</ul>
+
+<p>[People] 类定义了一个包含 3 个人的列表：</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">package</span><span style="color:#000000"> dvp.data;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> com.fasterxml.jackson.core.JsonProcessingException;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> com.fasterxml.jackson.databind.ObjectMapper;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> java.util.Arrays;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> java.util.List;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">class</span><span style="color:#000000"> Personnes {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">static</span><span style="color:#000000"> List&lt;Personne&gt; </span><span style="font-style:italic;color:#0000c0">personnes</span><span style="color:#000000"> = Arrays.</span><span style="font-style:italic;color:#000000">asList</span><span style="color:#000000">(</span><span style="font-weight:bold;color:#7f0055">new</span><span style="color:#000000"> Personne(</span><span style="color:#2a00ff">&quot;jean&quot;</span><span style="color:#000000">, Personne.Sexe.</span><span style="font-weight:bold;font-style:italic;color:#0000c0">HOMME</span><span style="color:#000000">, 20, 70),</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">new</span><span style="color:#000000"> Personne(</span><span style="color:#2a00ff">&quot;marie&quot;</span><span style="color:#000000">, Personne.Sexe.</span><span style="font-weight:bold;font-style:italic;color:#0000c0">FEMME</span><span style="color:#000000">, 10, 30), </span><span style="font-weight:bold;color:#7f0055">new</span><span style="color:#000000"> Personne(</span><span style="color:#2a00ff">&quot;camille&quot;</span><span style="color:#000000">, Personne.Sexe.</span><span style="font-weight:bold;font-style:italic;color:#0000c0">FEMME</span><span style="color:#000000">, 30, 55));</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">static</span><span style="color:#000000"> List&lt;Personne&gt; get() {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">return</span><span style="color:#000000"> </span><span style="font-style:italic;color:#0000c0">personnes</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">static</span><span style="color:#000000"> String toString(List&lt;Personne&gt; </span><span style="color:#6a3e3e">liste</span><span style="color:#000000">) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">try</span><span style="color:#000000"> {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="font-weight:bold;color:#7f0055">return</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">new</span><span style="color:#000000"> ObjectMapper().writeValueAsString(</span><span style="color:#6a3e3e">liste</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    } </span><span style="font-weight:bold;color:#7f0055">catch</span><span style="color:#000000"> (JsonProcessingException </span><span style="color:#6a3e3e">e</span><span style="color:#000000">) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="font-weight:bold;color:#7f0055">return</span><span style="color:#000000"> </span><span style="color:#6a3e3e">e</span><span style="color:#000000">.getMessage();</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+</code></pre></div>
+
+<ul>
+  <li>第 10–11 行：包含 3 人的列表；
+  </li>
+  <li>第13–15行：一个用于检索该列表的静态方法；
+  </li>
+  <li>第17–23行：一个静态方法，用于获取作为参数传递的人员列表的JSON字符串；
+  </li>
+</ul>
+
+<p>以下代码将使用这些数据：</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">package</span><span style="color:#000000"> dvp.java8.lambdas;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> java.util.ArrayList;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> java.util.List;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> java.util.function.Predicate;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> dvp.data.Personne;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> dvp.data.Personnes;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">class</span><span style="color:#000000"> Exemple02 {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">static</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> main(String[] </span><span style="color:#6a3e3e">args</span><span style="color:#000000">) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// predicate implemented by anonymous class</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    Predicate&lt;Personne&gt; </span><span style="color:#6a3e3e">filterPoids</span><span style="color:#000000">=</span><span style="font-weight:bold;color:#7f0055">new</span><span style="color:#000000"> Predicate&lt;Personne&gt;() {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="color:#646464">@Override</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">boolean</span><span style="color:#000000"> test(Personne </span><span style="color:#6a3e3e">personne</span><span style="color:#000000">) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="font-weight:bold;color:#7f0055">return</span><span style="color:#000000"> </span><span style="color:#6a3e3e">personne</span><span style="color:#000000">.getPoids()&lt;50;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">      }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    };</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">// predicate implemented by a lambda</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    Predicate&lt;Personne&gt; </span><span style="color:#6a3e3e">filterAge</span><span style="color:#000000"> = </span><span style="color:#6a3e3e">p</span><span style="color:#000000"> -&gt; </span><span style="color:#6a3e3e">p</span><span style="color:#000000">.getAge() &lt; 28;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// list of persons</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    List&lt;Personne&gt; </span><span style="color:#6a3e3e">personnes</span><span style="color:#000000"> = Personnes.</span><span style="font-style:italic;color:#000000">get</span><span style="color:#000000">();</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// displays</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    System.</span><span style="font-weight:bold;font-style:italic;color:#0000c0">out</span><span style="color:#000000">.println(Personnes.</span><span style="font-style:italic;color:#000000">toString</span><span style="color:#000000">(</span><span style="font-style:italic;color:#000000">filterPersonnes</span><span style="color:#000000">(</span><span style="color:#6a3e3e">personnes</span><span style="color:#000000">, </span><span style="color:#6a3e3e">filterAge</span><span style="color:#000000">)));</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    System.</span><span style="font-weight:bold;font-style:italic;color:#0000c0">out</span><span style="color:#000000">.println(Personnes.</span><span style="font-style:italic;color:#000000">toString</span><span style="color:#000000">(</span><span style="font-style:italic;color:#000000">filterPersonnes</span><span style="color:#000000">(</span><span style="color:#6a3e3e">personnes</span><span style="color:#000000">, </span><span style="color:#6a3e3e">filterPoids</span><span style="color:#000000">)));</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">static</span><span style="color:#000000"> List&lt;Personne&gt; filterPersonnes(List&lt;Personne&gt; </span><span style="color:#6a3e3e">personnes</span><span style="color:#000000">, Predicate&lt;Personne&gt; </span><span style="color:#6a3e3e">filter</span><span style="color:#000000">) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">      <span style="color:#000000">// [filter] filters the [people] list</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    List&lt;Personne&gt; </span><span style="color:#6a3e3e">personnesFiltrées</span><span style="color:#000000"> = </span><span style="font-weight:bold;color:#7f0055">new</span><span style="color:#000000"> ArrayList&lt;&gt;();</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">for</span><span style="color:#000000"> (Personne </span><span style="color:#6a3e3e">p</span><span style="color:#000000"> : </span><span style="color:#6a3e3e">personnes</span><span style="color:#000000">) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="font-weight:bold;color:#7f0055">if</span><span style="color:#000000"> (</span><span style="color:#6a3e3e">filter</span><span style="color:#000000">.test(</span><span style="color:#6a3e3e">p</span><span style="color:#000000">)) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#6a3e3e">personnesFiltrées</span><span style="color:#000000">.add(</span><span style="color:#6a3e3e">p</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">      }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">return</span><span style="color:#000000"> </span><span style="color:#6a3e3e">personnesFiltrées</span><span style="color:#000000">;  }</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+</code></pre></div>
+
+<ul>
+  <li>第 13–18 行：使用匿名类实现 Predicate&lt;Person&gt; 接口。这是一个基于人员体重的过滤器；
+  </li>
+  <li>第 20 行：使用 lambda 表达式实现 Predicate&lt;Person&gt; 接口。这是一个基于人物年龄的过滤器。根据上述内容，也可以这样编写：
+  </li>
+</ul>
+
+<div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-text">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        Predicate&lt;Personne&gt; </span><span style="color:#6a3e3e">filterAge</span><span style="color:#000000"> = (Personne </span><span style="color:#6a3e3e">p</span><span style="color:#000000">) -&gt; {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            </span><span style="font-weight:bold;color:#7f0055">return</span><span style="color:#000000"> (</span><span style="color:#6a3e3e">p</span><span style="color:#000000">.getAge() &lt; 28);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        };</span></span>
+</code></pre></div>
+
+<p>但第 20 行中的版本更为简洁。参数 <em>p</em> 的类型由上下文推导得出。这里，我们正在构造类型 [Predicate&lt;Person&gt;]。因此，实现的方法具有签名 [boolean test(Person param)]。所以，第 20 行中 <em>p</em> 的隐式类型是 [Person]；</p>
+<ul>
+  <li>第 22 行：我们获取一个预定义的人员列表；
+  </li>
+  <li>第 24 行：按年龄对人员进行筛选；
+  </li>
+  <li>第 25 行：按体重进行筛选。在这两种情况下，我们都会显示筛选后列表的 JSON 字符串；
+  </li>
+  <li>第 28–37 行：一个静态方法， 
+    <ul>
+      <li>该方法的参数包括：待筛选的人员列表以及筛选器。该筛选器是 [Predicate&lt;Person&gt;]<i> 接口的实例</i>。为方便起见，本文档在此及后续内容中，将<i>接口 </i>I<i> 的实例</i>统称为实现 I 的类 C 的实例；
+      </li>
+      <li>返回过滤后的列表作为结果；
+      </li>
+    </ul>
+  </li>
+  <li>第 32 行：我们使用 [Predicate] 接口的 [test] 方法。根据传递给该方法的过滤器，[test] 方法将：
+  </li>
+</ul>
+
+<div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-text">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">return</span><span style="color:#000000"> </span><span style="color:#6a3e3e">personne</span><span style="color:#000000">.getPoids()&lt;50;</span></span></span>
+</code></pre></div>
+
+<p><span style="color: #000000">或</span></p>
+<div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-text">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">return</span><span style="color:#000000"> </span><span style="color:#6a3e3e">p</span><span style="color:#000000">.getAge() &lt; 28</span></span></span>
+</code></pre></div>
+
+<p>执行 [Exemple02] 类将得到以下结果：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
+<span class="normal"><a href="#__codelineno-3-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a>[{&quot;nom&quot;:&quot;jean&quot;,&quot;age&quot;:20,&quot;poids&quot;:70.0,&quot;sexe&quot;:&quot;HOMME&quot;},{&quot;nom&quot;:&quot;marie&quot;,&quot;age&quot;:10,&quot;poids&quot;:30.0,&quot;sexe&quot;:&quot;FEMME&quot;}]
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a>[{&quot;nom&quot;:&quot;marie&quot;,&quot;age&quot;:10,&quot;poids&quot;:30.0,&quot;sexe&quot;:&quot;FEMME&quot;}]
+</code></pre></div></td></tr></table></div>
+<p><a id="refheading85472127124322"></a></p>
+<h2 id="43-03-functiontr">4.3. <span style="color: #4f81bd">示例-03 - 函数接口 Function&lt;T,R&gt;</span></h2>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000FE0000014897894DC2.png" width="178" height="229" style="display:inline-block; margin:4px;width:4.701cm;height:6.071cm;" class="odt-zoomable" data-zoom-src="images/10000000000000FE0000014897894DC2.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
+
+<p>函数接口 <strong>Function&lt;T,R&gt;</strong> 的定义如下：</p>
+<p><img src="images/10000000000003B7000001D84B7870AE.png" width="570" height="283" style="width:15.09cm;height:7.489cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000003B7000001D84B7870AE.png" /></p>
+<p>该接口的唯一方法具有签名 <strong>R apply(T t)</strong>。它通常用于从 Collection&lt;T&gt; 类型创建新的 Collection&lt;R&gt; 类型。为了说明该接口，我们将使用以下代码：</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">package</span><span style="color:#000000"> dvp.java8.lambdas;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> com.fasterxml.jackson.core.JsonProcessingException;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> com.fasterxml.jackson.databind.ObjectMapper;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> dvp.data.Personne;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> dvp.data.Personnes;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> java.util.ArrayList;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> java.util.List;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> java.util.function.Function;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">class</span><span style="color:#000000"> Exemple03 {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">static</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> main(String[] </span><span style="color:#6a3e3e">args</span><span style="color:#000000">) </span><span style="font-weight:bold;color:#7f0055">throws</span><span style="color:#000000"> JsonProcessingException {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// implementation with anonymous class</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    Function&lt;Personne, String&gt; </span><span style="color:#6a3e3e">mapToName</span><span style="color:#000000"> = </span><span style="font-weight:bold;color:#7f0055">new</span><span style="color:#000000"> Function&lt;Personne, String&gt;() {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="color:#646464">@Override</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> String apply(Personne </span><span style="color:#6a3e3e">personne</span><span style="color:#000000">) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="font-weight:bold;color:#7f0055">return</span><span style="color:#000000"> </span><span style="color:#6a3e3e">personne</span><span style="color:#000000">.getNom();</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">      }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    };</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// implementation with lambda</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    Function&lt;Personne, Integer&gt; </span><span style="color:#6a3e3e">mapToAge</span><span style="color:#000000"> = </span><span style="color:#6a3e3e">p</span><span style="color:#000000"> -&gt; </span><span style="color:#6a3e3e">p</span><span style="color:#000000">.getAge();</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// list of persons</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    List&lt;Personne&gt; </span><span style="color:#6a3e3e">personnes</span><span style="color:#000000"> = Personnes.</span><span style="font-style:italic;color:#000000">get</span><span style="color:#000000">();</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// jSON</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    ObjectMapper </span><span style="color:#6a3e3e">jsonMapper</span><span style="color:#000000"> = </span><span style="font-weight:bold;color:#7f0055">new</span><span style="color:#000000"> ObjectMapper();</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// displays</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    System.</span><span style="font-weight:bold;font-style:italic;color:#0000c0">out</span><span style="color:#000000">.println(</span><span style="color:#6a3e3e">jsonMapper</span><span style="color:#000000">.writeValueAsString(</span><span style="font-style:italic;color:#000000">mapPersonnes</span><span style="color:#000000">(</span><span style="color:#6a3e3e">personnes</span><span style="color:#000000">, </span><span style="color:#6a3e3e">mapToName</span><span style="color:#000000">)));</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    System.</span><span style="font-weight:bold;font-style:italic;color:#0000c0">out</span><span style="color:#000000">.println(</span><span style="color:#6a3e3e">jsonMapper</span><span style="color:#000000">.writeValueAsString(</span><span style="font-style:italic;color:#000000">mapPersonnes</span><span style="color:#000000">(</span><span style="color:#6a3e3e">personnes</span><span style="color:#000000">, </span><span style="color:#6a3e3e">mapToAge</span><span style="color:#000000">)));</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// transformation List&lt;Person&gt; --&gt; List&lt;T&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">static</span><span style="color:#000000"> &lt;T&gt; List&lt;T&gt; mapPersonnes(List&lt;Personne&gt; </span><span style="color:#6a3e3e">personnes</span><span style="color:#000000">, Function&lt;Personne, T&gt; </span><span style="color:#6a3e3e">mapper</span><span style="color:#000000">) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    List&lt;T&gt; </span><span style="color:#6a3e3e">maps</span><span style="color:#000000"> = </span><span style="font-weight:bold;color:#7f0055">new</span><span style="color:#000000"> ArrayList&lt;&gt;();</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">for</span><span style="color:#000000"> (Personne </span><span style="color:#6a3e3e">p</span><span style="color:#000000"> : </span><span style="color:#6a3e3e">personnes</span><span style="color:#000000">) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="color:#6a3e3e">maps</span><span style="color:#000000">.add(</span><span style="color:#6a3e3e">mapper</span><span style="color:#000000">.apply(</span><span style="color:#6a3e3e">p</span><span style="color:#000000">));</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">return</span><span style="color:#000000"> </span><span style="color:#6a3e3e">maps</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+</code></pre></div>
+
+<ul>
+  <li>第 15–20 行：我们使用一个执行 Person → String 转换的匿名类来实现 [<span style="color: #000000">Function&lt;Person, String&gt;</span>] 接口；
+  </li>
+  <li>第 22 行：我们使用一个执行 Person → Integer 转换的 lambda 表达式来实现 [<span style="color: #000000">Function&lt;Person, Integer&gt;</span>] 接口；
+  </li>
+  <li>第 33–39 行：一个静态方法， 
+    <ul>
+      <li>该方法接受两个参数：第一个参数类型为 <i>List&lt;Person&gt;</i>，表示待转换的人员列表；第二个参数类型为 <i><span style="color: #000000">Function&lt;Person, T&gt;</span></i><span style="color: #000000">，表示一个函数，该函数会遍历列表中的每个人，并生成类型为 T 的对象；</span>
+      </li>
+      <li><span style="color: #000000">返回一个 </span><i><span style="color: #000000">List&lt;T&gt;</span></i><span style="color: #000000">，其中每个元素都是 </span><i><span style="color: #000000">Person -&gt; T</span></i><span style="color: #000000"> 转换的结果；</span>
+      </li>
+    </ul>
+  </li>
+  <li><span style="color: #000000">第 35–37 行：应用 </span><i><span style="color: #000000">Person -&gt; T</span></i><span style="color: #000000"> 转换。如果方法的第二个参数是 [mapToName] 对象，则执行 Person -&gt; String 转换；如果是 [mapToAge] 对象，则执行 Person -&gt; Integer 转换；</span>
+  </li>
+</ul>
+
+<p><span style="color: #000000">结果如下：</span></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span>
+<span class="normal"><a href="#__codelineno-4-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a>[&quot;jean&quot;,&quot;marie&quot;,&quot;camille&quot;]
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a>[20,10,30]
+</code></pre></div></td></tr></table></div>
+<p><a id="refheading80382127124322"></a></p>
+<h2 id="44-04-consumert">4.4. <span style="color: #4f81bd">示例-04 - Consumer&lt;T&gt; 函数接口</span></h2>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000FE000001489B153430.png" width="178" height="229" style="display:inline-block; margin:4px;width:4.701cm;height:6.071cm;" class="odt-zoomable" data-zoom-src="images/10000000000000FE000001489B153430.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
+
+<p>函数接口 Consumer<strong>&lt;T&gt;</strong> 的定义如下：</p>
+<p><img src="images/1000000000000345000001B121E22A8B.png" width="502" height="260" style="width:13.28cm;height:6.87cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000345000001B121E22A8B.png" /></p>
+<p><span style="color: #000000">该接口的唯一方法的签名如下：</span><strong><span style="color: #000000">void accept(T t)</span></strong><span style="color: #000000">。该方法处理（消耗）其参数，且不返回任何结果。为说明这一点，我们将使用以下代码：</span></p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">package</span><span style="color:#000000"> dvp.java8.lambdas;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> java.util.List;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> java.util.function.Consumer;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> dvp.data.Personne;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> dvp.data.Personnes;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">class</span><span style="color:#000000"> Exemple04 {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">static</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> main(String[] </span><span style="color:#6a3e3e">args</span><span style="color:#000000">) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// list of persons</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        List&lt;Personne&gt; </span><span style="color:#6a3e3e">personnes</span><span style="color:#000000"> = Personnes.</span><span style="font-style:italic;color:#000000">get</span><span style="color:#000000">();</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// anonymous implementation</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        Consumer&lt;Personne&gt; </span><span style="color:#6a3e3e">consumerAge</span><span style="color:#000000"> = </span><span style="font-weight:bold;color:#7f0055">new</span><span style="color:#000000"> Consumer&lt;Personne&gt;() {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            </span><span style="color:#646464">@Override</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            </span><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> accept(Personne </span><span style="color:#6a3e3e">personne</span><span style="color:#000000">) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">                System.</span><span style="font-weight:bold;font-style:italic;color:#0000c0">out</span><span style="color:#000000">.printf(</span><span style="color:#2a00ff">&quot; age de %s = %s%n&quot;</span><span style="color:#000000">, </span><span style="color:#6a3e3e">personne</span><span style="color:#000000">.getNom(), </span><span style="color:#6a3e3e">personne</span><span style="color:#000000">.getAge());</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        };</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// immplémentaton lambda</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        Consumer&lt;Personne&gt; </span><span style="color:#6a3e3e">consumerPoids</span><span style="color:#000000"> = </span><span style="color:#6a3e3e">p</span><span style="color:#000000"> -&gt; System.</span><span style="font-weight:bold;font-style:italic;color:#0000c0">out</span><span style="color:#000000">.printf(</span><span style="color:#2a00ff">&quot; poids de %s = %s%n&quot;</span><span style="color:#000000">, </span><span style="color:#6a3e3e">p</span><span style="color:#000000">.getNom(), </span><span style="color:#6a3e3e">p</span><span style="color:#000000">.getPoids());        </span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// displays</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="font-weight:bold;color:#7f0055">for</span><span style="color:#000000"> (Personne </span><span style="color:#6a3e3e">p</span><span style="color:#000000"> : </span><span style="color:#6a3e3e">personnes</span><span style="color:#000000">) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            </span><span style="color:#6a3e3e">consumerAge</span><span style="color:#000000">.accept(</span><span style="color:#6a3e3e">p</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        System.</span><span style="font-weight:bold;font-style:italic;color:#0000c0">out</span><span style="color:#000000">.println(</span><span style="color:#2a00ff">&quot;--------&quot;</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="font-weight:bold;color:#7f0055">for</span><span style="color:#000000"> (Personne </span><span style="color:#6a3e3e">p</span><span style="color:#000000"> : </span><span style="color:#6a3e3e">personnes</span><span style="color:#000000">) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            </span><span style="color:#6a3e3e">consumerPoids</span><span style="color:#000000">.accept(</span><span style="color:#6a3e3e">p</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+</code></pre></div>
+
+<ul>
+  <li><span style="color: #000000">第 14–19 行：接口 [Consumer&lt;Person&gt;] 由一个匿名类实现，该类的 [accept] 方法会显示该人的姓名和年龄；</span>
+  </li>
+  <li><span style="color: #000000">第 21 行：接口 [Consumer&lt;Person&gt;] 由一个 lambda 函数实现，该函数的隐式 [accept] 方法用于显示该人的姓名和体重；</span>
+  </li>
+  <li><span style="color: #000000">第 23–25 行：人员列表由 [consumerAge] 的实现进行消费；</span>
+  </li>
+  <li><span style="color: #000000">第 27–29 行：人员列表由 [consumerWeight] 实现进行消费；</span>
+  </li>
+</ul>
+
+<p>结果如下：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span>
+<span class="normal"><a href="#__codelineno-5-2">2</a></span>
+<span class="normal"><a href="#__codelineno-5-3">3</a></span>
+<span class="normal"><a href="#__codelineno-5-4">4</a></span>
+<span class="normal"><a href="#__codelineno-5-5">5</a></span>
+<span class="normal"><a href="#__codelineno-5-6">6</a></span>
+<span class="normal"><a href="#__codelineno-5-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a> age de jean = 20
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a> age de marie = 10
+<a id="__codelineno-5-3" name="__codelineno-5-3"></a> age de camille = 30
+<a id="__codelineno-5-4" name="__codelineno-5-4"></a>--------
+<a id="__codelineno-5-5" name="__codelineno-5-5"></a> poids de jean = 70.0
+<a id="__codelineno-5-6" name="__codelineno-5-6"></a> poids de marie = 30.0
+<a id="__codelineno-5-7" name="__codelineno-5-7"></a>poids de camille = 55.0
+</code></pre></div></td></tr></table></div>
+<p><a id="refheading104094374082361"></a></p>
+<h2 id="45-05-biconsumertu">4.5. <span style="color: #4f81bd">示例-05 - BiConsumer&lt;T,U&gt; 函数接口</span></h2>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000FE00000148D51CDA34.png" width="178" height="229" style="display:inline-block; margin:4px;width:4.701cm;height:6.071cm;" class="odt-zoomable" data-zoom-src="images/10000000000000FE00000148D51CDA34.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
+
+<p>函数接口 BiConsumer<strong>&lt;T,U&gt;</strong> 定义如下：</p>
+<p><img src="images/100000000000036D000001DB287170C6.png" width="526" height="285" style="width:13.921cm;height:7.541cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000036D000001DB287170C6.png" /></p>
+<p><span style="color: #000000">该接口的唯一方法的签名如下：</span><strong><span style="color: #000000">void accept(T t, U u)</span></strong><span style="color: #000000">。它处理类型 T 并使用附加信息 U u。我们将通过以下代码演示其用法：</span></p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">package</span><span style="color:#000000"> dvp.java8.lambdas;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> dvp.data.Personne;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> dvp.data.Personnes;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> java.util.List;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> java.util.function.BiConsumer;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">class</span><span style="color:#000000"> Exemple05 {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">static</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> main(String[] </span><span style="color:#6a3e3e">args</span><span style="color:#000000">) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// list of persons</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    List&lt;Personne&gt; </span><span style="color:#6a3e3e">personnes</span><span style="color:#000000"> = Personnes.</span><span style="font-style:italic;color:#000000">get</span><span style="color:#000000">();</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// anonymous implementation</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    BiConsumer&lt;Personne, Integer&gt; </span><span style="color:#6a3e3e">biconsumerAge</span><span style="color:#000000"> = </span><span style="font-weight:bold;color:#7f0055">new</span><span style="color:#000000"> BiConsumer&lt;Personne, Integer&gt;() {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="color:#646464">@Override</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> accept(Personne </span><span style="color:#6a3e3e">personne</span><span style="color:#000000">, Integer </span><span style="color:#6a3e3e">integer</span><span style="color:#000000">) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#6a3e3e">personne</span><span style="color:#000000">.setAge(</span><span style="color:#6a3e3e">personne</span><span style="color:#000000">.getAge() + </span><span style="color:#6a3e3e">integer</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        System.</span><span style="font-weight:bold;font-style:italic;color:#0000c0">out</span><span style="color:#000000">.printf(</span><span style="color:#2a00ff">&quot;age de %s = %s%n&quot;</span><span style="color:#000000">, </span><span style="color:#6a3e3e">personne</span><span style="color:#000000">.getNom(), </span><span style="color:#6a3e3e">personne</span><span style="color:#000000">.getAge());</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">      }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    };</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// lambda implementation</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    BiConsumer&lt;Personne, Integer&gt; </span><span style="color:#6a3e3e">biconsumerPoids</span><span style="color:#000000"> = (</span><span style="color:#6a3e3e">p</span><span style="color:#000000">, </span><span style="color:#6a3e3e">i</span><span style="color:#000000">) -&gt; {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="color:#6a3e3e">p</span><span style="color:#000000">.setPoids(</span><span style="color:#6a3e3e">p</span><span style="color:#000000">.getPoids() + </span><span style="color:#6a3e3e">i</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      System.</span><span style="font-weight:bold;font-style:italic;color:#0000c0">out</span><span style="color:#000000">.printf(</span><span style="color:#2a00ff">&quot;poids de %s = %s%n&quot;</span><span style="color:#000000">, </span><span style="color:#6a3e3e">p</span><span style="color:#000000">.getNom(), </span><span style="color:#6a3e3e">p</span><span style="color:#000000">.getPoids());</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    };</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// displays</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">for</span><span style="color:#000000"> (Personne </span><span style="color:#6a3e3e">p</span><span style="color:#000000"> : </span><span style="color:#6a3e3e">personnes</span><span style="color:#000000">) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="color:#6a3e3e">biconsumerAge</span><span style="color:#000000">.accept(</span><span style="color:#6a3e3e">p</span><span style="color:#000000">, 100);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    System.</span><span style="font-weight:bold;font-style:italic;color:#0000c0">out</span><span style="color:#000000">.println(</span><span style="color:#2a00ff">&quot;--------&quot;</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">for</span><span style="color:#000000"> (Personne </span><span style="color:#6a3e3e">p</span><span style="color:#000000"> : </span><span style="color:#6a3e3e">personnes</span><span style="color:#000000">) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="color:#6a3e3e">biconsumerPoids</span><span style="color:#000000">.accept(</span><span style="color:#6a3e3e">p</span><span style="color:#000000">, 200);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+</code></pre></div>
+
+<ul>
+  <li><span style="color: #000000">第 14–20 行：使用匿名类实现 </span><i><span style="color: #000000">BiConsumer&lt;T,U&gt;</span></i><span style="color: #000000"> 接口。[apply] 方法使用其第二个参数来更新作为第一个参数传递的人物的年龄，然后显示结果；</span>
+  </li>
+  <li><span style="color: #000000">第 22–25 行：使用 lambda 表达式实现 </span><i><span style="color: #000000">BiConsumer&lt;T,U&gt;</span></i><span style="color: #000000"> 接口。隐含的 [apply] 方法使用其第二个参数来更新作为第一个参数传递的人物的体重。随后显示结果；</span>
+  </li>
+  <li><span style="color: #000000">第 27–29 行：使用 [biconsumerAge] 实现消耗人员列表；</span>
+  </li>
+  <li><span style="color: #000000">第 31–33 行：使用 [biconsumerWeight] 实现处理人员列表；</span>
+  </li>
+</ul>
+
+<p><span style="color: #000000">所得结果如下：</span></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span>
+<span class="normal"><a href="#__codelineno-6-2">2</a></span>
+<span class="normal"><a href="#__codelineno-6-3">3</a></span>
+<span class="normal"><a href="#__codelineno-6-4">4</a></span>
+<span class="normal"><a href="#__codelineno-6-5">5</a></span>
+<span class="normal"><a href="#__codelineno-6-6">6</a></span>
+<span class="normal"><a href="#__codelineno-6-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a>age de jean = 120
+<a id="__codelineno-6-2" name="__codelineno-6-2"></a>age de marie = 110
+<a id="__codelineno-6-3" name="__codelineno-6-3"></a>age de camille = 130
+<a id="__codelineno-6-4" name="__codelineno-6-4"></a>--------
+<a id="__codelineno-6-5" name="__codelineno-6-5"></a>poids de jean = 270.0
+<a id="__codelineno-6-6" name="__codelineno-6-6"></a>poids de marie = 230.0
+<a id="__codelineno-6-7" name="__codelineno-6-7"></a>poids de camille = 255.0
+</code></pre></div></td></tr></table></div>
+<p><a id="refheading104096374082361"></a></p>
+<h2 id="46-06-bifunctiontur">4.6. <span style="color: #4f81bd">示例-06 - BiFunction&lt;T,U,R&gt; 函数接口</span></h2>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000FE00000148A6C171A4.png" width="178" height="229" style="display:inline-block; margin:4px;width:4.701cm;height:6.071cm;" class="odt-zoomable" data-zoom-src="images/10000000000000FE00000148A6C171A4.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
+
+<p>函数接口 BiFunction<strong>&lt;T,U,R&gt;</strong> 定义如下：</p>
+<p><img src="images/1000000000000353000001E3C32376E9.png" width="511" height="290" style="width:13.51cm;height:7.668cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000353000001E3C32376E9.png" /></p>
+<p><span style="color: #000000">该接口的唯一方法具有以下签名：</span><strong><span style="color: #000000">R apply(T t, U u)</span></strong><span style="color: #000000">。该方法与 [BiConsumer.apply] 方法类似，但后者不返回结果，而 [BiFunction.apply] 方法则会返回结果。我们将通过以下代码演示其用法：</span></p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">package</span><span style="color:#000000"> dvp.java8.lambdas;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> java.util.List;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> java.util.function.BiFunction;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> dvp.data.Personne;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> dvp.data.Personnes;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">class</span><span style="color:#000000"> Exemple06 {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">static</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> main(String[] </span><span style="color:#6a3e3e">args</span><span style="color:#000000">) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// list of persons</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        List&lt;Personne&gt; </span><span style="color:#6a3e3e">personnes</span><span style="color:#000000"> = Personnes.</span><span style="font-style:italic;color:#000000">get</span><span style="color:#000000">();</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// anonymous implementation</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        BiFunction&lt;Personne, Integer, Integer&gt; </span><span style="color:#6a3e3e">biFunctionAge</span><span style="color:#000000"> = </span><span style="font-weight:bold;color:#7f0055">new</span><span style="color:#000000"> BiFunction&lt;Personne, Integer, Integer&gt;() {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            </span><span style="color:#646464">@Override</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            </span><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> Integer apply(Personne </span><span style="color:#6a3e3e">personne</span><span style="color:#000000">, Integer </span><span style="color:#6a3e3e">integer</span><span style="color:#000000">) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">                </span><span style="font-weight:bold;color:#7f0055">return</span><span style="color:#000000"> </span><span style="color:#6a3e3e">personne</span><span style="color:#000000">.getAge() + </span><span style="color:#6a3e3e">integer</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        };</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// lambda implementation</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        BiFunction&lt;Personne, Integer, Double&gt; </span><span style="color:#6a3e3e">biFunctionPoids</span><span style="color:#000000"> = (</span><span style="color:#6a3e3e">p</span><span style="color:#000000">, </span><span style="color:#6a3e3e">i</span><span style="color:#000000">) -&gt; {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            </span><span style="font-weight:bold;color:#7f0055">return</span><span style="color:#000000"> </span><span style="color:#6a3e3e">p</span><span style="color:#000000">.getPoids() + </span><span style="color:#6a3e3e">i</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        };</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// displays</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="font-weight:bold;color:#7f0055">for</span><span style="color:#000000"> (Personne </span><span style="color:#6a3e3e">p</span><span style="color:#000000"> : </span><span style="color:#6a3e3e">personnes</span><span style="color:#000000">) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            System.</span><span style="font-weight:bold;font-style:italic;color:#0000c0">out</span><span style="color:#000000">.printf(</span><span style="color:#2a00ff">&quot;age de %s = %s%n&quot;</span><span style="color:#000000">, </span><span style="color:#6a3e3e">p</span><span style="color:#000000">.getNom(), </span><span style="color:#6a3e3e">biFunctionAge</span><span style="color:#000000">.apply(</span><span style="color:#6a3e3e">p</span><span style="color:#000000">, 100));</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        System.</span><span style="font-weight:bold;font-style:italic;color:#0000c0">out</span><span style="color:#000000">.println(</span><span style="color:#2a00ff">&quot;--------&quot;</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="font-weight:bold;color:#7f0055">for</span><span style="color:#000000"> (Personne </span><span style="color:#6a3e3e">p</span><span style="color:#000000"> : </span><span style="color:#6a3e3e">personnes</span><span style="color:#000000">) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            System.</span><span style="font-weight:bold;font-style:italic;color:#0000c0">out</span><span style="color:#000000">.printf(</span><span style="color:#2a00ff">&quot;poids de %s = %s%n&quot;</span><span style="color:#000000">, </span><span style="color:#6a3e3e">p</span><span style="color:#000000">.getNom(), </span><span style="color:#6a3e3e">biFunctionPoids</span><span style="color:#000000">.apply(</span><span style="color:#6a3e3e">p</span><span style="color:#000000">, 200));</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+</code></pre></div>
+
+<ul>
+  <li><span style="color: #000000">第 14–19 行：</span><i><span style="color: #000000">BiFunction&lt;Person, Integer, Integer&gt;</span></i><span style="color: #000000"> 接口通过匿名类实现。其 [apply] 方法返回作为第一个参数传入的人的年龄，并加上第二个参数的值；</span>
+  </li>
+  <li><span style="color: #000000">第 21–23 行：使用 lambda 函数实现了 </span><i><span style="color: #000000">BiFunction&lt;Person, Integer, Double&gt;</span></i><span style="color: #000000"> 接口。[apply] 方法返回将作为第一个参数传递的人的体重增加第二个参数的值后的结果；</span>
+  </li>
+  <li><span style="color: #000000">第 25–27 行：将 [biFunctionAge] 的实现应用于这些人；</span>
+  </li>
+  <li><span style="color: #000000">第 29–31 行：将 [biFunctionWeight] 的实现应用于这些人；</span>
+  </li>
+</ul>
+
+<p><span style="color: #000000">所得结果如下：</span></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>age de jean = 120
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>age de marie = 110
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>age de camille = 130
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>--------
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>poids de jean = 270.0
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>poids de marie = 230.0
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>poids de camille = 255.0
+</code></pre></div>
+<p><span style="color: #000000">除了 lambda 函数外，Java 8 还引入了 </span><strong><span style="color: #000000">Stream&lt;T&gt;</span></strong><span style="color: #000000"> 类型，它表示由类型 T 的元素组成的流。这些元素可以经过由 lambda 函数实现的连续转换。在可能的情况下，且当存在多个处理器时，这些转换有时可以并行执行。</span></p>
+<p><a id="refheading104098374082361"></a></p>
+<h2 id="47-07-suppliert">4.7. <span style="color: #4f81bd">示例-07 - Supplier&lt;T&gt; 函数接口</span></h2>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000C7000000CCF508C0D7.png" width="139" height="143" style="display:inline-block; margin:4px;width:3.679cm;height:3.771cm;" class="odt-zoomable" data-zoom-src="images/10000000000000C7000000CCF508C0D7.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
+
+<p>功能接口 Supplier<strong>&lt;T&gt;</strong> 定义如下：</p>
+<p><img src="images/10000000000002E500000199CCA8335E.png" width="519" height="286" style="width:13.72cm;height:7.572cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000002E500000199CCA8335E.png" /></p>
+<p><span style="color: #000000">该接口的唯一方法的签名是：T </span><strong><span style="color: #000000">get()</span></strong><span style="color: #000000">，其作用是返回一个类型为 T 的对象。</span></p>
+<p><span style="color: #000000">我们将通过以下代码来演示这个函数式接口：</span></p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">package</span><span style="color:#000000"> dvp.java8.lambdas;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> java.util.List;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> java.util.Random;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> java.util.function.Supplier;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> dvp.data.Personne;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> dvp.data.Personnes;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">class</span><span style="color:#000000"> Exemple07 {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">static</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> main(String[] </span><span style="color:#6a3e3e">args</span><span style="color:#000000">) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// anonymous implementation</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        Supplier&lt;Personne&gt; </span><span style="color:#6a3e3e">supplier</span><span style="color:#000000"> = </span><span style="font-weight:bold;color:#7f0055">new</span><span style="color:#000000"> Supplier&lt;Personne&gt;() {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            <span style="color:#000000">// list of persons</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            List&lt;Personne&gt; </span><span style="color:#0000c0">personnes</span><span style="color:#000000"> = Personnes.</span><span style="font-style:italic;color:#000000">get</span><span style="color:#000000">();</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            <span style="color:#000000">// interface implementation</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            </span><span style="color:#646464">@Override</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            </span><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> Personne get() {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">                </span><span style="font-weight:bold;color:#7f0055">int</span><span style="color:#000000"> </span><span style="color:#6a3e3e">i</span><span style="color:#000000"> = </span><span style="font-weight:bold;color:#7f0055">new</span><span style="color:#000000"> Random().nextInt(</span><span style="color:#0000c0">personnes</span><span style="color:#000000">.size());</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">                </span><span style="font-weight:bold;color:#7f0055">return</span><span style="color:#000000"> </span><span style="color:#0000c0">personnes</span><span style="color:#000000">.get(</span><span style="color:#6a3e3e">i</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        };</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// operation</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="font-weight:bold;color:#7f0055">for</span><span style="color:#000000"> (</span><span style="font-weight:bold;color:#7f0055">int</span><span style="color:#000000"> </span><span style="color:#6a3e3e">i</span><span style="color:#000000"> = 0; </span><span style="color:#6a3e3e">i</span><span style="color:#000000"> &lt; 5; </span><span style="color:#6a3e3e">i</span><span style="color:#000000">++) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            </span><span style="font-style:italic;color:#000000">affiche</span><span style="color:#000000">(</span><span style="color:#6a3e3e">supplier</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// person display</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">static</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> affiche(Supplier&lt;Personne&gt; </span><span style="color:#6a3e3e">supplier</span><span style="color:#000000">) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        System.</span><span style="font-weight:bold;font-style:italic;color:#0000c0">out</span><span style="color:#000000">.println(</span><span style="color:#6a3e3e">supplier</span><span style="color:#000000">.get());</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+</code></pre></div>
+
+<ul>
+  <li><span style="color: #000000">第 13–28 行：</span><i><span style="color: #000000">Supplier&lt;Person&gt;</span></i><span style="color: #000000"> 类型的实现；</span>
+  </li>
+  <li><span style="color: #000000">第 31–33 行：静态方法 [display] 期望接收类型为 </span><i><span style="color: #000000">Supplier&lt;Person&gt; </span></i><span style="color: #000000">的参数；</span>
+  </li>
+  <li><span style="color: #000000">第 25–27 行：使用 </span><i><span style="color: #000000">Supplier&lt;Person&gt;</span></i><span style="color: #000000"> 实例；</span>
+  </li>
+</ul>
+
+<p><span style="color: #000000">得到以下结果：</span></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span>
+<span class="normal"><a href="#__codelineno-8-2">2</a></span>
+<span class="normal"><a href="#__codelineno-8-3">3</a></span>
+<span class="normal"><a href="#__codelineno-8-4">4</a></span>
+<span class="normal"><a href="#__codelineno-8-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a>{&quot;nom&quot;:&quot;camille&quot;,&quot;age&quot;:30,&quot;poids&quot;:55.0,&quot;sexe&quot;:&quot;FEMME&quot;}
+<a id="__codelineno-8-2" name="__codelineno-8-2"></a>{&quot;nom&quot;:&quot;marie&quot;,&quot;age&quot;:10,&quot;poids&quot;:30.0,&quot;sexe&quot;:&quot;FEMME&quot;}
+<a id="__codelineno-8-3" name="__codelineno-8-3"></a>{&quot;nom&quot;:&quot;jean&quot;,&quot;age&quot;:20,&quot;poids&quot;:70.0,&quot;sexe&quot;:&quot;HOMME&quot;}
+<a id="__codelineno-8-4" name="__codelineno-8-4"></a>{&quot;nom&quot;:&quot;jean&quot;,&quot;age&quot;:20,&quot;poids&quot;:70.0,&quot;sexe&quot;:&quot;HOMME&quot;}
+<a id="__codelineno-8-5" name="__codelineno-8-5"></a>{&quot;nom&quot;:&quot;camille&quot;,&quot;age&quot;:30,&quot;poids&quot;:55.0,&quot;sexe&quot;:&quot;FEMME&quot;}
+</code></pre></div></td></tr></table></div>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner">
+
+      <div>
+        <a href="https://stahe.github.io" target="_blank">
+          https://stahe.github.io
+        </a>
+        <br>
+        本教程由 <strong>Serge Tahé</strong> 编写，根据
+<em>知识共享 署名-非商业性使用-
+相同方式共享 3.0 未移植</em>.
+      </div>
+
+    </div>
+  </div>
+
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.sections", "navigation.indexes", "navigation.expand", "toc.integrate", "navigation.top"], "search": "assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+        <script src="javascripts/focus.js"></script>
+      
+    
+  </body>
+</html>

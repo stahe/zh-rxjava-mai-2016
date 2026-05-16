@@ -1,0 +1,1641 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="RxJava入门：Swing和Android环境中的应用">
+      
+      
+        <meta name="author" content="Serge Tahé">
+      
+      
+        <link rel="canonical" href="https://stahe.github.io/zh-rxjava-mai-2016/swing-uaninghonge-rxjava.html">
+      
+      
+        <link rel="prev" href="rxjava-u.html">
+      
+      
+        <link rel="next" href="android-uaninghonge-rxjava.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>8. Swing 环境中的 RxJava - RxJava入门：Swing和Android环境中的应用</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="stylesheets/focus.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-EBZC3JVJNR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    var siteName = "RxJava入门：Swing和Android环境中的应用";
+    gtag('config', 'G-EBZC3JVJNR', {
+        'page_title': siteName
+    });
+  </script>
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#8-swing-rxjava" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="RxJava入门：Swing和Android环境中的应用" class="md-header__button md-logo" aria-label="RxJava入门：Swing和Android环境中的应用" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            RxJava入门：Swing和Android环境中的应用
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              8. Swing 环境中的 RxJava
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="purple"  aria-label="切换至深色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换至深色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="purple"  aria-label="切换至浅色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换至浅色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://stahe.github.io/zh-rxjava-mai-2016" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="RxJava入门：Swing和Android环境中的应用" class="md-nav__button md-logo" aria-label="RxJava入门：Swing和Android环境中的应用" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    RxJava入门：Swing和Android环境中的应用
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://stahe.github.io/zh-rxjava-mai-2016" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    欢迎
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ianie.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. 简介
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="uenhii.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. 入门示例
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="aningeiuangaeianing.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. 泛型类与方法的签名
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="java-8-lambda-iaoahi.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Java 8 lambda 表达式
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="java-8-honge-streamt-eiing.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Java 8 中的 Stream<T> 类型
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="rxjava-ueongengieou.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. RxJava 库的功能接口
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="rxjava-u.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. RxJava 库
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Swing 环境中的 RxJava
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="swing-uaninghonge-rxjava.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Swing 环境中的 RxJava
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#81" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1. 引言
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#82" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2. 代码结构
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#83" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.3. 运行项目
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#84" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.4. 同步服务
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#85" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.5. 异步服务
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#86" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.6. 图形用户界面
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#87" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.7. 图形用户界面的实例化
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#88" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.8. 同步请求的执行
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#89" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.9. 执行异步请求
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="android-uaninghonge-rxjava.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Android 环境中的 RxJava
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="uu.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. 附录
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<p><a id="refheading2073091760159442"></a></p>
+<h1 id="8-swing-rxjava">8. <span style="color: #000000">Swing 环境中的 RxJava</span></h1>
+<p><a id="refheading104170374082361"></a></p>
+<h2 id="81">8.1. <span style="color: #000000">引言</span></h2>
+<p><span style="color: #000000">在此，我们将重新审视</span><a href="#refheading51101774887325"><u><span style="color: #0563c1">第 2</span></u></a><span style="color: #000000"> 节中介绍的 Swing 应用程序。 </span></p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000010200000106D68BC268.png" width="181" height="183" style="display:inline-block; margin:4px;width:4.78cm;height:4.854cm;" class="odt-zoomable" data-zoom-src="images/100000000000010200000106D68BC268.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
+
+<p><span style="color: #000000">要在 Swing 环境中使用 RxJava，我们将使用 </span><strong><span style="color: #000000">RxSwing</span></strong><span style="color: #000000"> 库，该库为 RxJava 添加了在 Swing 环境中非常有用的类和接口。为此，Swing 示例的 Gradle 文件如下：</span></p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000E700000145BFD7B82F.png" width="162" height="228" style="display:inline-block; margin:4px;width:4.279cm;height:6.02cm;" class="odt-zoomable" data-zoom-src="images/10000000000000E700000145BFD7B82F.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
+
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
+<span class="odt-code-line"><span class="odt-code-line-content">buildscript {</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    repositories {</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        mavenCentral()</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">apply <span style="color:#008000">plugin</span>: <span style="color:#008000">&#x27;java&#x27;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">jar {</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    baseName = <span style="color:#008000">&#x27;exemples-01&#x27;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#008000">    </span>version = <span style="color:#008000">&#x27;0.0.1-SNAPSHOT&#x27;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">repositories {</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    mavenCentral()</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">dependencies {</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    compile(<span style="color:#008000">&#x27;</span><span style="font-weight:bold;color:#008000">io.reactivex:rxswing:0.25.0</span><span style="color:#008000">&#x27;</span>)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    compile(<span style="color:#008000">&#x27;io.reactivex:rxjava:1.1.3&#x27;</span>)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    compile(<span style="color:#008000">&#x27;com.fasterxml.jackson.core:jackson-databind:2.7.3&#x27;</span>)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">task wrapper(<span style="color:#008000">type</span>: Wrapper) {</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    gradleVersion = <span style="color:#008000">&#x27;2.9&#x27;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+</code></pre></div>
+
+<ul>
+  <li><span style="color: #000000">第 15 行：对 RxSwing 的依赖；</span>
+  </li>
+</ul>
+
+<p><span style="color: #000000">我们将仅使用一个 RxSwing 专用的对象：调度器 [</span><strong><span style="color: #000000">SwingScheduler.getInstance()</span></strong><span style="color: #000000">]，它负责在 Swing</span><em><span style="color: #000000"> 事件循环</span></em><span style="color: #000000">线程上执行/监听可观察对象。我们将专门利用它来</span><strong><span style="color: #000000">监听</span></strong><span style="color: #000000">在</span><em><span style="color: #000000">事件循环</span></em><span style="color: #000000">线程之外运行的可观察对象。让我们回顾一下示例应用程序的架构：</span></p>
+<p><img src="images/10000000000003680000015623D3D1A0.png" width="436" height="171" style="width:11.531cm;height:4.523cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000003680000015623D3D1A0.png" /></p>
+<ul>
+  <li><span style="color: #000000">异步服务层提供返回可观察对象的方法。我们在</span><i><span style="color: #000000">事件循环</span></i><span style="color: #000000">线程以外的线程中执行这些可观察对象。这样，GUI 就能保持响应性，能够对用户输入做出反应。最明显的例子就是允许用户点击 [取消] 按钮来中断耗时过长的异步操作。要实现这一点，GUI 必须被</span><i><span style="color: #000000">冻结</span></i><span style="color: #000000">；</span>
+  </li>
+  <li><span style="color: #000000">Swing 层需要处理异步操作返回的结果，并利用这些结果更新 GUI。然而，这只能在</span><i><span style="color: #000000">事件循环</span></i><span style="color: #000000">线程中进行。为此，这些结果会在调度器 [</span><b><span style="color: #000000">SwingScheduler.getInstance()</span></b><span style="color: #000000">] 中被监听；</span>
+  </li>
+</ul>
+
+<p><span style="color: #000000">因此，在 GUI 事件处理代码中，与异步层 [rxService] 的交互采用以下形式：</span></p>
+<div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-text">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">Observable obs=rxService.doSomething(...).</span><span style="font-weight:bold;color:#000000">subscribeOn</span><span style="color:#000000">(Schedulers.computation()).</span><span style="font-weight:bold;color:#000000">observeOn</span><span style="color:#000000">(SwingScheduler.getInstance()) ;</span></span></span>
+</code></pre></div>
+
+<p><span style="color: #000000">其中调度器 [Schedulers.computation()] 可根据具体用例替换为其他调度器。</span></p>
+<p><span style="color: #000000">建议读者重新阅读</span><a href="#refheading51101774887325"><u><span style="color: #0563c1">第 2</span></u></a><span style="color: #000000"> 段。现在，读者已具备充分理解该段落所需的知识。</span></p>
+<p><a id="refheading104172374082361"></a></p>
+<h2 id="82">8.2. <span style="color: #000000">代码结构</span></h2>
+<p><span style="color: #000000">该代码实现了以下架构：</span></p>
+<p><img src="images/10000000000003680000015623D3D1A0.png" width="436" height="171" style="width:11.531cm;height:4.523cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000003680000015623D3D1A0.png" /></p>
+<p><span style="color: #000000">实现该架构的 IntelliJ IDEA 项目如下：</span></p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000010200000106D68BC268.png" width="181" height="183" style="display:inline-block; margin:4px;width:4.78cm;height:4.854cm;" class="odt-zoomable" data-zoom-src="images/100000000000010200000106D68BC268.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
+
+<ul>
+  <li><span style="color: #000000">[rxswing.service] 包实现了同步（IService、Service）和异步（IRxService、RxService）服务层；</span>
+  </li>
+  <li><span style="color: #000000">[rxswing.ui] 包实现了 Swing 接口；</span>
+  </li>
+</ul>
+<p><a id="refheading104174374082361"></a></p>
+<h2 id="83">8.3. <span style="color: #4f81bd">运行项目</span></h2>
+<p><span style="color: #000000">要在 IntelliJ IDEA 中运行该项目，请按照以下步骤操作：</span></p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000022B000001C9C401E0D0.png" width="389" height="320" style="display:inline-block; margin:4px;width:10.28cm;height:8.465cm;" class="odt-zoomable" data-zoom-src="images/100000000000022B000001C9C401E0D0.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
+
+<p><a id="refheading850591760159442"></a></p>
+<h2 id="84">8.4. <span style="color: #000000">同步服务</span></h2>
+<p><img src="images/10000000000003680000015697C8F7FA.png" width="436" height="171" style="width:11.531cm;height:4.523cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000003680000015697C8F7FA.png" /></p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000102000001061E3B51B4.png" width="181" height="183" style="display:inline-block; margin:4px;width:4.78cm;height:4.854cm;" class="odt-zoomable" data-zoom-src="images/1000000000000102000001061E3B51B4.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
+
+<p><span style="color: #000000">同步服务层提供了以下 [IService] 接口：</span></p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">package</span><span style="color:#000000"> dvp.rxswing.service;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">interface</span><span style="color:#000000"> IService {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// random numbers in the [a,b] interval</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// n numbers are generated with n itself a random number in the interval [minCount, maxCount]</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// numbers are generated after a delay of milliseconds,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// where [delay] is itself a random number in the interval [minDelay, maxDelay]</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> ServiceResponse getAleas(</span><span style="font-weight:bold;color:#7f0055">int</span><span style="color:#000000"> </span><span style="color:#6a3e3e">a</span><span style="color:#000000">, </span><span style="font-weight:bold;color:#7f0055">int</span><span style="color:#000000"> </span><span style="color:#6a3e3e">b</span><span style="color:#000000">, </span><span style="font-weight:bold;color:#7f0055">int</span><span style="color:#000000"> </span><span style="color:#6a3e3e">minCount</span><span style="color:#000000">, </span><span style="font-weight:bold;color:#7f0055">int</span><span style="color:#000000"> </span><span style="color:#6a3e3e">maxCount</span><span style="color:#000000">, </span><span style="font-weight:bold;color:#7f0055">int</span><span style="color:#000000"> </span><span style="color:#6a3e3e">minDelay</span><span style="color:#000000">, </span><span style="font-weight:bold;color:#7f0055">int</span><span style="color:#000000"> </span><span style="color:#6a3e3e">maxDelay</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+</code></pre></div>
+
+<p><span style="color: #000000">服务响应的 [ServiceResponse] 类型如下：</span></p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">package</span><span style="color:#000000"> dvp.rxswing.service;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> java.util.List;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">class</span><span style="color:#000000"> ServiceResponse {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// service waiting time</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">int</span><span style="color:#000000"> </span><span style="color:#0000c0">delay</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// random numbers</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> List&lt;Integer&gt; </span><span style="color:#0000c0">aleas</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// execution thread</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> String </span><span style="color:#0000c0">executedOn</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// manufacturers</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> ServiceResponse() {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">      <span style="color:#000000">// execution thread</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000c0">executedOn</span><span style="color:#000000"> = Thread.</span><span style="font-style:italic;color:#000000">currentThread</span><span style="color:#000000">().getName();</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> ServiceResponse(</span><span style="font-weight:bold;color:#7f0055">int</span><span style="color:#000000"> </span><span style="color:#6a3e3e">delay</span><span style="color:#000000">, List&lt;Integer&gt; </span><span style="color:#6a3e3e">aleas</span><span style="color:#000000">) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">      <span style="color:#000000">// local builder</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">this</span><span style="color:#000000">();</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// other initializations</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">this</span><span style="color:#000000">.</span><span style="color:#0000c0">delay</span><span style="color:#000000"> = </span><span style="color:#6a3e3e">delay</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">this</span><span style="color:#000000">.</span><span style="color:#0000c0">aleas</span><span style="color:#000000"> = </span><span style="color:#6a3e3e">aleas</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// getters and setters</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">...</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+</code></pre></div>
+
+<p><span style="color: #000000">[IService] 接口由以下 [Service] 类实现：</span></p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">package</span><span style="color:#000000"> dvp.rxswing.service;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> java.util.*;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">class</span><span style="color:#000000"> Service </span><span style="font-weight:bold;color:#7f0055">implements</span><span style="color:#000000"> IService {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="color:#646464">@Override</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> ServiceResponse getAleas(</span><span style="font-weight:bold;color:#7f0055">int</span><span style="color:#000000"> </span><span style="color:#6a3e3e">a</span><span style="color:#000000">, </span><span style="font-weight:bold;color:#7f0055">int</span><span style="color:#000000"> </span><span style="color:#6a3e3e">b</span><span style="color:#000000">, </span><span style="font-weight:bold;color:#7f0055">int</span><span style="color:#000000"> </span><span style="color:#6a3e3e">minCount</span><span style="color:#000000">, </span><span style="font-weight:bold;color:#7f0055">int</span><span style="color:#000000"> </span><span style="color:#6a3e3e">maxCount</span><span style="color:#000000">, </span><span style="font-weight:bold;color:#7f0055">int</span><span style="color:#000000"> </span><span style="color:#6a3e3e">minDelay</span><span style="color:#000000">, </span><span style="font-weight:bold;color:#7f0055">int</span><span style="color:#000000"> </span><span style="color:#6a3e3e">maxDelay</span><span style="color:#000000">) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// random numbers in the [a,b] interval</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// n numbers are generated with n itself a random number in the interval [minCount, maxCount]</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// numbers are generated after a delay of milliseconds,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// where [delay] is itself a random number in the interval [minDelay, maxDelay]</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// some checks</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    List&lt;String&gt; </span><span style="color:#6a3e3e">messages</span><span style="color:#000000"> = </span><span style="font-weight:bold;color:#7f0055">new</span><span style="color:#000000"> ArrayList&lt;&gt;();</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">int</span><span style="color:#000000"> </span><span style="color:#6a3e3e">erreur</span><span style="color:#000000"> = 0;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">if</span><span style="color:#000000"> (</span><span style="color:#6a3e3e">a</span><span style="color:#000000"> &lt; 0) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="color:#6a3e3e">messages</span><span style="color:#000000">.add(</span><span style="color:#2a00ff">&quot;Le nombre a de l&#x27;intervalle [a,b] de génération doit être supérieur à 0&quot;</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="color:#6a3e3e">erreur</span><span style="color:#000000"> |= 2;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">if</span><span style="color:#000000"> (</span><span style="color:#6a3e3e">a</span><span style="color:#000000"> &gt;= </span><span style="color:#6a3e3e">b</span><span style="color:#000000">) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="color:#6a3e3e">messages</span><span style="color:#000000">.add(</span><span style="color:#2a00ff">&quot;Dans l&#x27;intervalle [a,b] de génération, on doit avoir a&lt; b&quot;</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="color:#6a3e3e">erreur</span><span style="color:#000000"> |= 4;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">if</span><span style="color:#000000"> (</span><span style="color:#6a3e3e">minCount</span><span style="color:#000000"> &lt; 0) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="color:#6a3e3e">messages</span><span style="color:#000000">.add(</span><span style="color:#2a00ff">&quot;Le nombre min de l&#x27;intervalle [min,count] du nombre de valeurs générées doit être supérieur à 0&quot;</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="color:#6a3e3e">erreur</span><span style="color:#000000"> |= 16;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">if</span><span style="color:#000000"> (</span><span style="color:#6a3e3e">minCount</span><span style="color:#000000"> &gt; </span><span style="color:#6a3e3e">maxCount</span><span style="color:#000000">) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="color:#6a3e3e">messages</span><span style="color:#000000">.add(</span><span style="color:#2a00ff">&quot;Dans l&#x27;intervalle [min,count] du nombre de valeurs générées, on doit avoir min&lt;= max&quot;</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="color:#6a3e3e">erreur</span><span style="color:#000000"> |= 32;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">if</span><span style="color:#000000"> (</span><span style="color:#6a3e3e">minDelay</span><span style="color:#000000"> &lt; 0) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="color:#6a3e3e">messages</span><span style="color:#000000">.add(</span><span style="color:#2a00ff">&quot;Le nombre min de l&#x27;intervalle [min,count] du délai d&#x27;attente doit être supérieur à 0&quot;</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="color:#6a3e3e">erreur</span><span style="color:#000000"> |= 64;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">if</span><span style="color:#000000"> (</span><span style="color:#6a3e3e">minCount</span><span style="color:#000000"> &gt; </span><span style="color:#6a3e3e">maxCount</span><span style="color:#000000">) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="color:#6a3e3e">messages</span><span style="color:#000000">.add(</span><span style="color:#2a00ff">&quot;Dans l&#x27;intervalle [min,count] du délai d&#x27;attente, on doit avoir min&lt;= max&quot;</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="color:#6a3e3e">erreur</span><span style="color:#000000"> |= 128;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">if</span><span style="color:#000000"> (</span><span style="color:#6a3e3e">maxDelay</span><span style="color:#000000"> &gt; 5000) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="color:#6a3e3e">messages</span><span style="color:#000000">.add(</span><span style="color:#2a00ff">&quot;L&#x27;attente en millisecondes avant la génération des nombres doit être dans l&#x27;intervalle [0,5000]&quot;</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="color:#6a3e3e">erreur</span><span style="color:#000000"> |= 256;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// mistakes?</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">if</span><span style="color:#000000"> (!</span><span style="color:#6a3e3e">messages</span><span style="color:#000000">.isEmpty()) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="font-weight:bold;color:#7f0055">throw</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">new</span><span style="color:#000000"> AleasException(String.</span><span style="font-style:italic;color:#000000">join</span><span style="color:#000000">(</span><span style="color:#2a00ff">&quot; [---] &quot;</span><span style="color:#000000">, </span><span style="color:#6a3e3e">messages</span><span style="color:#000000">), </span><span style="color:#6a3e3e">erreur</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// random number generator</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    Random </span><span style="color:#6a3e3e">random</span><span style="color:#000000"> = </span><span style="font-weight:bold;color:#7f0055">new</span><span style="color:#000000"> Random();</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// waiting?</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">int</span><span style="color:#000000"> </span><span style="color:#6a3e3e">delay</span><span style="color:#000000"> = </span><span style="color:#6a3e3e">minDelay</span><span style="color:#000000"> + </span><span style="color:#6a3e3e">random</span><span style="color:#000000">.nextInt(</span><span style="color:#6a3e3e">maxDelay</span><span style="color:#000000"> - </span><span style="color:#6a3e3e">minDelay</span><span style="color:#000000"> + 1);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">if</span><span style="color:#000000"> (</span><span style="color:#6a3e3e">delay</span><span style="color:#000000"> &gt; 0) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="font-weight:bold;color:#7f0055">try</span><span style="color:#000000"> {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        Thread.</span><span style="font-style:italic;color:#000000">sleep</span><span style="color:#000000">(</span><span style="color:#6a3e3e">delay</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      } </span><span style="font-weight:bold;color:#7f0055">catch</span><span style="color:#000000"> (InterruptedException </span><span style="color:#6a3e3e">e</span><span style="color:#000000">) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="font-weight:bold;color:#7f0055">throw</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">new</span><span style="color:#000000"> AleasException(String.</span><span style="font-style:italic;color:#000000">format</span><span style="color:#000000">(</span><span style="color:#2a00ff">&quot;[%s : %s]&quot;</span><span style="color:#000000">, </span><span style="color:#6a3e3e">e</span><span style="color:#000000">.getClass().getName(), </span><span style="color:#6a3e3e">e</span><span style="color:#000000">.getMessage()), 1024);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">      }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// result generation</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">int</span><span style="color:#000000"> </span><span style="color:#6a3e3e">count</span><span style="color:#000000"> = </span><span style="color:#6a3e3e">minCount</span><span style="color:#000000"> + </span><span style="color:#6a3e3e">random</span><span style="color:#000000">.nextInt(</span><span style="color:#6a3e3e">maxCount</span><span style="color:#000000"> - </span><span style="color:#6a3e3e">minCount</span><span style="color:#000000"> + 1);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    List&lt;Integer&gt; </span><span style="color:#6a3e3e">nombres</span><span style="color:#000000"> = </span><span style="font-weight:bold;color:#7f0055">new</span><span style="color:#000000"> ArrayList&lt;&gt;();</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">for</span><span style="color:#000000"> (</span><span style="font-weight:bold;color:#7f0055">int</span><span style="color:#000000"> </span><span style="color:#6a3e3e">i</span><span style="color:#000000"> = 0; </span><span style="color:#6a3e3e">i</span><span style="color:#000000"> &lt; </span><span style="color:#6a3e3e">count</span><span style="color:#000000">; </span><span style="color:#6a3e3e">i</span><span style="color:#000000">++) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="color:#6a3e3e">nombres</span><span style="color:#000000">.add(</span><span style="color:#6a3e3e">a</span><span style="color:#000000"> + </span><span style="color:#6a3e3e">random</span><span style="color:#000000">.nextInt(</span><span style="color:#6a3e3e">b</span><span style="color:#000000"> - </span><span style="color:#6a3e3e">a</span><span style="color:#000000"> + 1));</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// return result</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">return</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">new</span><span style="color:#000000"> ServiceResponse(</span><span style="color:#6a3e3e">delay</span><span style="color:#000000">,</span><span style="color:#6a3e3e">nombres</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+</code></pre></div>
+
+<p><span style="color: #000000">该服务使用的异常类 [AleasException] 如下：</span></p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">package</span><span style="color:#000000"> dvp.rxswing.service;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">class</span><span style="color:#000000"> AleasException </span><span style="font-weight:bold;color:#7f0055">extends</span><span style="color:#000000"> RuntimeException {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">static</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">final</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">long</span><span style="color:#000000"> </span><span style="font-weight:bold;font-style:italic;color:#0000c0">serialVersionUID</span><span style="color:#000000"> = 1L;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// error code</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">int</span><span style="color:#000000"> </span><span style="color:#0000c0">code</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// manufacturers</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> AleasException() {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> AleasException(String </span><span style="color:#6a3e3e">detailMessage</span><span style="color:#000000">, </span><span style="font-weight:bold;color:#7f0055">int</span><span style="color:#000000"> </span><span style="color:#6a3e3e">code</span><span style="color:#000000">) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">super</span><span style="color:#000000">(</span><span style="color:#6a3e3e">detailMessage</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">this</span><span style="color:#000000">.</span><span style="color:#0000c0">code</span><span style="color:#000000"> = </span><span style="color:#6a3e3e">code</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> AleasException(Throwable </span><span style="color:#6a3e3e">throwable</span><span style="color:#000000">, </span><span style="font-weight:bold;color:#7f0055">int</span><span style="color:#000000"> </span><span style="color:#6a3e3e">code</span><span style="color:#000000">) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">super</span><span style="color:#000000">(</span><span style="color:#6a3e3e">throwable</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">this</span><span style="color:#000000">.</span><span style="color:#0000c0">code</span><span style="color:#000000"> = </span><span style="color:#6a3e3e">code</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> AleasException(String </span><span style="color:#6a3e3e">detailMessage</span><span style="color:#000000">, Throwable </span><span style="color:#6a3e3e">throwable</span><span style="color:#000000">, </span><span style="font-weight:bold;color:#7f0055">int</span><span style="color:#000000"> </span><span style="color:#6a3e3e">code</span><span style="color:#000000">) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">super</span><span style="color:#000000">(</span><span style="color:#6a3e3e">detailMessage</span><span style="color:#000000">, </span><span style="color:#6a3e3e">throwable</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">this</span><span style="color:#000000">.</span><span style="color:#0000c0">code</span><span style="color:#000000"> = </span><span style="color:#6a3e3e">code</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// getters and setters</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">...</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+</code></pre></div>
+
+<ul>
+  <li><span style="color: #000000">第 3 行：它继承了 [RuntimeException] 类。因此，这是一个未处理的异常；</span>
+  </li>
+  <li><span style="color: #000000">第 7 行：它为其父类添加了一个错误代码（0 表示无错误）；</span>
+  </li>
+</ul>
+<p><a id="refheading104176374082361"></a></p>
+<h2 id="85">8.5. <span style="color: #000000">异步服务</span></h2>
+<p><img src="images/100000000000036800000156568B96A0.png" width="436" height="171" style="width:11.531cm;height:4.523cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000036800000156568B96A0.png" /></p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000102000001066C9809D8.png" width="181" height="183" style="display:inline-block; margin:4px;width:4.78cm;height:4.854cm;" class="odt-zoomable" data-zoom-src="images/1000000000000102000001066C9809D8.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
+
+<p><span style="color: #000000">异步服务层提供了以下 [IRxService] 接口：</span></p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">package</span><span style="color:#000000"> dvp.rxswing.service;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> dvp.rxswing.ui.UiResponse;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> rx.Observable;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">interface</span><span style="color:#000000"> IRxService {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// random numbers in the [a,b] interval</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// n numbers are generated with n itself a random number in the interval [minCount, maxCount]</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// numbers are generated after a delay of milliseconds,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// where [delay] is itself a random number in the interval [minDelay, maxDelay]</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#ff0000">Observable&lt;UiResponse&gt;</span><span style="color:#000000"> getAleas(</span><span style="font-weight:bold;color:#7f0055">int</span><span style="color:#000000"> </span><span style="color:#6a3e3e">a</span><span style="color:#000000">, </span><span style="font-weight:bold;color:#7f0055">int</span><span style="color:#000000"> </span><span style="color:#6a3e3e">b</span><span style="color:#000000">, </span><span style="font-weight:bold;color:#7f0055">int</span><span style="color:#000000"> </span><span style="color:#6a3e3e">minCount</span><span style="color:#000000">, </span><span style="font-weight:bold;color:#7f0055">int</span><span style="color:#000000"> </span><span style="color:#6a3e3e">maxCount</span><span style="color:#000000">, </span><span style="font-weight:bold;color:#7f0055">int</span><span style="color:#000000"> </span><span style="color:#6a3e3e">minDelay</span><span style="color:#000000">, </span><span style="font-weight:bold;color:#7f0055">int</span><span style="color:#000000"> </span><span style="color:#6a3e3e">maxDelay</span><span style="color:#000000">, UiResponse </span><span style="color:#6a3e3e">uiResponse</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+</code></pre></div>
+
+<ul>
+  <li><span style="color: #000000">第 11 行：该服务的 [getAleas] 方法现在返回一个可观察对象；</span>
+  </li>
+</ul>
+
+<p><span style="color: #000000">[getAleas] 方法返回一个类型为 [UiResponse] 的响应，该响应专用于 [Ui] 层。该类型的定义如下：</span></p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">package</span><span style="color:#000000"> dvp.rxswing.ui;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> dvp.rxswing.service.ServiceResponse;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> java.text.SimpleDateFormat;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> java.util.Calendar;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">class</span><span style="color:#000000"> UiResponse {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// customer id</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">int</span><span style="color:#000000"> </span><span style="color:#0000c0">idClient</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// service response</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> ServiceResponse </span><span style="color:#0000c0">serviceResponse</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// observation thread name</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> String </span><span style="color:#0000c0">observedOn</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// query time</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> String </span><span style="color:#0000c0">requestAt</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// response time</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> String </span><span style="color:#0000c0">responseAt</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// manufacturers</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> UiResponse() {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">      <span style="color:#000000">// observation thread</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000c0">observedOn</span><span style="color:#000000"> = Thread.</span><span style="font-style:italic;color:#000000">currentThread</span><span style="color:#000000">().getName();</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// query time</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000c0">requestAt</span><span style="color:#000000"> = getTimeStamp();</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// private methods</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> String getTimeStamp() {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">return</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">new</span><span style="color:#000000"> SimpleDateFormat(</span><span style="color:#2a00ff">&quot;hh:mm:ss:SSS&quot;</span><span style="color:#000000">).format(Calendar.</span><span style="font-style:italic;color:#000000">getInstance</span><span style="color:#000000">().getTime());</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// getters and setters</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">...</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+</code></pre></div>
+
+<ul>
+  <li><span style="color: #000000">随机数位于第 13 行的字段中；</span>
+  </li>
+  <li><span style="color: #000000">其余字段用于指定异步服务可观察对象的执行线程和观察线程，以及向服务发出的请求和收到的响应的时间戳；</span>
+  </li>
+</ul>
+
+<p><span style="color: #000000">该异步接口由以下 [RxService] 类实现：</span></p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">package</span> dvp.rxswing.service;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> dvp.rxswing.ui.UiResponse;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> rx.Observable;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">class</span><span style="color:#000000"> RxService </span><span style="font-weight:bold;color:#7f0055">implements</span><span style="color:#000000"> IRxService {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// synchronous service</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> IService </span><span style="color:#0000c0">service</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// manufacturer</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> RxService(IService </span><span style="color:#6a3e3e">service</span><span style="color:#000000">) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">this</span><span style="color:#000000">.</span><span style="color:#0000c0">service</span><span style="color:#000000"> = </span><span style="color:#6a3e3e">service</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="color:#646464">@Override</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> Observable&lt;UiResponse&gt; getAleas(</span><span style="font-weight:bold;color:#7f0055">int</span><span style="color:#000000"> </span><span style="color:#6a3e3e">a</span><span style="color:#000000">, </span><span style="font-weight:bold;color:#7f0055">int</span><span style="color:#000000"> </span><span style="color:#6a3e3e">b</span><span style="color:#000000">, </span><span style="font-weight:bold;color:#7f0055">int</span><span style="color:#000000"> </span><span style="color:#6a3e3e">minCount</span><span style="color:#000000">, </span><span style="font-weight:bold;color:#7f0055">int</span><span style="color:#000000"> </span><span style="color:#6a3e3e">maxCount</span><span style="color:#000000">, </span><span style="font-weight:bold;color:#7f0055">int</span><span style="color:#000000"> </span><span style="color:#6a3e3e">minDelay</span><span style="color:#000000">, </span><span style="font-weight:bold;color:#7f0055">int</span><span style="color:#000000"> </span><span style="color:#6a3e3e">maxDelay</span><span style="color:#000000">, UiResponse </span><span style="color:#6a3e3e">uiResponse</span><span style="color:#000000">) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">      <span style="color:#000000">// we create an observable emitting the value rendered by the synchronous service</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">return</span><span style="color:#000000"> Observable.</span><span style="font-style:italic;color:#000000">create</span><span style="color:#000000">(</span><span style="color:#6a3e3e">subscriber</span><span style="color:#000000"> -&gt; {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="font-weight:bold;color:#7f0055">try</span><span style="color:#000000"> {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">          <span style="color:#000000">// synchronous call</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#6a3e3e">uiResponse</span><span style="color:#000000">.setServiceResponse(</span><span style="color:#0000c0">service</span><span style="color:#000000">.getAleas(</span><span style="color:#6a3e3e">a</span><span style="color:#000000">, </span><span style="color:#6a3e3e">b</span><span style="color:#000000">, </span><span style="color:#6a3e3e">minCount</span><span style="color:#000000">, </span><span style="color:#6a3e3e">maxCount</span><span style="color:#000000">, </span><span style="color:#6a3e3e">minDelay</span><span style="color:#000000">, </span><span style="color:#6a3e3e">maxDelay</span><span style="color:#000000">));</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// the result is passed on to the observer</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#6a3e3e">subscriber</span><span style="color:#000000">.onNext(</span><span style="color:#6a3e3e">uiResponse</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      } </span><span style="font-weight:bold;color:#7f0055">catch</span><span style="color:#000000"> (Exception </span><span style="color:#6a3e3e">e</span><span style="color:#000000">) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">          <span style="color:#000000">// we pass the error to the observer</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#6a3e3e">subscriber</span><span style="color:#000000">.onError(</span><span style="color:#6a3e3e">e</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      } </span><span style="font-weight:bold;color:#7f0055">finally</span><span style="color:#000000"> {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">          <span style="color:#000000">// the observer is informed that the emissions are finished</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#6a3e3e">subscriber</span><span style="color:#000000">.onCompleted();</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">      }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    });</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+</code></pre></div>
+
+<ul>
+  <li><span style="color: #000000">第 12–14 行：异步服务的 [RxService] 类由同步接口 [IService] 的实例构建而成；</span>
+  </li>
+  <li><span style="color: #000000">第 20–33 行：构建可观察对象，即 [getAleas] 方法的结果；</span>
+  </li>
+  <li><span style="color: #000000">第 22 行：调用同步方法 [service.getAleas]。其类型为 [ServiceResponse] 的结果被封装在类型为 [UiResponse] 的对象中，以便提供给 [swing] 层。该对象最初作为方法调用参数（第 17 行中的最后一个参数）传入；</span>
+  </li>
+  <li><span style="color: #000000">第 24 行：将 [UiResponse] 发送给观察者（即 [swing] 层）。 [UiResponse] 对象不仅包含第 22 行同步服务生成的信息，还包含第 17 行调用 [getAleas] 方法时生成的其他信息。这就是为什么调用方法将 [UiResponse] 对象作为参数传递给 [getAleas] 方法（第 17 行，最后一个参数）；</span>
+  </li>
+  <li><span style="color: #000000">第 30 行：我们不要忘记通知发射结束。这里有一个可观察对象，它只发射一个值：即同步服务返回的那个值；</span>
+  </li>
+  <li><span style="color: #000000">第 27 行：我们向观察者通知任何错误；</span>
+  </li>
+</ul>
+
+<p><a id="refheading104178374082361"></a></p>
+<h2 id="86">8.6. <span style="color: #4f81bd">图形用户界面</span></h2>
+<p><img src="images/1000000000000368000001566AD8AE90.png" width="436" height="171" style="width:11.531cm;height:4.523cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000368000001566AD8AE90.png" /></p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000FD0000009224BC16BC.png" width="177" height="102" style="display:inline-block; margin:4px;width:4.68cm;height:2.701cm;" class="odt-zoomable" data-zoom-src="images/10000000000000FD0000009224BC16BC.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
+
+<ul>
+  <li><span style="color: #000000">图形用户界面是使用 [NetBeans] IDE 构建的，该 IDE 拥有一个功能强大的图形化编辑器。该编辑器生成了 [AbstractJFrameAleas.form] 文件，该文件仅限此 IDE 使用；</span>
+  </li>
+  <li><span style="color: #000000">[AbstractJFrameAleas] 类同样由 NetBeans 图形化编辑器生成。随后对其进行了如下重构：我们希望处理的 GUI 事件在 [AbstractJFrameAleas] 类中通过抽象方法进行处理，这些方法由子类 [JFrameAleasEvents] 实现。最终，</span>
+    <ul>
+      <li><span style="color: #000000">抽象类 [AbstractJFrameAleas] 负责构建和显示图形用户界面；</span>
+      </li>
+      <li><span style="color: #000000">子类 [JFrameAleasEvents] 负责处理其事件；</span>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p><span style="color: #000000">[Request] 选项卡的 GUI 组件如下：</span></p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000002E6000001E91FB60F5B.png" width="519" height="342" style="display:inline-block; margin:4px;width:13.741cm;height:9.056cm;" class="odt-zoomable" data-zoom-src="images/10000000000002E6000001E91FB60F5B.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
+
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>编号</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>类型</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>名称</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>角色</b></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">1</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">JTabbedPane</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">jTabbedPane1</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">一个带标签的容器。包含两个标签页（JPanel）：[jPanelRequest] 用于请求，[jPanelResponse] 用于响应；</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">2</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">JTextField</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">jTextFieldNbValues</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">向随机数服务发送的请求数量。若异步服务在调度器 [Schedulers.io] 上运行，这些请求将共享一个处理器；</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">3</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">JTextField</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">jTextFieldA</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">区间 [a,b] 中的端点 a</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">4</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">JTextField</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">jTextFieldB</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">区间 [a,b] 的端点 b</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">5</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">JTextField</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">jTextFieldMinCount</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">minCount区间 [minCount, maxCount] 的端点</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">6</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">JTextField</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">jTextFieldMaxCount</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">[minCount, maxCount] 区间的上限</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">7</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">JTextField</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">jTextFieldMinDelay</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">minDelay 区间 [minDelay, maxDelay] 的下限</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">8</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">JTextField</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">jTextFieldMaxDelay</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">[minDelay, maxDelay] 区间的 maxDelay 边界</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">9</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">JCheckBox</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">jCheckBoxRxSwing</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">如果复选框被选中，则向异步接口发送请求。否则，则向同步接口发送请求</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">10</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">JComboBox</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">jComboBoxSchedulers</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">对于异步请求，将使用此处选定的调度器进行执行</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">11</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">JButton</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">jButtonGenerate</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">启动对同步或异步服务的请求执行</div></td></tr></table>
+
+<p><span style="color: #000000">[响应] 选项卡的 GUI 组件如下：</span></p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000002E6000001E96CE23B80.png" width="519" height="342" style="display:inline-block; margin:4px;width:13.741cm;height:9.056cm;" class="odt-zoomable" data-zoom-src="images/10000000000002E6000001E96CE23B80.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
+
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>编号</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>类型</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>名称</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>角色</b></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">1</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">JLabel</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">jLabelDuration</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">请求的总执行时间（以毫秒为单位）</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">2</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">JLabel</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">jLabelNbResponses</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">观察到的响应总数（可能与请求数不同，因为每个请求可能会返回多个待观察的值）</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">3</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">JList</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">jListNumbers</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">显示已观测（已接收）的值</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">4</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">JButton</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">jButtonCancel</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">取消当前正在执行的请求</div></td></tr></table>
+
+<p><a id="refheading104180374082361"></a></p>
+<h2 id="87">8.7. <span style="color: #4f81bd">图形用户界面的实例化</span></h2>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000FD00000092CB4BA83C.png" width="177" height="102" style="display:inline-block; margin:4px;width:4.68cm;height:2.701cm;" class="odt-zoomable" data-zoom-src="images/10000000000000FD00000092CB4BA83C.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
+
+<p><span style="color: #000000">[JFrameAleasEvents] 类负责处理 GUI 事件，包括对 [Generate] 按钮的点击。这是一个可执行类，运行于以下上下文中：</span></p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">public</span> <span style="font-weight:bold;color:#7f0055">class</span> JFrameAleasEvents <span style="font-weight:bold;color:#7f0055">extends</span> AbstractJFrameAleas {</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">static</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">final</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">long</span><span style="color:#000000"> </span><span style="font-weight:bold;font-style:italic;color:#0000c0">serialVersionUID</span><span style="color:#000000"> = 1L;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// synchronous generation service</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> IService </span><span style="color:#0000c0">service</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// asynchronous generation service</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> IRxService </span><span style="color:#0000c0">rxService</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// seizures</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">int</span><span style="color:#000000"> </span><span style="color:#0000c0">nbRequests</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">int</span><span style="color:#000000"> </span><span style="color:#0000c0">a</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">int</span><span style="color:#000000"> </span><span style="color:#0000c0">b</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">int</span><span style="color:#000000"> </span><span style="color:#0000c0">minDelay</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">int</span><span style="color:#000000"> </span><span style="color:#0000c0">maxDelay</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">int</span><span style="color:#000000"> </span><span style="color:#0000c0">minCount</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">int</span><span style="color:#000000"> </span><span style="color:#0000c0">maxCount</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// error messages</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">final</span><span style="color:#000000"> String </span><span style="color:#0000c0">jLabelNbValuesErrorText</span><span style="color:#000000"> = </span><span style="color:#2a00ff">&quot;Tapez un nombre entier &gt;=1&quot;</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">final</span><span style="color:#000000"> String </span><span style="color:#0000c0">jLabelCountErrorText</span><span style="color:#000000"> = </span><span style="color:#2a00ff">&quot;minCount doit être &gt;=0 et maxCount&gt;=minCount &quot;</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">final</span><span style="color:#000000"> String </span><span style="color:#0000c0">jLabelDelayErrorText</span><span style="color:#000000"> = </span><span style="color:#2a00ff">&quot;minDelay doit être &gt;=0 et maxDelay&gt;=minDelay et  maxDelay&lt;=5000&quot;</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">final</span><span style="color:#000000"> String </span><span style="color:#0000c0">jLabelIntervalErrorText</span><span style="color:#000000"> = </span><span style="color:#2a00ff">&quot;a doit être &gt;=0 et b&gt;=a &quot;</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// subscriptions to observables</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">protected</span><span style="color:#000000"> List&lt;Subscription&gt; </span><span style="color:#0000c0">subscriptions</span><span style="color:#000000"> = </span><span style="font-weight:bold;color:#7f0055">new</span><span style="color:#000000"> ArrayList&lt;Subscription&gt;();</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// start-end of execution</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">long</span><span style="color:#000000"> </span><span style="color:#0000c0">debut</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// mapper jSON</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> ObjectMapper </span><span style="color:#0000c0">jsonMapper</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// answer model</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> DefaultListModel&lt;String&gt; </span><span style="color:#0000c0">model</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// manufacturer</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> JFrameAleasEvents() {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// parent</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="font-weight:bold;color:#7f0055">super</span><span style="color:#000000">();</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// local</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        initJFrame();</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// services</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#0000c0">service</span><span style="color:#000000"> = </span><span style="font-weight:bold;color:#7f0055">new</span><span style="color:#000000"> Service();</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#0000c0">rxService</span><span style="color:#000000"> = </span><span style="font-weight:bold;color:#7f0055">new</span><span style="color:#000000"> RxService(</span><span style="color:#0000c0">service</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// mapper jSON</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#0000c0">jsonMapper</span><span style="color:#000000"> = </span><span style="font-weight:bold;color:#7f0055">new</span><span style="color:#000000"> ObjectMapper();</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> initJFrame() {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// hide error messages</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#0000c0">jLabelCountError</span><span style="color:#000000">.setText(</span><span style="color:#2a00ff">&quot;&quot;</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#0000c0">jLabelDelayError</span><span style="color:#000000">.setText(</span><span style="color:#2a00ff">&quot;&quot;</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#0000c0">jLabelIntervalError</span><span style="color:#000000">.setText(</span><span style="color:#2a00ff">&quot;&quot;</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#0000c0">jLabelNbValuesError</span><span style="color:#000000">.setText(</span><span style="color:#2a00ff">&quot;&quot;</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// hide texts by default</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#0000c0">jTextFieldA</span><span style="color:#000000">.setText(</span><span style="color:#2a00ff">&quot;100&quot;</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#0000c0">jTextFieldB</span><span style="color:#000000">.setText(</span><span style="color:#2a00ff">&quot;200&quot;</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#0000c0">jTextFieldMinCount</span><span style="color:#000000">.setText(</span><span style="color:#2a00ff">&quot;5&quot;</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#0000c0">jTextFieldMaxCount</span><span style="color:#000000">.setText(</span><span style="color:#2a00ff">&quot;10&quot;</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#0000c0">jTextFieldMinDelay</span><span style="color:#000000">.setText(</span><span style="color:#2a00ff">&quot;100&quot;</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#0000c0">jTextFieldMaxDelay</span><span style="color:#000000">.setText(</span><span style="color:#2a00ff">&quot;500&quot;</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#0000c0">jTextFieldNbValeurs</span><span style="color:#000000">.setText(</span><span style="color:#2a00ff">&quot;10&quot;</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#0000c0">jLabelDuree</span><span style="color:#000000">.setText(</span><span style="color:#2a00ff">&quot;&quot;</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// answer model</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#0000c0">model</span><span style="color:#000000"> = </span><span style="font-weight:bold;color:#7f0055">new</span><span style="color:#000000"> DefaultListModel&lt;&gt;();</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#0000c0">jListNumbers</span><span style="color:#000000">.setModel(</span><span style="color:#0000c0">model</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// number of hearts</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        System.</span><span style="font-weight:bold;font-style:italic;color:#0000c0">out</span><span style="color:#000000">.printf(</span><span style="color:#2a00ff">&quot;La JVM a détecté [%s] coeurs sur votre machine%n&quot;</span><span style="color:#000000">, Runtime.</span><span style="font-style:italic;color:#000000">getRuntime</span><span style="color:#000000">().availableProcessors());</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">static</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> main(String </span><span style="color:#6a3e3e">args</span><span style="color:#000000">[]) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="font-weight:bold;color:#7f0055">try</span><span style="color:#000000"> {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            UIManager.<span style="font-style:italic">setLookAndFeel</span>(UIManager.<span style="font-style:italic">getSystemLookAndFeelClassName</span>());</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        } </span><span style="font-weight:bold;color:#7f0055">catch</span><span style="color:#000000"> (UnsupportedLookAndFeelException | ClassNotFoundException | InstantiationException</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">                | IllegalAccessException </span><span style="color:#6a3e3e">e</span><span style="color:#000000">) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            System.</span><span style="font-weight:bold;font-style:italic;color:#0000c0">out</span><span style="color:#000000">.println(</span><span style="color:#6a3e3e">e</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            System.<span style="font-style:italic">exit</span>(0);</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#3f7f5f">/* Create and display the form */</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        java.awt.EventQueue.<span style="font-style:italic">invokeLater</span>(() -&gt; {</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            </span><span style="font-weight:bold;color:#7f0055">new</span><span style="color:#000000"> JFrameAleasEvents().setVisible(</span><span style="font-weight:bold;color:#7f0055">true</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        });</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    }</span></span>
+</code></pre></div>
+
+<ul>
+  <li><span style="color: #000000">第 1 行：[JFrameAleasEvents] 类继承自 [AbstractJFrameAleas] 类，而 [AbstractJFrameAleas] 类又继承自 Swing 的 [JFrame] 类。因此，[JFrameAleasEvents] 类是一个 Swing 窗口； </span>
+  </li>
+  <li><span style="color: #000000">第 68–75 行：将要执行的 [main] 方法；</span>
+  </li>
+  <li><span style="color: #000000">第 70 行：设置 GUI 的</span><i>外观和风格</i><span style="color: #000000">；</span>
+  </li>
+  <li><span style="color: #000000">第 79 行：调用 [JFrameAleasEvents] 类的构造函数：GUI 将被构建并初始化。完成后，它会被显示出来；</span>
+  </li>
+  <li><span style="color: #000000">第 34–44 行：构造函数；</span>
+  </li>
+  <li><span style="color: #000000">第 36 行：调用父类构造函数将初始化 GUI。此时，GUI 的外观完全符合开发者的设计，但尚未显示；</span>
+  </li>
+  <li><span style="color: #000000">第 38 行：初始化 GUI 的某些组件；</span>
+  </li>
+  <li><span style="color: #000000">第 40 行：同步服务的实例化；</span>
+  </li>
+  <li><span style="color: #000000">第 41 行：实例化异步服务；</span>
+  </li>
+</ul>
+<p><a id="refheading104182374082361"></a></p>
+<h2 id="88">8.8. <span style="color: #4f81bd">同步请求的执行</span></h2>
+<p><span style="color: #000000">点击 [Generate] 按钮将触发以下 [doGenerate] 方法的执行：</span></p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-sql">
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#646464">@Override</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">protected</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> doGenerate() {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// saisies valides ?</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="font-weight:bold;color:#7f0055">if</span><span style="color:#000000"> (!isPageValid()) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            </span><span style="font-weight:bold;color:#7f0055">return</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// rx ou pas ?</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="font-weight:bold;color:#7f0055">if</span><span style="color:#000000"> (</span><span style="color:#0000c0">jCheckBoxRxSwing</span><span style="color:#000000">.isSelected()) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            <span style="color:#000000">// requêtes asynchrones</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            doGenerateWithRxService();</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        } </span><span style="font-weight:bold;color:#7f0055">else</span><span style="color:#000000"> {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            <span style="color:#000000">// requêtes synchrones</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            doGenerateWithService();</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+</code></pre></div>
+
+<ul>
+  <li><span style="color: #000000">第 4–6 行：我们验证用户输入是否有效。关于 [isPageValid] 方法，我们不再赘述，因为它很简单；</span>
+  </li>
+  <li><span style="color: #000000">第 8 行：我们检查 </span><i>RxSwing</i><span style="color: #000000"> 复选框的状态；</span>
+  </li>
+  <li><span style="color: #000000">第 13 行：我们同步执行请求；</span>
+  </li>
+</ul>
+
+<p><span style="color: #000000">[doGenerateWithService] 方法如下：</span></p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#3f7f5f">// synchronous generation</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> doGenerateWithService() {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// start waiting</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        beginWaiting();</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="font-weight:bold;color:#7f0055">try</span><span style="color:#000000"> {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            </span><span style="font-weight:bold;color:#7f0055">for</span><span style="color:#000000"> (</span><span style="font-weight:bold;color:#7f0055">int</span><span style="color:#000000"> </span><span style="color:#6a3e3e">i</span><span style="color:#000000"> = 0; </span><span style="color:#6a3e3e">i</span><span style="color:#000000"> &lt; </span><span style="color:#0000c0">nbRequests</span><span style="color:#000000">; </span><span style="color:#6a3e3e">i</span><span style="color:#000000">++) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                <span style="color:#000000">// response preparation</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">                UiResponse </span><span style="color:#6a3e3e">uiResponse</span><span style="color:#000000"> = </span><span style="font-weight:bold;color:#7f0055">new</span><span style="color:#000000"> UiResponse();</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                <span style="color:#000000">// customer no</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">                </span><span style="color:#6a3e3e">uiResponse</span><span style="color:#000000">.setIdClient(</span><span style="color:#6a3e3e">i</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                <span style="color:#000000">// synchronous call</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">                </span><span style="color:#6a3e3e">uiResponse</span><span style="color:#000000">.setServiceResponse(</span><span style="color:#0000c0">service</span><span style="color:#000000">.getAleas(</span><span style="color:#0000c0">a</span><span style="color:#000000">, </span><span style="color:#0000c0">b</span><span style="color:#000000">, </span><span style="color:#0000c0">minCount</span><span style="color:#000000">, </span><span style="color:#0000c0">maxCount</span><span style="color:#000000">, </span><span style="color:#0000c0">minDelay</span><span style="color:#000000">, </span><span style="color:#0000c0">maxDelay</span><span style="color:#000000">));</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                <span style="color:#000000">// response time</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">                </span><span style="color:#6a3e3e">uiResponse</span><span style="color:#000000">.setResponseAt();</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                <span style="color:#000000">// update the JList model with the responses received</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">                </span><span style="color:#0000c0">model</span><span style="color:#000000">.add(0, </span><span style="color:#0000c0">jsonMapper</span><span style="color:#000000">.writeValueAsString(</span><span style="color:#6a3e3e">uiResponse</span><span style="color:#000000">));</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                <span style="color:#000000">// update number of responses</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">                </span><span style="color:#0000c0">jLabelNbReponses</span><span style="color:#000000">.setText(String.</span><span style="font-style:italic;color:#000000">valueOf</span><span style="color:#000000">(Integer.</span><span style="font-style:italic;color:#000000">parseInt</span><span style="color:#000000">(</span><span style="color:#0000c0">jLabelNbReponses</span><span style="color:#000000">.getText()) + 1));</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        } </span><span style="font-weight:bold;color:#7f0055">catch</span><span style="color:#000000"> (JsonProcessingException | RuntimeException </span><span style="color:#6a3e3e">e</span><span style="color:#000000">) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            JOptionPane.</span><span style="font-style:italic;color:#000000">showMessageDialog</span><span style="color:#000000">(</span><span style="font-weight:bold;color:#7f0055">this</span><span style="color:#000000">, getInfoForThrowable(</span><span style="color:#2a00ff">&quot;L&#x27;erreur suivante s&#x27;est produite&quot;</span><span style="color:#000000">, </span><span style="color:#6a3e3e">e</span><span style="color:#000000">), </span><span style="color:#2a00ff">&quot;Informations&quot;</span><span style="color:#000000">,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">                    JOptionPane.</span><span style="font-weight:bold;font-style:italic;color:#0000c0">PLAIN_MESSAGE</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// end waiting</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        endWaiting();</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+</code></pre></div>
+
+<ul>
+  <li><span style="color: #000000">第 12 行：对随机数生成服务进行同步调用；</span>
+  </li>
+  <li><span style="color: #000000">[doGenerateWithService] 方法完全在 Swing</span><i> 事件</i><span style="color: #000000">循环线程内执行。在该方法执行完毕之前，GUI 不会处理任何新事件。此时 GUI 处于冻结状态。因此，例如第 16 行和第 18 行中的 GUI 更新将永远不会被显示。它们只会显示最终值，且这将在所有请求执行完毕后发生；</span>
+  </li>
+</ul>
+
+<p><span style="color: #000000">[beginWaiting] 方法（第 4 行）如下：</span></p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="font-weight:bold;color:#7f0055">private</span> <span style="font-weight:bold;color:#7f0055">void</span> beginWaiting() {</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// buttons</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#0000c0">jButtonGenerate</span><span style="color:#000000">.setVisible(</span><span style="font-weight:bold;color:#7f0055">false</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#0000c0">jButtonCancel</span><span style="color:#000000">.setVisible(</span><span style="font-weight:bold;color:#7f0055">true</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// wait slider</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#0000c0">jTabbedPane1</span><span style="color:#000000">.setCursor(Cursor.</span><span style="font-style:italic;color:#000000">getPredefinedCursor</span><span style="color:#000000">(Cursor.</span><span style="font-weight:bold;font-style:italic;color:#0000c0">WAIT_CURSOR</span><span style="color:#000000">));</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#0000c0">jButtonCancel</span><span style="color:#000000">.setCursor(Cursor.</span><span style="font-style:italic;color:#000000">getDefaultCursor</span><span style="color:#000000">());</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// raz answers</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#0000c0">model</span><span style="color:#000000">.clear();</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// rx subscriptions</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#0000c0">subscriptions</span><span style="color:#000000">.clear();</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// the response view is displayed</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#0000c0">jTabbedPane1</span><span style="color:#000000">.setSelectedIndex(1);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#0000c0">jLabelNbReponses</span><span style="color:#000000">.setText(</span><span style="color:#2a00ff">&quot;0&quot;</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#0000c0">jLabelDuree</span><span style="color:#000000">.setText(</span><span style="color:#2a00ff">&quot;&quot;</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// start of execution</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#0000c0">debut</span><span style="color:#000000"> = </span><span style="font-weight:bold;color:#7f0055">new</span><span style="color:#000000"> Date().getTime();</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+</code></pre></div>
+
+<ul>
+  <li><span style="color: #000000">第 3 行：[Generate] 按钮被隐藏。这会触发一个事件，该事件同样只能在所有请求执行完毕后才执行。不过，我们从未看到它被隐藏，因为 [doGenerateWithService] 方法第 25 行中的 [endWaiting] 方法会将其再次显示；</span>
+  </li>
+  <li><span style="color: #000000">第 13 行：我们选择 [Response] 选项卡以查看响应的到达情况。同样，该事件也仅在所有请求完成后才会执行，届时我们将一次性看到所有响应，而我们原本希望看到它们依次到达；</span>
+  </li>
+</ul>
+
+<p><span style="color: #000000">同步接口显然存在不足。这些不足可以通过异步接口来克服。</span></p>
+<p><a id="refheading104184374082361"></a></p>
+<h2 id="89">8.9. <span style="color: #4f81bd">执行异步请求</span></h2>
+<p><span style="color: #000000">执行异步请求的代码如下：</span></p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-sql">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">private</span> <span style="font-weight:bold;color:#7f0055">void</span> doGenerateWithRxService() {</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// début attente</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        beginWaiting();</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// on va obtenir les nombres aléatoires sous la forme d&#x27;un observable</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        Observable&lt;UiResponse&gt; </span><span style="color:#6a3e3e">observable</span><span style="color:#000000"> = Observable.</span><span style="font-style:italic;color:#000000">empty</span><span style="color:#000000">();</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// Schéduler d&#x27;exécution des différents observables</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        Scheduler[] </span><span style="color:#6a3e3e">schedulers</span><span style="color:#000000"> = { Schedulers.</span><span style="font-style:italic;color:#000000">io</span><span style="color:#000000">(), Schedulers.</span><span style="font-style:italic;color:#000000">computation</span><span style="color:#000000">(), Schedulers.</span><span style="font-style:italic;color:#000000">newThread</span><span style="color:#000000">(),</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                Schedulers.<span style="font-style:italic">trampoline</span>(), Schedulers.<span style="font-style:italic">immediate</span>() };</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        Scheduler </span><span style="color:#6a3e3e">scheduler</span><span style="color:#000000"> = </span><span style="color:#6a3e3e">schedulers</span><span style="color:#000000">[</span><span style="color:#0000c0">jComboBoxSchedulers</span><span style="color:#000000">.getSelectedIndex()];</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// configuration des observables</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="font-weight:bold;color:#7f0055">for</span><span style="color:#000000"> (</span><span style="font-weight:bold;color:#7f0055">int</span><span style="color:#000000"> </span><span style="color:#6a3e3e">i</span><span style="color:#000000"> = 0; </span><span style="color:#6a3e3e">i</span><span style="color:#000000"> &lt; </span><span style="color:#0000c0">nbRequests</span><span style="color:#000000">; </span><span style="color:#6a3e3e">i</span><span style="color:#000000">++) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            <span style="color:#000000">// préparation réponse</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            UiResponse </span><span style="color:#6a3e3e">uiResponse</span><span style="color:#000000"> = </span><span style="font-weight:bold;color:#7f0055">new</span><span style="color:#000000"> UiResponse();</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            </span><span style="color:#6a3e3e">uiResponse</span><span style="color:#000000">.setIdClient(</span><span style="color:#6a3e3e">i</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            <span style="color:#000000">// l&#x27;observable est configuré pour s&#x27;exécuter sur le schéduler choisi par l&#x27;utilisateur</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            <span style="color:#000000">// puis cumul de l&#x27;observable obtenu à l&#x27;observable du tout</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            </span><span style="color:#6a3e3e">observable</span><span style="color:#000000"> = </span><span style="color:#6a3e3e">observable</span><span style="color:#000000">.mergeWith(</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">                    </span><span style="color:#0000c0">rxService</span><span style="color:#000000">.getAleas(</span><span style="color:#0000c0">a</span><span style="color:#000000">, </span><span style="color:#0000c0">b</span><span style="color:#000000">, </span><span style="color:#0000c0">minCount</span><span style="color:#000000">, </span><span style="color:#0000c0">maxCount</span><span style="color:#000000">, </span><span style="color:#0000c0">minDelay</span><span style="color:#000000">, </span><span style="color:#0000c0">maxDelay</span><span style="color:#000000">, </span><span style="color:#6a3e3e">uiResponse</span><span style="color:#000000">).subscribeOn(</span><span style="color:#6a3e3e">scheduler</span><span style="color:#000000">));</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// observateur</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#6a3e3e">observable</span><span style="color:#000000"> = </span><span style="color:#6a3e3e">observable</span><span style="color:#000000">.observeOn(SwingScheduler.</span><span style="font-style:italic;color:#000000">getInstance</span><span style="color:#000000">());</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// pour l&#x27;instant, on a juste fait de la configuration</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// aucune requête n&#x27;a encore été faite au service synchrone de génération des nombres aléatoires</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// on s&#x27;abonne à l&#x27;observable - c&#x27;est ce qui va provoquer l&#x27;appel au service synchrone de génération des nombres aléatoires</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="font-weight:bold;color:#7f0055">try</span><span style="color:#000000"> {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            <span style="color:#000000">// il n&#x27;y a ici qu&#x27;un abonnement - le résultat est une souscription</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            </span><span style="color:#0000c0">subscriptions</span><span style="color:#000000">.add(</span><span style="color:#6a3e3e">observable</span><span style="color:#000000">.subscribe(</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                    <span style="color:#000000">// notification d&#x27;émission</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">                    </span><span style="color:#6a3e3e">uiResponse</span><span style="color:#000000"> -&gt; {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                        <span style="color:#000000">// on met à jour l&#x27;Ui avec la réponse</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                        <span style="color:#000000">// ceci est possible car l&#x27;observation a lieu dans le thread de l&#x27;Ui</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">                        updateUi(</span><span style="color:#6a3e3e">uiResponse</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                    } ,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                    <span style="color:#000000">// notification d&#x27;erreur</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">                    </span><span style="color:#6a3e3e">th</span><span style="color:#000000"> -&gt; {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                        <span style="color:#000000">// cas d&#x27;erreur - on l&#x27;affiche</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">                        String </span><span style="color:#6a3e3e">message</span><span style="color:#000000"> = getInfoForThrowable(</span><span style="color:#2a00ff">&quot;L&#x27;erreur suivante s&#x27;est produite&quot;</span><span style="color:#000000">, </span><span style="color:#6a3e3e">th</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">                        JOptionPane.</span><span style="font-style:italic;color:#000000">showMessageDialog</span><span style="color:#000000">(</span><span style="font-weight:bold;color:#7f0055">this</span><span style="color:#000000">, </span><span style="color:#6a3e3e">message</span><span style="color:#000000">, </span><span style="color:#2a00ff">&quot;Informations&quot;</span><span style="color:#000000">, JOptionPane.</span><span style="font-weight:bold;font-style:italic;color:#0000c0">PLAIN_MESSAGE</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                        <span style="color:#000000">// annulation requêtes</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                        doCancel();</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                    } ,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                    <span style="color:#000000">// notification [onCompleted]</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                    <span style="color:#000000">// fin de l&#x27;attente</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">                    </span><span style="font-weight:bold;color:#7f0055">this</span><span style="color:#000000">::endWaiting));</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        } </span><span style="font-weight:bold;color:#7f0055">catch</span><span style="color:#000000"> (Throwable </span><span style="color:#6a3e3e">th</span><span style="color:#000000">) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            <span style="color:#000000">// cas d&#x27;exception + générale - on l&#x27;affiche</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            String </span><span style="color:#6a3e3e">message</span><span style="color:#000000"> = getInfoForThrowable(</span><span style="color:#2a00ff">&quot;L&#x27;erreur suivante s&#x27;est produite&quot;</span><span style="color:#000000">, </span><span style="color:#6a3e3e">th</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            JOptionPane.</span><span style="font-style:italic;color:#000000">showMessageDialog</span><span style="color:#000000">(</span><span style="font-weight:bold;color:#7f0055">this</span><span style="color:#000000">, </span><span style="color:#6a3e3e">message</span><span style="color:#000000">, </span><span style="color:#2a00ff">&quot;Informations&quot;</span><span style="color:#000000">, JOptionPane.</span><span style="font-weight:bold;font-style:italic;color:#0000c0">PLAIN_MESSAGE</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            <span style="color:#000000">// on annule les requêtes</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            doCancel();</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    }</span></span>
+</code></pre></div>
+
+<ul>
+  <li><span style="color: #000000">第 3 行：更新 GUI 以指示正在进行一项可能耗时较长的操作；</span>
+  </li>
+  <li><span style="color: #000000">第 5 行：创建一个空的可观察对象。该可观察对象将由 [Swing] 层进行监听；</span>
+  </li>
+  <li><span style="color: #000000">第 7 行：可能的调度器数组；</span>
+  </li>
+  <li><span style="color: #000000">第 9 行：我们已赋予用户选择查询执行调度器的权限。此处获取用户所选的调度器；</span>
+  </li>
+  <li><span style="color: #000000">第 11–19 行：每个请求返回一个可观察对象，其元素会被合并（mergeWith）（第 17 行）到第 5 行创建的可观察对象中；</span>
+  </li>
+  <li><span style="color: #000000">第 13–14 行：构建 [UiResponse] 对象。请注意，该对象既是 [RxService.getAleas] 方法的输入参数，也是其返回结果（第 17–18 行）；</span>
+  </li>
+  <li><span style="color: #000000">第 14 行：每个请求都通过一个编号进行标识，此处称为 [idClient]。这是必要的，因为在异步环境中，响应的接收顺序可能与请求的发送顺序不同。[idClient] 使我们能够确定响应属于哪个请求；</span>
+  </li>
+  <li><span style="color: #000000">第 17–18 行：通过 [rxService.getRandom] 发起异步请求。该请求将在用户选择的调度器上执行。其结果（类型为 </span><i>Observable&lt;UiResponse&gt;）</i><span style="color: #000000">与第 5 行的可观察对象进行组合。需要注意的是，[rxService.getAleas] 方法在此处被执行并返回一个可观察对象。 但这并不意味着随机数已被生成。实际上，可观察对象只有在被订阅时才会执行。目前尚未发生这种情况；</span>
+  </li>
+  <li><span style="color: #000000">第 21 行：这是关键指令：我们指定第 5 行可观察对象发出的元素应在 UI 线程上进行观察。此处我们使用了 RxSwing 库特有的调度器；</span>
+  </li>
+  <li><span style="color: #000000">第 25–51 行：我们订阅第 5 行中的可观察对象。此时才会向生成随机数的同步服务请求随机数。关键部分在于第 29–33 行的指令。其余部分主要处理错误情况以及来自可观察对象的 [onCompleted] 通知；</span>
+  </li>
+  <li><span style="color: #000000">第 28–44 行：请记住，我们要求在 UI 线程上观察第 5 行中的进程。因此，第 28–44 行的代码在 UI 线程上运行；</span>
+  </li>
+  <li><span style="color: #000000">第 29–33 行：我们处理可观察对象的 [onNext] 通知。我们接收由被观察进程发出的 [UiResponse] 类型数据。这是某个异步请求的结果。我们使用此响应更新用户界面；</span>
+  </li>
+  <li><span style="color: #000000">第 34–41 行：我们处理可观察对象的 [onError] 通知。我们显示一个显示错误的对话框（第 37–38 行），然后取消请求（第 40 行）；</span>
+  </li>
+  <li><span style="color: #000000">第 42–44 行：处理可观察对象的 [onCompleted] 通知。更新 GUI 以显示所请求的服务已完成。第 44 行也可以如下编写</span>
+  </li>
+</ul>
+
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a> ()-&gt;{endWaiting();}
+</code></pre></div>
+<p><span style="color: #000000">在此，我们选择使用方法引用；</span></p>
+<ul>
+  <li><span style="color: #000000">第 45–51 行：某些异常不会经过第 34–41 行。这种情况发生在请求过多时。一旦超过某个阈值（该阈值取决于运行时环境），就会引发 [StackOverflowError]，该异常由第 45–51 行处理；</span>
+  </li>
+  <li><span style="color: #000000">第 27 行：订阅会生成一个 [Subscription] 类型的对象，并将其添加到订阅列表中。在此处，该列表仅包含一个元素；</span>
+  </li>
+</ul>
+
+<p><span style="color: #000000">第 32 行：我们使用以下 [updateUi] 方法更新用户界面：</span></p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="font-weight:bold;color:#7f0055">private</span> <span style="font-weight:bold;color:#7f0055">void</span> updateUi(UiResponse <span style="color:#6a3e3e">uiResponse</span>) {</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// response time</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#6a3e3e">uiResponse</span><span style="color:#000000">.setResponseAt();</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// observation thread</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#6a3e3e">uiResponse</span><span style="color:#000000">.setObservedOn();</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// number of responses</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#0000c0">jLabelNbReponses</span><span style="color:#000000">.setText(String.</span><span style="font-style:italic;color:#000000">valueOf</span><span style="color:#000000">(Integer.</span><span style="font-style:italic;color:#000000">parseInt</span><span style="color:#000000">(</span><span style="color:#0000c0">jLabelNbReponses</span><span style="color:#000000">.getText()) + 1));</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// running time</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#0000c0">jLabelDuree</span><span style="color:#000000">.setText(String.</span><span style="font-style:italic;color:#000000">valueOf</span><span style="color:#000000">(</span><span style="font-weight:bold;color:#7f0055">new</span><span style="color:#000000"> Date().getTime() - </span><span style="color:#0000c0">debut</span><span style="color:#000000">));</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// add the jSON response string to the JList response template</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="font-weight:bold;color:#7f0055">try</span><span style="color:#000000"> {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            </span><span style="color:#0000c0">model</span><span style="color:#000000">.add(0, </span><span style="color:#0000c0">jsonMapper</span><span style="color:#000000">.writeValueAsString(</span><span style="color:#6a3e3e">uiResponse</span><span style="color:#000000">));</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        } </span><span style="font-weight:bold;color:#7f0055">catch</span><span style="color:#000000"> (JsonProcessingException </span><span style="color:#6a3e3e">e</span><span style="color:#000000">) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            </span><span style="color:#6a3e3e">e</span><span style="color:#000000">.printStackTrace();</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+</code></pre></div>
+
+<p><span style="color: #000000">这里我们可以看到图形用户界面的组件被更新了（第 7、9、12 行）。要实现这一点，你必须位于 UI 线程（</span><em>事件循环</em><span style="color: #000000">）中。</span></p>
+<p><span style="color: #000000">[endWaiting] 方法如下：</span></p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-sql">
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="font-weight:bold;color:#7f0055">private</span> <span style="font-weight:bold;color:#7f0055">void</span> endWaiting() {</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// generate] button visible</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#0000c0">jButtonGenerate</span><span style="color:#000000">.setVisible(</span><span style="font-weight:bold;color:#7f0055">true</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// hidden [Cancel] button</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#0000c0">jButtonCancel</span><span style="color:#000000">.setVisible(</span><span style="font-weight:bold;color:#7f0055">false</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// hidden wait cursor</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#0000c0">jTabbedPane1</span><span style="color:#000000">.setCursor(Cursor.</span><span style="font-style:italic;color:#000000">getDefaultCursor</span><span style="color:#000000">());</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// selected answers tab</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#0000c0">jTabbedPane1</span><span style="color:#000000">.setSelectedIndex(1);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// duration updated one last time</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#0000c0">jLabelDuree</span><span style="color:#000000">.setText(String.</span><span style="font-style:italic;color:#000000">valueOf</span><span style="color:#000000">(</span><span style="font-weight:bold;color:#7f0055">new</span><span style="color:#000000"> Date().getTime() - </span><span style="color:#0000c0">debut</span><span style="color:#000000">));</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+</code></pre></div>
+
+<p><span style="color: #000000">当异步请求执行过程中发生错误，或用户点击 [取消] 按钮时，会调用 [doCancel] 方法。其代码如下：</span></p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-sql">
+<span class="odt-code-line"><span class="odt-code-line-content">// les souscriptions aux observables</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> List&lt;Subscription&gt; </span><span style="color:#0000c0">subscriptions</span><span style="color:#000000"> = </span><span style="font-weight:bold;color:#7f0055">new</span><span style="color:#000000"> ArrayList&lt;Subscription&gt;();</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">....</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#646464">@Override</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">protected</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> doCancel() {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// fin attente</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        endWaiting();</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// dans le cas de souscriptions</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="font-weight:bold;color:#7f0055">if</span><span style="color:#000000"> (</span><span style="color:#0000c0">jCheckBoxRxSwing</span><span style="color:#000000">.isSelected() &amp;&amp; </span><span style="color:#0000c0">subscriptions</span><span style="color:#000000"> != </span><span style="font-weight:bold;color:#7f0055">null</span><span style="color:#000000">) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            </span><span style="color:#0000c0">subscriptions</span><span style="color:#000000">.forEach(Subscription::unsubscribe);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            <span style="color:#000000">//subscriptions.forEach(s -&gt; s.unsubscribe());</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+</code></pre></div>
+
+<ul>
+  <li><span style="color: #000000">第 2 行：[subscriptions] 是一个订阅列表；</span>
+  </li>
+  <li><span style="color: #000000">第 11 行：所有订阅均被取消；</span>
+  </li>
+  <li><span style="color: #000000">第 12 行：第 11 行的另一种写法。此处的 [forEach] 方法期望接收一个 </span><i>Consumer&lt;Subscription&gt;</i><span style="color: #000000"> 类型的实例（参见第</span><a href="#refheading80382127124322"><u><span style="color: #0563c1"> 4.4</span></u></a><span style="color: #000000"> 节）；</span>
+  </li>
+</ul>
+
+<p><span style="color: #000000">让我们回到 [doGenerateWithService] 方法的代码：它可以分解为两个步骤：</span></p>
+<ol>
+  <li><span style="color: #000000">可观察对象配置步骤。此操作在 [doGenerateWithService] 方法的调用者线程中进行，即 UI 线程；</span>
+  </li>
+  <li><span style="color: #000000">订阅操作，该操作将触发可观察对象的执行；</span>
+  </li>
+</ol>
+
+<p><span style="color: #000000">如果可观察对象使用了 [Schedulers.computation()、Scheduler.io()、Schedulers.newThread()] 中的任一调度器，则它们将在 UI 线程之外执行。这些不同的线程将争夺机器的核心资源。 由于请求属于长时间运行的操作（数百毫秒），在 UI 线程中执行的 [doGenerateWithService] 方法将在请求返回响应之前完成。然而，该方法是在 [Generate] 按钮的点击事件上执行的。一旦该事件处理完毕，UI 线程便能继续处理后续事件。 此类事件有多个。因此，[beginWaiting] 方法已设置了多个：</span></p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="font-weight:bold;color:#7f0055">private</span> <span style="font-weight:bold;color:#7f0055">void</span> beginWaiting() {</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// buttons</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#0000c0">jButtonGenerate</span><span style="color:#000000">.setVisible(</span><span style="font-weight:bold;color:#7f0055">false</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#0000c0">jButtonCancel</span><span style="color:#000000">.setVisible(</span><span style="font-weight:bold;color:#7f0055">true</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// waiting cursor</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#0000c0">jTabbedPane1</span><span style="color:#000000">.setCursor(Cursor.</span><span style="font-style:italic;color:#000000">getPredefinedCursor</span><span style="color:#000000">(Cursor.</span><span style="font-weight:bold;font-style:italic;color:#0000c0">WAIT_CURSOR</span><span style="color:#000000">));</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#0000c0">jButtonCancel</span><span style="color:#000000">.setCursor(Cursor.</span><span style="font-style:italic;color:#000000">getDefaultCursor</span><span style="color:#000000">());</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// raz answers</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#0000c0">model</span><span style="color:#000000">.clear();</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// rx subscriptions</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#0000c0">subscriptions</span><span style="color:#000000">.clear();</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// the response view is displayed</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#0000c0">jTabbedPane1</span><span style="color:#000000">.setSelectedIndex(1);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#0000c0">jLabelNbReponses</span><span style="color:#000000">.setText(</span><span style="color:#2a00ff">&quot;0&quot;</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#0000c0">jLabelDuree</span><span style="color:#000000">.setText(</span><span style="color:#2a00ff">&quot;&quot;</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// start of execution</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#0000c0">debut</span><span style="color:#000000"> = </span><span style="font-weight:bold;color:#7f0055">new</span><span style="color:#000000"> Date().getTime();</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+</code></pre></div>
+
+<p><span style="color: #000000">这段代码的几乎每一行都会影响图形用户界面。更新并非立即发生：事件会被放入</span><em>事件</em><span style="color: #000000">循环队列中。一旦处理完 [Generate] 按钮的点击事件，这些事件就会依次执行，用户便能看到图形用户界面的变化：</span></p>
+<ul>
+  <li><span style="color: #000000">显示 [Response] 选项卡（第 13 行），并为其关联加载指示器（第 6 行）</span>
+  </li>
+  <li><span style="color: #000000">其 [Cancel] 按钮显示出来（第 4 行），用户可以点击它；</span>
+  </li>
+  <li><span style="color: #000000">响应的 JList 被清空（第 9 行）；</span>
+  </li>
+  <li><span style="color: #000000">显示响应数量的 JLabel 显示 0；</span>
+  </li>
+  <li><span style="color: #000000">显示执行时间的 JLabel 显示空字符串；</span>
+  </li>
+</ul>
+
+<p><span style="color: #000000">在查询执行过程中，UI线程可以定期访问处理器，从而处理待处理事件。其中包括由[updateUi]方法设置的事件：</span></p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="font-weight:bold;color:#7f0055">private</span> <span style="font-weight:bold;color:#7f0055">void</span> updateUi(UiResponse <span style="color:#6a3e3e">uiResponse</span>) {</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// response time</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#6a3e3e">uiResponse</span><span style="color:#000000">.setResponseAt();</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// observation thread</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#6a3e3e">uiResponse</span><span style="color:#000000">.setObservedOn();</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// number of responses</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#0000c0">jLabelNbReponses</span><span style="color:#000000">.setText(String.</span><span style="font-style:italic;color:#000000">valueOf</span><span style="color:#000000">(Integer.</span><span style="font-style:italic;color:#000000">parseInt</span><span style="color:#000000">(</span><span style="color:#0000c0">jLabelNbReponses</span><span style="color:#000000">.getText()) + 1));</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// running time</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#0000c0">jLabelDuree</span><span style="color:#000000">.setText(String.</span><span style="font-style:italic;color:#000000">valueOf</span><span style="color:#000000">(</span><span style="font-weight:bold;color:#7f0055">new</span><span style="color:#000000"> Date().getTime() - </span><span style="color:#0000c0">debut</span><span style="color:#000000">));</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// add the jSON response string to the JList response template</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="font-weight:bold;color:#7f0055">try</span><span style="color:#000000"> {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            </span><span style="color:#0000c0">model</span><span style="color:#000000">.add(0, </span><span style="color:#0000c0">jsonMapper</span><span style="color:#000000">.writeValueAsString(</span><span style="color:#6a3e3e">uiResponse</span><span style="color:#000000">));</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        } </span><span style="font-weight:bold;color:#7f0055">catch</span><span style="color:#000000"> (JsonProcessingException </span><span style="color:#6a3e3e">e</span><span style="color:#000000">) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            </span><span style="color:#6a3e3e">e</span><span style="color:#000000">.printStackTrace();</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+</code></pre></div>
+
+<p><span style="color: #000000">当 UI 线程处于活动状态时：</span></p>
+<ul>
+  <li><span style="color: #000000">显示响应数量的 JLabel 被更新（第 7 行）；</span>
+  </li>
+  <li><span style="color: #000000">显示执行时间的 JLabel 被更新（第 9 行）；</span>
+  </li>
+  <li><span style="color: #000000">通过其模型更新响应的 JList（第 12 行）；</span>
+  </li>
+</ul>
+
+<p><span style="color: #000000">这使得用户能够查看查询执行的进度。此外，用户还可以通过 [Cancel] 按钮取消查询。这正是将异步服务置于 [Swing] 层前端的核心意义所在，而 RxJava 则是实现这一功能的首选技术。</span></p>
+<p><span style="color: #000000">最后需要注意的是，如果用户选择了 [Schedulers.immediate()] 或 [Schedulers.trampoline()] 中的任一调度器，则可观察对象将在与调用者相同的主线程（即 UI 线程）上执行。这将导致同步行为。</span></p>
+<p><a href="#refheading375671026374387"><u><span style="color: #0563c1">第 2.8.1</span></u></a><span style="color: #000000">、</span><a href="#refheading375691026374387"><u><span style="color: #0563c1">2.8.2</span></u></a><span style="color: #000000">、</span><a href="#refheading375711026374387"><u><span style="color: #0563c1">2.8.3</span></u></a><span style="color: #000000"> 和</span><a href="#refheading375731026374387"><u><span style="color: #0563c1"> 2.8.4</span></u></a><span style="color: #000000"> 节展示了使用不同调度器所获得的结果。</span></p>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner">
+
+      <div>
+        <a href="https://stahe.github.io" target="_blank">
+          https://stahe.github.io
+        </a>
+        <br>
+        本教程由 <strong>Serge Tahé</strong> 编写，根据
+<em>知识共享 署名-非商业性使用-
+相同方式共享 3.0 未移植</em>.
+      </div>
+
+    </div>
+  </div>
+
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.sections", "navigation.indexes", "navigation.expand", "toc.integrate", "navigation.top"], "search": "assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+        <script src="javascripts/focus.js"></script>
+      
+    
+  </body>
+</html>
