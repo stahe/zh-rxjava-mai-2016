@@ -12,13 +12,13 @@
         <meta name="author" content="Serge Tahé">
       
       
-        <link rel="canonical" href="https://stahe.github.io/zh-rxjava-mai-2016/uenhii.html">
+        <link rel="canonical" href="https://stahe.github.io/zh-rxjava-mai-2016/ieuenhii.html">
       
       
         <link rel="prev" href="ianie.html">
       
       
-        <link rel="next" href="aningeiuangaeianing.html">
+        <link rel="next" href="aningeieangaeianing.html">
       
       
         
@@ -29,7 +29,7 @@
     
     
       
-        <title>2. 入门示例 - RxJava入门：Swing和Android环境中的应用</title>
+        <title>2. 一个入门示例 - RxJava入门：Swing和Android环境中的应用</title>
       
     
     
@@ -56,6 +56,8 @@
     
     
       <link rel="stylesheet" href="stylesheets/focus.css">
+    
+      <link rel="stylesheet" href="stylesheets/bidi.css">
     
     <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -128,7 +130,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              2. 入门示例
+              2. 一个入门示例
             
           </span>
         </div>
@@ -346,7 +348,7 @@
   <span class="md-ellipsis">
     
   
-    2. 入门示例
+    2. 一个入门示例
   
 
     
@@ -357,14 +359,14 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <a href="uenhii.html" class="md-nav__link md-nav__link--active">
+      <a href="ieuenhii.html" class="md-nav__link md-nav__link--active">
         
   
   
   <span class="md-ellipsis">
     
   
-    2. 入门示例
+    2. 一个入门示例
   
 
     
@@ -393,7 +395,7 @@
   <a href="#21" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2.1. 示例应用程序的架构
+        2.1. 示例应用的架构
       
     </span>
   </a>
@@ -401,10 +403,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#22" class="md-nav__link">
+  <a href="#22-lexecutable" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2.2. 可执行文件
+        2.2. L&#x27;exécutable
       
     </span>
   </a>
@@ -437,7 +439,7 @@
   <a href="#25" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2.5. 测试同步调用
+        2.5. 同步调用的测试
       
     </span>
   </a>
@@ -470,19 +472,19 @@
   <a href="#28" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2.8. 测试异步调用
+        2.8. 异步调用的测试
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="2.8. 测试异步调用">
+    <nav class="md-nav" aria-label="2.8. 异步调用的测试">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#281-schedulersio" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2.8.1. 使用 [Schedulers.io] 调度器
+        2.8.1. 使用调度器 [Schedulers.io]
       
     </span>
   </a>
@@ -493,7 +495,7 @@
   <a href="#282-schedulerscomputation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2.8.2. 使用 [Schedulers.computation] 调度器
+        2.8.2. 使用调度程序 [Schedulers.computation]
       
     </span>
   </a>
@@ -504,7 +506,7 @@
   <a href="#283-schedulersnewthread" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2.8.3. 使用 [Schedulers.newThread] 调度器
+        2.8.3. 使用调度程序 [Schedulers.newThread]
       
     </span>
   </a>
@@ -515,7 +517,7 @@
   <a href="#284-schedulerstrampoline-schedulersimmediate" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2.8.4. 使用调度器 [Schedulers.trampoline, Schedulers.immediate]
+        2.8.4. 配合调度程序 [Schedulers.trampoline, Schedulers.immediate]
       
     </span>
   </a>
@@ -531,7 +533,7 @@
   <a href="#29" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2.9. 边界情况
+        2.9. 极限情况
       
     </span>
   </a>
@@ -539,10 +541,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#210" class="md-nav__link">
+  <a href="#210-conclusion" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2.10. 结论
+        2.10. Conclusion
       
     </span>
   </a>
@@ -564,14 +566,14 @@
   
   
     <li class="md-nav__item">
-      <a href="aningeiuangaeianing.html" class="md-nav__link">
+      <a href="aningeieangaeianing.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    3. 泛型类与方法的签名
+    3. 泛型类和方法的签名
   
 
     
@@ -591,14 +593,14 @@
   
   
     <li class="md-nav__item">
-      <a href="java-8-lambda-iaoahi.html" class="md-nav__link">
+      <a href="java-8-e-lambda-iaoahi.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    4. Java 8 lambda 表达式
+    4. Java 8 的 lambda 表达式
   
 
     
@@ -672,14 +674,14 @@
   
   
     <li class="md-nav__item">
-      <a href="rxjava-u.html" class="md-nav__link">
+      <a href="u-rxjava.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    7. RxJava 库
+    7. 库 RxJava
   
 
     
@@ -699,14 +701,14 @@
   
   
     <li class="md-nav__item">
-      <a href="swing-uaninghonge-rxjava.html" class="md-nav__link">
+      <a href="swinguaninghongerxjava.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    8. Swing 环境中的 RxJava
+    8. Swing环境中的RxJava
   
 
     
@@ -726,14 +728,14 @@
   
   
     <li class="md-nav__item">
-      <a href="android-uaninghonge-rxjava.html" class="md-nav__link">
+      <a href="rxjava-ai-android-uaninghong.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    9. Android 环境中的 RxJava
+    9. RxJava 在 Android 环境中
   
 
     
@@ -790,139 +792,140 @@
 
 
 
-<p><a id="refheading51101774887325"></a></p>
-<h1 id="2">2. <span style="color: #365f91">入门示例</span></h1>
-<p>我最初接触 RxJava 是通过网上找到的课程和教程。除了理论中涉及了一些我不熟悉且难以理解的概念之外，我也实在看不出它在实际应用中有什么用处。 因此，我们将首先通过一个示例（希望是一个简单的示例）来展示：使用 RxJava 如何真正简化代码，并以此为基础，尝试梳理出该库的核心要素。</p>
-<p><span style="color: #000000">RxJava 库基于以下概念：由一个或多个订阅者（</span><strong>Subscriber&lt;T&gt;</strong><span style="color: #000000">，也称为观察者或消费者）观察的</span> <strong>Observable&lt;T&gt;</strong><span style="color: #000000"> 类型元素流。 RxJava 库允许 </span><strong>Observable&lt;T&gt;</strong><span style="color: #000000"> 流在线程 T1 中运行，其 </span><strong>Subscriber&lt;T&gt;</strong><span style="color: #000000"> 观察者在线程 T2 中运行，而开发者无需担心管理这些线程的生命周期，也无需处理诸如线程间数据共享和为执行全局任务而进行同步等自然而然的难题。因此，它简化了异步编程。</span></p>
-<p><span style="color: #000000">一个 </span><strong><span style="color: #000000">Observable&lt;T&gt;</span></strong><span style="color: #000000"> 流会生成类型为 T 的元素，这些元素在生成时即可被观察。如果观察者和可观察对象（此术语泛指 Observable&lt;T&gt; 类型）位于同一线程中，那么只有当观察者消耗了元素 i 之后，可观察对象才能生成元素 (i+1)。这种架构仅在少数情况下有用。 如果观察者和可观察对象不在同一个线程中，那么可观察对象及其观察者将各自独立运行：可观察对象按自己的节奏发布数据，观察者也按自己的节奏消费数据。这正是该库的价值所在。到目前为止，我们只讨论了一个观察者。实际上，一个可观察对象可以拥有任意数量的观察者。</span></p>
-<p><a id="refheading104080374082361"></a></p>
-<h2 id="21">2.1. <span style="color: #4f81bd">示例应用程序的架构</span></h2>
-<p>示例应用程序具有以下架构：</p>
-<p><img src="images/10000000000003680000015623D3D1A0.png" width="436" height="171" style="width:11.531cm;height:4.523cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000003680000015623D3D1A0.png" /></p>
+<p><span id="refheading51101774887325" name="refheading51101774887325" class="odt-bookmark-anchor"></span></p>
+<h1 id="2">2. <span style="color: #365f91">一个入门示例</span></h1>
+<p>我最初接触 RxJava 是通过网络上的课程和教程。除了理论部分使用了一些我不熟悉且难以理解的概念外，我更看不出来它在现实生活中有什么用处。 因此，我们将首先介绍一个示例（希望是简单的），展示使用 RxJava 如何切实简化代码编写，并以此为基础，尝试梳理该库的重要特性。</p>
+<p><span style="color: #000000">RxJava 库基于以下概念：一个类型为 T 的 </span><strong>Observable&lt;T&gt;</strong><span style="color: #000000"> 元素流由一个或多个订阅者（</span><strong>Subscriber&lt;T&gt;</strong><span style="color: #000000">）进行观察。 RxJava 库允许 </span><strong>Observable&lt;T&gt;</strong><span style="color: #000000"> 流在 T1 线程中运行，其观察者 </span><strong>Subscriber&lt;T&gt;</strong> <span style="color: #000000">在 T2 线程中运行，而开发者无需无需担心管理这些线程的生命周期，也无需处理诸如线程间数据共享和为执行全局任务而进行的线程同步等自然而然的难题。因此，它简化了异步编程。</span></p>
+<p><span style="color: #000000">一个 </span><strong><span style="color: #000000">Observable&lt;T&gt;</span></strong><span style="color: #000000"> 流会生成类型为 T 的元素，这些元素在生成时即可被观察。 如果观察者和可观察对象（此处为方便起见，将 Observable&lt;T&gt; 称为“可观察对象”）位于同一线程中，那么可观察对象只能在观察者消耗完元素 i 之后，才可生成元素 (i+1)。这种架构具有实际意义的情况很少。 如果观察者和可观察对象不在同一个线程中，那么可观察对象及其观察者将具有独立的行为：可观察</span><span style="color: #000000">对象按自己的节奏生成元素，观察者按自己的节奏消费元素。这正是该库的价值所在。到目前为止，我们一直只讨论了一个观察者。实际上，一个可观察对象可以拥有任意数量的观察者。</span></p>
+<p><span id="refheading104080374082361" name="refheading104080374082361" class="odt-bookmark-anchor"></span></p>
+<h2 id="21">2.1. <span style="color: #4f81bd">示例应用的架构</span></h2>
+<p>示例应用的架构如下：</p>
+<p><img src="images/10000000000003680000015623D3D1A0.png" width="436" height="171" style="width:11.531cm;height:4.521cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000003680000015623D3D1A0.png" /></p>
 <ul>
-  <li>在 [1] 中，服务层生成随机数列表。该层与调用它的 [swing] 方法运行在同一线程中，因此其生成随机数的过程是同步的；
+  <li>在 [1] 中，一个服务层提供随机数列表。该层与调用它的 [swing] 方法在同一线程中运行。因此，它以同步方式提供随机数；
   </li>
-  <li>在 [2] 中，一个使用 RxJava 实现的轻量级适配层，允许将同一服务的异步实现呈现给 [swing] 层：该服务可以与调用它的 [swing] 方法在不同的线程中运行；
+  <li>在 [2] 中，通过 RxJava 实现的轻量级适配层，使 [swing] 层能够使用同一服务的异步实现： 该实现可在与调用它的 [swing] 方法不同的线程中执行；
   </li>
-  <li>调用 [4] 是同步的，而调用 [5-6] 是异步的；
+  <li>[4] 的调用是同步的，而 [5-6] 的调用则是异步的；
   </li>
 </ul>
 
-<p>我们在此想要说明的是，Rx 库能够轻松地将<strong>同步</strong>接口转换为<strong>异步</strong>接口。这有什么用处呢？Swing 接口中的事件通常在被称为<em>“事件循环”的</em>线程中处理。事件会被排队并依次处理。只有当前一个事件 Ei 被完全处理完毕后，事件 Ei+1 才能被处理。因此，为了保持 GUI 的响应性，事件处理必须尽可能简短。 有时，处理一个事件可能需要很长时间。如果处理过程涉及网络访问，就会出现这种情况。如果我们不想让 GUI 冻结到用户无法接受的程度，这些网络操作必须在与<em>事件循环</em>分离<em>的</em>线程中执行，以释放事件循环。这将我们带入了并发编程（即多个线程并行运行）的领域，而并发编程被公认为是一项困难的任务。Rx 库为这个问题提供了一个简单而优雅的解决方案。</p>
-<p>为了模拟长时间运行的进程，示例中的服务会在经过一定延迟后才返回随机数，以便我们观察图形用户界面的行为。</p>
-<p><a id="refheading104082374082361"></a></p>
-<h2 id="22">2.2. <span style="color: #4f81bd">可执行文件</span></h2>
-<p>示例应用程序的可执行文件位于示例目录的 [dvp/executables] 文件夹中：</p>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000083000000675286CE78.png" width="92" height="72" style="display:inline-block; margin:4px;width:2.431cm;height:1.91cm;" class="odt-zoomable" data-zoom-src="images/1000000000000083000000675286CE78.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000002250000012749324B0E.png" width="384" height="207" style="display:inline-block; margin:4px;width:10.171cm;height:5.465cm;" class="odt-zoomable" data-zoom-src="images/10000000000002250000012749324B0E.png" /></td></tr></table>
+<p>我们在此想说明的是，Rx 库能够轻松地将<strong>同步接口</strong>转换<strong>为异步接口</strong>。这有什么用处呢？Swing 接口的事件通常在<em>被称为“事件循环”的</em>线程中处理。事件会被放入队列中排队，并依次处理。 只有当前一个事件 Ei 被完全处理完毕后，事件 Ei+1 才能被处理。因此，为了保持图形界面的响应性，事件处理过程应尽可能简短。有时，事件处理可能耗时较长，例如当处理涉及网络访问时。 若不想让图形界面出现用户无法接受的卡顿，就必须将这些网络访问移至与<em>事件循环</em>分离的线程中，从而释放事件循环。这便涉及并行编程领域（多个线程并行执行），该领域被公认为难度较高。Rx 库为这一问题提供了一个简单而优雅的解决方案。</p>
+<p>为了模拟耗时较长的处理过程，示例中的服务会在经过一定等待时间后输出随机数，以便观察图形界面的行为表现。</p>
+<p><span id="refheading104082374082361" name="refheading104082374082361" class="odt-bookmark-anchor"></span></p>
+<h2 id="22-lexecutable">2.2. <span style="color: #4f81bd">L&#x27;exécutable</span></h2>
+<p>示例应用程序的可执行文件位于示例文件夹 [dvp/executables] 中：</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/1000000000000083000000675286CE78.png" width="92" height="72" style="display:inline-block; margin:4px;width:2.431cm;height:1.91cm;" class="odt-zoomable" data-zoom-src="images/1000000000000083000000675286CE78.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/10000000000002250000012749324B0E.png" width="384" height="206" style="display:inline-block; margin:4px;width:10.171cm;height:5.459cm;" class="odt-zoomable" data-zoom-src="images/10000000000002250000012749324B0E.png" /></td></tr></table>
 
-<p>根据运行机器的配置不同，运行 [swing-01] 压缩包有多种方法。例如，您可以按照步骤 [1-3] 进行操作。这将显示以下图形用户界面：</p>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000002E6000001E918B6D6A5.png" width="460" height="303" style="display:inline-block; margin:4px;width:12.183cm;height:8.029cm;" class="odt-zoomable" data-zoom-src="images/10000000000002E6000001E918B6D6A5.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
+<p>根据运行设备的配置，有多种方式可以运行压缩包 [swing-01]。例如，可以按照流程 [1-3] 进行操作。随后将显示如下图形用户界面：</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/10000000000002E6000001E918B6D6A5.png" width="460" height="303" style="display:inline-block; margin:4px;width:12.183cm;height:8.027cm;" class="odt-zoomable" data-zoom-src="images/10000000000002E6000001E918B6D6A5.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;">&nbsp;</td></tr></table>
 
 <ul>
-  <li>该界面包含两个选项卡 [1-2]：一个是 [Request]，用于向随机数生成器服务发送请求；另一个是 [Response]，用于显示接收到的数字；
+  <li>该界面包含两个选项卡：[1-2]，其中一个（[Request]）用于向随机数生成服务发起请求，另一个（[Response]）用于显示接收到的随机数；
   </li>
-  <li>在 [3] 中，您指定希望向该服务发送多少次请求；
+  <li>在 [3] 中，需指定向该服务发送的请求数量；
   </li>
-  <li>在 [4] 中，您指定所需的随机数生成范围 [a,b]；
+  <li>在 [4] 中，指定所需随机数的生成区间 [a,b]；
   </li>
-  <li>在 [5] 中，服务返回的数值个数将是一个落在用户设定的区间 [minCount, maxCount] 内的随机数；
+  <li>在 [5] 中，服务返回的数值将是一个随机数，其取值范围由用户在 [minCount, maxCount] 中设定的区间内确定；
   </li>
-  <li>在 [6] 中，服务在返回响应前将等待 <i>delay</i> 毫秒，其中 <i>delay </i>是用户定义区间 [minDelay, maxDelay] 内的随机数；
+  <li>在 [6] 时，在返回响应之前， 服务将等待 <i>delay</i> 毫秒，其中 <i>delay </i>是用户设定的 [minDelay, maxDelay] 区间内的随机数；
   </li>
-  <li>默认情况下，[swing] 层将使用该服务的同步接口。若要使用异步层，用户需勾选 [7]。此时，生成服务将在与 GUI<i> 事件循环</i>分离的线程中运行。Rx 库提供了多种生成这些线程的策略，用户可在 [8] 中选择其策略；
+  <li>默认情况下，[swing]层将调用服务的同步接口。若要调用异步层，用户需勾选[7]。 在此情况下，生成服务将在与图形用户界面<i>事件循环</i>分离的线程中运行。Rx 库提供了多种生成这些线程的策略。用户可在 [8] 中选择其策略；
   </li>
-  <li>数字生成通过按钮 [9] 进行；
+  <li>数字生成通过按钮 [9] 实现；
   </li>
 </ul>
 
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000002E6000001E9A5AA9CE8.png" width="519" height="342" style="display:inline-block; margin:4px;width:13.741cm;height:9.056cm;" class="odt-zoomable" data-zoom-src="images/10000000000002E6000001E9A5AA9CE8.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/10000000000002E6000001E9A5AA9CE8.png" width="519" height="342" style="display:inline-block; margin:4px;width:13.741cm;height:9.051cm;" class="odt-zoomable" data-zoom-src="images/10000000000002E6000001E9A5AA9CE8.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;">&nbsp;</td></tr></table>
 
 <ul>
-  <li>[10] 展示了结果。我们将解释其结构；
+  <li>在 [10] 中，显示结果。我们将解释这些结果的结构；
   </li>
-  <li>在 [11] 中，表示获得的结果数量；
+  <li>在 [11] 中，显示获得的结果数量；
   </li>
-  <li>在[12]中，显示以毫秒为单位的执行时间；
+  <li>在 [12] 中，显示以毫秒为单位的执行时间；
   </li>
-  <li>在[13]中，用户可以选择取消执行；
+  <li>在 [13] 中，用户可以取消执行；
   </li>
 </ul>
 
-<p>每个结果采用以下格式：</p>
+<p>每个结果的格式如下：</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>{&quot;idClient&quot;:0,&quot;serviceResponse&quot;:{&quot;delay&quot;:412,&quot;aleas&quot;:[146,115,128,174,159,112,162,127],&quot;executedOn&quot;:&quot;RxComputationThreadPool-6&quot;},&quot;observedOn&quot;:&quot;AWT-EventQueue-0&quot;,&quot;requestAt&quot;:&quot;02:42:47:708&quot;,&quot;responseAt&quot;:&quot;02:42:52:931&quot;}
 </code></pre></div>
 <ul>
-  <li>[idClient]：请求 ID。请注意，会向生成服务发送多个请求；
+  <li>[idClient]：请求编号。需注意，向生成服务发出了多个请求；
   </li>
-  <li>[delay]：服务在发送结果前观察到的等待时间（单位为毫秒）；
+  <li>[delay]：服务在发送结果前观察到的等待时间（单位：毫秒）；
   </li>
   <li>[aleas]：服务返回的随机数；
   </li>
   <li>[executedOn]：服务运行的线程名称；
   </li>
-  <li>[observedOn]：显示结果的线程名称。对于 Swing 界面，这只能是<i>事件循环</i>线程，此处为 [AWT-EventQueue-0]；
+  <li>[observedOn]：显示结果的线程名称。对于 Swing 界面，这只能是<i>事件循环</i>线程，即此处的 [AWT-EventQueue-0]；
   </li>
-  <li>[requestAt]：请求时间，格式为 [时:分:秒:毫秒]；
+  <li>[requestAt]：请求时间，格式为 [heures:minutes:secondes:millisecondes]；
   </li>
-  <li>[responseAt]：接收结果的时间，格式同上；
+  <li>[responseAt]：结果接收时间，格式同上；
   </li>
 </ul>
 
-<p>接下来我们将展示理解本示例所需的代码片段。</p>
-<p><a id="refheading31250117925167"></a></p>
-<h2 id="23">2.3. <span style="color: #4f81bd"><strong>同步接口</strong></span></h2>
-<p><img src="images/10000000000003680000015623D3D1A0.png" width="436" height="171" style="width:11.531cm;height:4.523cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000003680000015623D3D1A0.png" /></p>
+<p>接下来我们将介绍有助于理解本示例的代码片段。</p>
+<p><span id="refheading31250117925167" name="refheading31250117925167" class="odt-bookmark-anchor"></span></p>
+<h2 id="23">2.3. <span style="color: #4f81bd">同步接口</span></h2>
+<p><img src="images/10000000000003680000015623D3D1A0.png" width="436" height="171" style="width:11.531cm;height:4.521cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000003680000015623D3D1A0.png" /></p>
 <p>服务层 [1] 提供以下接口：</p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-sql">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-csharp">
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">interface</span><span style="color:#000000"> IService {</span></span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// random numbers in [a,b]</span></span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// n numbers are generated with random n in the interval [minCount, maxCount]</span></span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// numbers are generated after a delay of milliseconds,</span></span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// where [delay] is a random number in the range [minDelay, maxDelay]</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// [a,b] 中的随机数</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// 生成 n 个随机数，每个随机数在区间 [minCount, maxCount] 内</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// 在等待 delay 毫秒后生成这些数，</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// 其中 [delay] 是区间 [minDelay, maxDelay] 内的随机数</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> ServiceResponse getAleas(</span><span style="font-weight:bold;color:#7f0055">int</span><span style="color:#000000"> </span><span style="color:#6a3e3e">a</span><span style="color:#000000">, </span><span style="font-weight:bold;color:#7f0055">int</span><span style="color:#000000"> </span><span style="color:#6a3e3e">b</span><span style="color:#000000">, </span><span style="font-weight:bold;color:#7f0055">int</span><span style="color:#000000"> </span><span style="color:#6a3e3e">minCount</span><span style="color:#000000">, </span><span style="font-weight:bold;color:#7f0055">int</span><span style="color:#000000"> </span><span style="color:#6a3e3e">maxCount</span><span style="color:#000000">, </span><span style="font-weight:bold;color:#7f0055">int</span><span style="color:#000000"> </span><span style="color:#6a3e3e">minDelay</span><span style="color:#000000">, </span><span style="font-weight:bold;color:#7f0055">int</span><span style="color:#000000"> </span><span style="color:#6a3e3e">maxDelay</span><span style="color:#000000">);</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
 </code></pre></div>
 
-<p>[ServiceResponse] 如下所示：</p>
+<p>响应 [ServiceResponse] 如下：</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-csharp">
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">class</span><span style="color:#000000"> ServiceResponse {</span></span></span>
-<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// service waiting time</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// 服务等待时长</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">int</span><span style="color:#000000"> </span><span style="color:#0000c0">delay</span><span style="color:#000000">;</span></span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// random numbers</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// 随机数</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> List&lt;Integer&gt; </span><span style="color:#0000c0">aleas</span><span style="color:#000000">;</span></span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// execution thread</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// 执行线程</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> String </span><span style="color:#0000c0">executedOn</span><span style="color:#000000">;</span></span></span>
-<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// manufacturers</span></span></span>
-<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// 构造函数</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> ServiceResponse(</span><span style="font-weight:bold;color:#7f0055">int</span><span style="color:#000000"> </span><span style="color:#6a3e3e">delay</span><span style="color:#000000">, List&lt;Integer&gt; </span><span style="color:#6a3e3e">aleas</span><span style="color:#000000">) {</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000c0">executedOn</span><span style="color:#000000"> = Thread.</span><span style="font-style:italic;color:#000000">currentThread</span><span style="color:#000000">().getName();</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">this</span><span style="color:#000000">.</span><span style="color:#0000c0">delay</span><span style="color:#000000"> = </span><span style="color:#6a3e3e">delay</span><span style="color:#000000">;</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">this</span><span style="color:#000000">.</span><span style="color:#0000c0">aleas</span><span style="color:#000000"> = </span><span style="color:#6a3e3e">aleas</span><span style="color:#000000">;</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">  }</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// getters and setters</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// 获取器和设置器</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">...</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
 </code></pre></div>
 
-<p>答案分为三部分：</p>
+<p>响应包含三个部分：</p>
 <ul>
-  <li>第6行：生成的随机数；
+  <li>第 6 行：生成的随机数；
   </li>
-  <li>第4行：服务在返回结果前观察到的等待时间；
+  <li>第4行：服务返回结果前观察到的等待时间；
   </li>
-  <li>第8行：服务的执行线程；
+  <li>第 8 行：服务的执行线程；
   </li>
 </ul>
-<p><a id="refheading36591510222748"></a></p>
+
+<p><span id="refheading36591510222748" name="refheading36591510222748" class="odt-bookmark-anchor"></span></p>
 <h2 id="24">2.4. <span style="color: #4f81bd">同步调用</span></h2>
-<p><img src="images/10000000000003680000015623D3D1A0.png" width="436" height="171" style="width:11.531cm;height:4.523cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000003680000015623D3D1A0.png" /></p>
-<p>接下来我们将详细说明 [swing] 层对 [1] 服务发起的同步调用 [4]：</p>
+<p><img src="images/10000000000003680000015623D3D1A0.png" width="436" height="171" style="width:11.531cm;height:4.521cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000003680000015623D3D1A0.png" /></p>
+<p>现在我们详细说明 [swing] 层对 [1] 服务发起的同步调用 [4]：</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> doGenerateWithService() {</span></span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// start waiting</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// 等待开始</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">    beginWaiting();</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">try</span><span style="color:#000000"> {</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="font-weight:bold;color:#7f0055">for</span><span style="color:#000000"> (</span><span style="font-weight:bold;color:#7f0055">int</span><span style="color:#000000"> </span><span style="color:#6a3e3e">i</span><span style="color:#000000"> = 0; </span><span style="color:#6a3e3e">i</span><span style="color:#000000"> &lt; </span><span style="color:#0000c0">nbRequests</span><span style="color:#000000">; </span><span style="color:#6a3e3e">i</span><span style="color:#000000">++) {</span></span></span>
@@ -936,136 +939,136 @@
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    } </span><span style="font-weight:bold;color:#7f0055">catch</span><span style="color:#000000"> (JsonProcessingException | RuntimeException </span><span style="color:#6a3e3e">e</span><span style="color:#000000">) {</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      System.</span><span style="font-weight:bold;font-style:italic;color:#0000c0">out</span><span style="color:#000000">.println(</span><span style="color:#6a3e3e">e</span><span style="color:#000000">);</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">    }</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// end waiting</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// 等待结束</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">    endWaiting();</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
 </code></pre></div>
 
 <ul>
-  <li>第 5–12 行：处理用户发起的 [nbRequests] 个请求的循环；
+  <li>第 5-12 行：处理用户请求的 [nbRequests] 请求的执行循环；
   </li>
-  <li>第 8 行：[service] 是<a href="#refheading31250117925167"><u><span style="color: #0563c1">第 2.3</span></u></a> 节中介绍的同步 [IService] 接口的实现；
+  <li>第 8 行：[service] 是第<a href="#refheading31250117925167"><u><span style="color: #0563c1"> 2.3</span></u></a> 节中介绍的同步接口 [IService] 的实现；
   </li>
-  <li>第 10 行：[model] 是 [Response] 选项卡中 JList 组件所显示的模型。该模型的元素是 [UiResponse] 类型的 JSON 字符串，具体如下：
+  <li>第10行，[model]是[Response]选项卡中JList组件所显示的模板。 该模板的元素是以下类型为 [UiResponse] 的 jSON 字符串：
   </li>
 </ul>
 
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-csharp">
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">class</span><span style="color:#000000"> UiResponse {</span></span></span>
-<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// customer id</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// 客户端ID</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">int</span><span style="color:#000000"> </span><span style="color:#0000c0">idClient</span><span style="color:#000000">;</span></span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// service response</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// 服务响应</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> ServiceResponse </span><span style="color:#0000c0">serviceResponse</span><span style="color:#000000">;</span></span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// observation thread name</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// 监视线程名称</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> String </span><span style="color:#0000c0">observedOn</span><span style="color:#000000">;</span></span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// query time</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// 请求时间</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> String </span><span style="color:#0000c0">requestAt</span><span style="color:#000000">;</span></span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// response time</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// 响应时间</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> String </span><span style="color:#0000c0">responseAt</span><span style="color:#000000">;</span></span></span>
-<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// manufacturers</span></span></span>
-<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// 构造函数</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> UiResponse() {</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000c0">observedOn</span><span style="color:#000000"> = Thread.</span><span style="font-style:italic;color:#000000">currentThread</span><span style="color:#000000">().getName();</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000c0">requestAt</span><span style="color:#000000"> = getTimeStamp();</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">  }</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// private methods</span></span></span>
-<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// 私有方法</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> String getTimeStamp() {</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">return</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">new</span><span style="color:#000000"> SimpleDateFormat(</span><span style="color:#2a00ff">&quot;hh:mm:ss:SSS&quot;</span><span style="color:#000000">).format(Calendar.</span><span style="font-style:italic;color:#000000">getInstance</span><span style="color:#000000">().getTime());</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">  }</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// getters and setters</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// 获取器和设置器</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">...</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
 </code></pre></div>
 
 <ul>
-  <li>第 6 行：来自号码生成服务的响应；
+  <li>第 6 行：随机数生成服务的响应；
   </li>
-  <li>第 4 行：正在响应的请求编号；
+  <li>第 4 行：被响应的请求编号；
   </li>
-  <li>第 8 行：显示此响应的线程。如前所述，这始终是<i>事件循环</i>线程；
+  <li>第 8 行：该响应的显示线程。如前所述，这始终是<i>事件循环</i>的线程；
   </li>
-  <li>第 10 行和第 12 行：请求的时间和响应的时间；
+  <li>第 10 行和第 12 行：请求时间和响应时间；
   </li>
 </ul>
-<p><a id="refheading104084374082361"></a></p>
-<h2 id="25">2.5. <span style="color: #4f81bd">测试同步调用</span></h2>
-<p>我们运行以下配置：</p>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000002E6000001E9C98F6240.png" width="479" height="316" style="display:inline-block; margin:4px;width:12.668cm;height:8.348cm;" class="odt-zoomable" data-zoom-src="images/10000000000002E6000001E9C98F6240.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
-<p>在 [响应] 选项卡中，我们得到以下结果：</p>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000002E6000001E90557285B.png" width="479" height="316" style="display:inline-block; margin:4px;width:12.668cm;height:8.348cm;" class="odt-zoomable" data-zoom-src="images/10000000000002E6000001E90557285B.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
+<p><span id="refheading104084374082361" name="refheading104084374082361" class="odt-bookmark-anchor"></span></p>
+<h2 id="25">2.5. <span style="color: #4f81bd">同步调用的测试</span></h2>
+<p>我们执行以下配置：</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/10000000000002E6000001E9C98F6240.png" width="479" height="315" style="display:inline-block; margin:4px;width:12.668cm;height:8.347cm;" class="odt-zoomable" data-zoom-src="images/10000000000002E6000001E9C98F6240.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;">&nbsp;</td></tr></table>
+
+<p>我们在 [Response] 选项卡中得到以下结果：</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/10000000000002E6000001E90557285B.png" width="479" height="315" style="display:inline-block; margin:4px;width:12.668cm;height:8.347cm;" class="odt-zoomable" data-zoom-src="images/10000000000002E6000001E90557285B.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;">&nbsp;</td></tr></table>
 
 <ul>
-  <li>在[1-2]中，我们确实如请求所示收到了10个响应。它们按照到达顺序被插入到队列的首位。我们可以看到，它们的接收顺序与请求顺序一致；
+  <li>在 [1-2] 中，确实如要求般获得了 10 个响应。它们按到达顺序被插入到首位。可以看到它们是按请求顺序获取的；
   </li>
   <li>它们均在<i>事件循环</i>线程 [AWT-EventQueue-0] 中执行并显示。因此，这些请求在此线程中依次执行。不存在并发请求；
   </li>
-  <li>这里未显示的是，在执行过程中，<b>GUI 处于冻结状态。</b>例如，无法访问 [Response] 选项卡查看传入的响应，也无法使用 [Cancel] 按钮停止执行。即使该按钮出现在 [Request] 选项卡上，也无法使用。实际上，此时将存在两个事件：
+  <li>这里未显示的是，在执行期间，<b>图形界面处于冻结状态。</b>例如，无法访问 [Response] 标签页来查看响应结果，也无法通过 [Annuler] 按钮中断执行。 即使该按钮位于 [Request] 选项卡上，也无法使用。因为此时将同时发生两个事件：
     <ul>
-      <li>点击 [Generate] 按钮；
+      <li>点击 [Générer] 按钮；
       </li>
-      <li>点击 [取消] 按钮；
+      <li>点击按钮 [Annuler]；
       </li>
     </ul>
   </li>
 </ul>
 
-<p>只有在由点击 [Generate] 按钮触发的操作完成后，[Cancel] 按钮的点击才会被处理。我们刚才看到，该操作在整个执行过程中都占用了<em>事件</em>循环线程，从而阻止了对 [Cancel] 按钮点击的处理。这通常是 Rx 能够带来显著改进的典型场景；</p>
-<p><a id="refheading104086374082361"></a></p>
+<p>只有在由点击 [Générer] 按钮触发的操作结束之后，点击 [Annuler] 按钮的操作才会被处理。 我们刚才看到，该操作在整个执行过程中都占用了<em>事件循环线程</em>，从而阻止了对按钮 [Annuler] 的点击进行处理。这正是 Rx 能够带来显著改进的典型场景；</p>
+<p><span id="refheading104086374082361" name="refheading104086374082361" class="odt-bookmark-anchor"></span></p>
 <h2 id="26">2.6. <span style="color: #4f81bd">异步接口及其实现</span></h2>
-<p>接下来我们将探讨第 [2] 层的接口及其基于 Rx 的实现。这可能不会立刻让人一目了然。我们只是想突出该实现中代码的简洁性。</p>
-<p><img src="images/10000000000003680000015623D3D1A0.png" width="436" height="171" style="width:11.531cm;height:4.523cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000003680000015623D3D1A0.png" /></p>
+<p>现在，我们将关注 [2] 层的接口及其基于 Rx 的实现。该实现可能不会立即让人完全理解，但我们只想突出该实现代码的简洁性。</p>
 <p>异步接口如下：</p>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-sql">
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-csharp">
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">interface</span><span style="color:#000000"> IRxService {</span></span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// random numbers in [a,b]</span></span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// n numbers are generated with random n in the interval [minCount, maxCount]</span></span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// numbers are generated after a delay of milliseconds,</span></span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// where [delay] is a random number in the range [minDelay, maxDelay]</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// [a,b] 中的随机数</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// 生成 n 个随机数，每个随机数在区间 [minCount, maxCount] 内</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// 在等待 delay 毫秒后生成这些数，</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// 其中 [delay] 是区间 [minDelay, maxDelay] 内的随机数</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> Observable&lt;UiResponse&gt; getAleas(</span><span style="font-weight:bold;color:#7f0055">int</span><span style="color:#000000"> </span><span style="color:#6a3e3e">a</span><span style="color:#000000">, </span><span style="font-weight:bold;color:#7f0055">int</span><span style="color:#000000"> </span><span style="color:#6a3e3e">b</span><span style="color:#000000">, </span><span style="font-weight:bold;color:#7f0055">int</span><span style="color:#000000"> </span><span style="color:#6a3e3e">minCount</span><span style="color:#000000">, </span><span style="font-weight:bold;color:#7f0055">int</span><span style="color:#000000"> </span><span style="color:#6a3e3e">maxCount</span><span style="color:#000000">, </span><span style="font-weight:bold;color:#7f0055">int</span><span style="color:#000000"> </span><span style="color:#6a3e3e">minDelay</span><span style="color:#000000">, </span><span style="font-weight:bold;color:#7f0055">int</span><span style="color:#000000"> </span><span style="color:#6a3e3e">maxDelay</span><span style="color:#000000">, UiResponse </span><span style="color:#6a3e3e">uiResponse</span><span style="color:#000000">);</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
 </code></pre></div>
 
-<p>与<a href="#refheading31250117925167"><u><span style="color: #0563c1">第 2.3</span></u></a> 节中介绍的同步接口相比，其区别如下：</p>
+<p>与第<a href="#refheading31250117925167"><u><span style="color: #0563c1"> 2.3</span></u></a> 节中介绍的同步接口相比，主要区别如下：</p>
 <ul>
-  <li><a href="#refheading31250117925167"><u><span style="color: #0563c1">第 2.3</span></u></a> 节中介绍的 [UiResponse] 类现在已成为 [getAleas] 方法的参数之一（第 6 行）。原因在于，由于请求现在并行运行，且服务会在返回结果前等待一段随机时间，因此响应不会按请求的顺序返回给我们。 因此，我们传递 [UiResponse] 对象，该对象包含请求 ID 等信息：
+  <li><a href="#refheading31250117925167"><u><span style="color: #0563c1">第 2.3</span></u></a> 节中介绍的 [UiResponse] 类现已成为 [getAleas] 方法的参数（第 6 行）。 原因在于，由于请求现在并行执行，且服务在返回结果前会等待随机时间，因此响应不会按请求顺序返回。因此，我们需要传递包含请求编号等信息的 [UiResponse] 对象：
   </li>
 </ul>
 
 <div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-text">
-<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// id du client (requête)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// 客户端 ID（请求）</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">int</span><span style="color:#000000"> </span><span style="color:#0000c0">idClient</span><span style="color:#000000">;</span></span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// réponse du service</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// 服务响应</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> ServiceResponse </span><span style="color:#0000c0">serviceResponse</span><span style="color:#000000">;</span></span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// nom du thread d&#x27;observation</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// 观察线程名称</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> String </span><span style="color:#0000c0">observedOn</span><span style="color:#000000">;</span></span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// heure de la requête</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// 请求时间</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> String </span><span style="color:#0000c0">requestAt</span><span style="color:#000000">;</span></span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// heure de la réponse</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// 响应时间</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> String </span><span style="color:#0000c0">responseAt</span><span style="color:#000000">;</span></span></span>
 </code></pre></div>
 
 <ul>
-  <li>该异步服务的响应类型为 [Observable&lt;UiResponse&gt;]。类型 [Observable&lt;&gt;] 由 Rx 库提供。结果 [Observable&lt;UiResponse&gt;] 表示 [getAleas] 方法提供了一个 [UiResponse] 类型的值流，这些值会被逐个推送给其观察者；
+  <li>异步服务的响应类型为 [Observable&lt;UiResponse&gt;]。[Observable&lt;&gt;] 类型由 Rx 库提供。 类型为 [Observable&lt;UiResponse&gt;] 的结果表明，方法 [getAleas] 提供了一个类型为 [UiResponse] 的值流，这些值会被逐个<b>推送</b>（pushed）到其观察者；
   </li>
 </ul>
 
-<p>现在让我们看看该接口的实现：</p>
+<p>现在，让我们来看一下该接口的实现：</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-javascript">
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">class</span><span style="color:#000000"> RxService </span><span style="font-weight:bold;color:#7f0055">implements</span><span style="color:#000000"> IRxService {</span></span></span>
-<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// service</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// 服务</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> IService </span><span style="color:#0000c0">service</span><span style="color:#000000">;</span></span></span>
-<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// manufacturer</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// 构造函数</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> RxService(IService </span><span style="color:#6a3e3e">service</span><span style="color:#000000">) {</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">this</span><span style="color:#000000">.</span><span style="color:#0000c0">service</span><span style="color:#000000"> = </span><span style="color:#6a3e3e">service</span><span style="color:#000000">;</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">  }</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="color:#646464">@Override</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> Observable&lt;UiResponse&gt; getAleas(</span><span style="font-weight:bold;color:#7f0055">int</span><span style="color:#000000"> </span><span style="color:#6a3e3e">a</span><span style="color:#000000">, </span><span style="font-weight:bold;color:#7f0055">int</span><span style="color:#000000"> </span><span style="color:#6a3e3e">b</span><span style="color:#000000">, </span><span style="font-weight:bold;color:#7f0055">int</span><span style="color:#000000"> </span><span style="color:#6a3e3e">minCount</span><span style="color:#000000">, </span><span style="font-weight:bold;color:#7f0055">int</span><span style="color:#000000"> </span><span style="color:#6a3e3e">maxCount</span><span style="color:#000000">, </span><span style="font-weight:bold;color:#7f0055">int</span><span style="color:#000000"> </span><span style="color:#6a3e3e">minDelay</span><span style="color:#000000">, </span><span style="font-weight:bold;color:#7f0055">int</span><span style="color:#000000"> </span><span style="color:#6a3e3e">maxDelay</span><span style="color:#000000">, UiResponse </span><span style="color:#6a3e3e">uiResponse</span><span style="color:#000000">) {</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">return</span><span style="color:#000000"> Observable.</span><span style="font-style:italic;color:#000000">create</span><span style="color:#000000">(</span><span style="color:#6a3e3e">subscriber</span><span style="color:#000000"> -&gt; {</span></span></span>
@@ -1083,38 +1086,38 @@
 </code></pre></div>
 
 <ul>
-  <li>第 7–9 行：我们向构造函数传入同步接口 [IService] 的引用。该接口将负责生成随机数；
+  <li>第 7-9 行：向构造函数提供同步接口 [IService] 的引用。该接口将负责生成随机数；
   </li>
-  <li>由 [getAleas] 方法返回的可观察对象通过静态方法 [Observable.create] 构建。该方法允许我们基于<b>同步</b>实现构建<b>异步</b>实现；
+  <li>由方法 [getAleas] 返回的可观察对象，是由静态方法 [Observable.create] 构建的。正是该方法允许基于<b>同步</b>实现构建<b>异步</b>实现；
   </li>
-  <li>第 13 行：静态方法 [Observable.create] 的参数是一个 lambda 函数，该函数接受 [Subscriber] 类型作为参数，这同样是一个 Rx 类型。[Subscriber] 是一个订阅可观察对象流的对象，即订阅异步传输的数据流。在此，我们使用该订阅器的三个方法：
+  <li>第 13 行：静态方法 [Observable.create] 的参数在此处是一个 lambda 函数，该函数接收一个 [Subscriber] 类型的参数，这同样是一个 Rx 类型。 [Subscriber] 是一个订阅可观察对象流的对象，即订阅异步交付的数据流。此处使用了该订阅者的三个方法：
     <ul>
-      <li>[Subscriber.onNext] 用于向其传递数据（第 16 行）；
+      <li>[Subscriber.onNext] 用于向其发送数据（第 16 行）；
       </li>
       <li>[Subscriber.onError] 用于向其发送异常（第 18 行）；
       </li>
-      <li>[Subscriber.onCompleted] 用于告知订阅者数据流已结束（第 20 行）；
+      <li>[Subscriber.onCompleted] 用于通知订阅者数据流已结束（第 20 行）；
       </li>
     </ul>
   </li>
 </ul>
 
-<p>同一个可观察对象可以有多个订阅者。在此，我们仅有一个订阅者订阅单条数据流，即第 15–16 行生成的数据。该数据由服务的同步实现生成（第 15 行），并返回给订阅者（第 16 行）。</p>
-<p>即使这一切仍有些晦涩难懂，但人们仍会为该服务的这种异步实现所展现出的极致简洁性而惊叹。</p>
-<p><a id="refheading36611510222748"></a></p>
+<p>同一个可观察对象可能有多个订阅者。在此，我们仅有一个订阅者，他订阅的是由第15-16行生成的单一数据流。该数据由服务的同步实现生成（第15行），并传递给订阅者（第16行）。</p>
+<p>尽管这一切可能仍令人费解，但该服务的异步实现所展现出的极致简洁性确实令人惊叹。</p>
+<p><span id="refheading36611510222748" name="refheading36611510222748" class="odt-bookmark-anchor"></span></p>
 <h2 id="27">2.7. <span style="color: #4f81bd">异步调用</span></h2>
-<p><img src="images/10000000000003680000015623D3D1A0.png" width="436" height="171" style="width:11.531cm;height:4.523cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000003680000015623D3D1A0.png" /></p>
-<p>接下来，我们将考察由 [swing] 层对 [2] 服务发出的同步调用 [5]：</p>
+<p><img src="images/10000000000003680000015623D3D1A0.png" width="436" height="171" style="width:11.531cm;height:4.521cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000003680000015623D3D1A0.png" /></p>
+<p>现在我们详细说明 [swing] 层对 [2] 服务发起的同步调用 [5]：</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> doGenerateWithRxService() {</span></span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// start waiting</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// 等待开始</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">        beginWaiting();</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// we ask for the random numbers</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// 请求随机数</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        Observable&lt;UiResponse&gt; </span><span style="color:#6a3e3e">observables</span><span style="color:#000000"> = Observable.</span><span style="font-style:italic;color:#000000">empty</span><span style="color:#000000">();</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="font-weight:bold;color:#7f0055">for</span><span style="color:#000000"> (</span><span style="font-weight:bold;color:#7f0055">int</span><span style="color:#000000"> </span><span style="color:#6a3e3e">i</span><span style="color:#000000"> = 0; </span><span style="color:#6a3e3e">i</span><span style="color:#000000"> &lt; </span><span style="color:#0000c0">nbRequests</span><span style="color:#000000">; </span><span style="color:#6a3e3e">i</span><span style="color:#000000">++) {</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            UiResponse </span><span style="color:#6a3e3e">uiResponse</span><span style="color:#000000"> = </span><span style="font-weight:bold;color:#7f0055">new</span><span style="color:#000000"> UiResponse();</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            </span><span style="color:#6a3e3e">uiResponse</span><span style="color:#000000">.setIdClient(</span><span style="color:#6a3e3e">i</span><span style="color:#000000">);</span></span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">            <span style="color:#000000">// scheduler</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            <span style="color:#000000">// 调度器</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            </span><span style="font-weight:bold;color:#7f0055">int</span><span style="color:#000000"> </span><span style="color:#6a3e3e">schedulerIndex</span><span style="color:#000000"> = </span><span style="color:#0000c0">jComboBoxSchedulers</span><span style="color:#000000">.getSelectedIndex();</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            </span><span style="font-weight:bold;color:#7f0055">switch</span><span style="color:#000000"> (</span><span style="color:#6a3e3e">schedulerIndex</span><span style="color:#000000">) {</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            </span><span style="font-weight:bold;color:#7f0055">case</span><span style="color:#000000"> 0:</span></span></span>
@@ -1128,11 +1131,11 @@
 </code></pre></div>
 
 <ul>
-  <li>第 6–10 行：执行用户请求的 [nbRequests] 个请求；
+  <li>第6-10行：执行用户请求的[nbRequests]请求；
   </li>
-  <li>第 7–8 行：准备异步服务 [getAleas] 方法（第 13 行）所需的 [UiResponse] 对象。这主要涉及记录请求的 [idClient]；
+  <li>第7-8行：准备异步服务方法[getAleas]（第13行）所需的[UiResponse]对象。这主要是记录请求的[idClient]编号；
   </li>
-  <li>第 13 行：调用异步服务的 [getAleas] 方法。该方法返回一个 [Observable&lt;UiResponse&gt;] 对象。此调用<b>尚未触发</b>同步服务。让我们回到异步 [getAleas] 的代码：
+  <li>第 13 行：调用异步服务的 [getAleas] 方法。该方法返回一个 [Observable&lt;UiResponse&gt;] 对象。此调用<b>尚未调用</b>同步服务。让我们回到异步 [getAleas] 的代码：
   </li>
 </ul>
 
@@ -1152,14 +1155,14 @@
 <span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
 </code></pre></div>
 
-<p>第 4 至 11 行的代码（调用同步服务）仅在订阅者注册时才会执行。只要没有订阅者，这段代码就不会被执行。</p>
+<p>第 4-11 行将调用同步服务的代码仅在有订阅者注册时才会执行。只要没有订阅者，该代码就不会被执行。</p>
 <p>让我们回到 [doGenerateWithRxService] 方法的代码：</p>
 <ul>
-  <li>第 5 行：我们创建一个空的 Observable（未观察任何内容）；
+  <li>第 5 行：创建一个空的可观察对象（未观察任何内容）；
   </li>
-  <li>第 13 行：我们创建一个 Observable，其数据流将合并与 [nbRequests] 请求关联的 [nbRequests] 个异步数据流。这是通过 [Observable.mergeWith] 方法实现的，该方法允许合并两个异步数据流。 在 Rx 术语中，[mergeWith] 被称为<b>流操作符</b>。这类操作符的特点是，其运算结果在大多数情况下是另一个 [Observable]。最终，在第 17 行之后，变量 [observables] 指代一个由异步服务发出的 [nbRequests] 个异步响应组成的单一数据流；
+  <li>第 13 行：创建一个可观察对象，其数据流将合并 [nbRequests] 方法中与 [nbRequests] 请求关联的异步数据流。这通过 [Observable.mergeWith] 方法实现，该方法可合并两个异步数据流。 在 Rx 术语中，[mergeWith] 被称为流操作符。这类操作符的特点在于，其运算结果通常又是一个 [Observable]。 最终，在第17行之后，变量[observables]指代由异步服务返回的[nbRequests]异步响应构成的单一数据流；
   </li>
-  <li>第 13 行：合并操作也可以这样写：
+  <li>第13行：合并操作本可以写成：
   </li>
 </ul>
 
@@ -1172,20 +1175,20 @@
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#6a3e3e">observables</span><span style="color:#000000"> = </span><span style="color:#6a3e3e">observables</span><span style="color:#000000">.mergeWith(</span><span style="color:#0000c0">rxService</span><span style="color:#000000">.getAleas(</span><span style="color:#0000c0">a</span><span style="color:#000000">, </span><span style="color:#0000c0">b</span><span style="color:#000000">, </span><span style="color:#0000c0">minCount</span><span style="color:#000000">, </span><span style="color:#0000c0">maxCount</span><span style="color:#000000">, </span><span style="color:#0000c0">minDelay</span><span style="color:#000000">, </span><span style="color:#0000c0">maxDelay</span><span style="color:#000000">, </span><span style="color:#6a3e3e">uiResponse</span><span style="color:#000000">).subscribeOn(Schedulers.</span><span style="font-style:italic;color:#000000">io</span><span style="color:#000000">()));</span></span></span>
 </code></pre></div>
 
-<p>在此，我们对可观察对象 [<span style="color: #0000c0">rxService</span><span style="color: #000000">.getAleas</span>] 使用了 [subscribeOn] 运算符。与通常情况一样，其结果仍是可观察对象。 [subscribeOn] 运算符指定该可观察对象必须在 [Scheduler] 提供的线程中执行。有几种可能的 [Scheduler] 适用于不同的情况。在 GUI 中，我们提供了几个选项以展示它们之间的差异：</p>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000100000000976D8F4B0B.png" width="179" height="106" style="display:inline-block; margin:4px;width:4.74cm;height:2.796cm;" class="odt-zoomable" data-zoom-src="images/1000000000000100000000976D8F4B0B.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
+<p>此处我们在可观察对象 [rxService.getAleas] 上使用了运算符 [subscribeOn]。与通常情况一样，结果再次是一个可观察对象。 运算符 [subscribeOn] 用于指定该可观察对象必须在由 [Scheduler] 提供的线程中执行。 有多种适用于不同场景的 [Scheduler] 可供选择。在图形界面中，我们提供了几种选项以便观察它们各自的效果：</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/1000000000000100000000976D8F4B0B.png" width="179" height="106" style="display:inline-block; margin:4px;width:4.74cm;height:2.799cm;" class="odt-zoomable" data-zoom-src="images/1000000000000100000000976D8F4B0B.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;">&nbsp;</td></tr></table>
 
 <p>这将生成以下代码：</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> doGenerateWithRxService() {</span></span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// start waiting</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// 开始等待</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">        beginWaiting();</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// we ask for the random numbers</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// 请求随机数</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        Observable&lt;UiResponse&gt; </span><span style="color:#6a3e3e">observables</span><span style="color:#000000"> = Observable.</span><span style="font-style:italic;color:#000000">empty</span><span style="color:#000000">();</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="font-weight:bold;color:#7f0055">for</span><span style="color:#000000"> (</span><span style="font-weight:bold;color:#7f0055">int</span><span style="color:#000000"> </span><span style="color:#6a3e3e">i</span><span style="color:#000000"> = 0; </span><span style="color:#6a3e3e">i</span><span style="color:#000000"> &lt; </span><span style="color:#0000c0">nbRequests</span><span style="color:#000000">; </span><span style="color:#6a3e3e">i</span><span style="color:#000000">++) {</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            UiResponse </span><span style="color:#6a3e3e">uiResponse</span><span style="color:#000000"> = </span><span style="font-weight:bold;color:#7f0055">new</span><span style="color:#000000"> UiResponse();</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            </span><span style="color:#6a3e3e">uiResponse</span><span style="color:#000000">.setIdClient(</span><span style="color:#6a3e3e">i</span><span style="color:#000000">);</span></span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">            <span style="color:#000000">// scheduler</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            <span style="color:#000000">// 调度器</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            </span><span style="font-weight:bold;color:#7f0055">int</span><span style="color:#000000"> </span><span style="color:#6a3e3e">schedulerIndex</span><span style="color:#000000"> = </span><span style="color:#0000c0">jComboBoxSchedulers</span><span style="color:#000000">.getSelectedIndex();</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            </span><span style="font-weight:bold;color:#7f0055">switch</span><span style="color:#000000"> (</span><span style="color:#6a3e3e">schedulerIndex</span><span style="color:#000000">) {</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            </span><span style="font-weight:bold;color:#7f0055">case</span><span style="color:#000000"> 0:</span></span></span>
@@ -1209,32 +1212,32 @@
 <span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
 </code></pre></div>
 
-<p>让我们重新审视第 12–14 行的代码。调度器 [Schedulers.io()] 为每个可观察对象分配一个新线程。如果我们追踪代码：</p>
+<p>让我们回顾第12-14行的代码。调度器[Schedulers.io()]为每个可观察对象分配一个新的线程。如果我们追踪代码：</p>
 <ul>
-  <li>第 5 行：我们有一个空的可观察对象；
+  <li>第 5 行：有一个空的可观察对象；
   </li>
-  <li>第 13 行，第 1 次迭代：<i>observables </i>是列表 [observable0/thread0]（在线程 <i>thread0</i> 上运行的 Observable <i>observable0</i>）；
+  <li>第13行，第1次迭代：observables即为列表[observable0/thread0]（<i>在线程thread0上</i>执行的可观察<i>对象observable0</i>）；
   </li>
-  <li>第 13 行，第 2 次迭代：<i>observables</i> 是一个列表 [observable0/thread0, observable1/thread1]；
+  <li>第 13 行，第 2 次迭代：<i>observables </i>是列表 [observable0/thread0, observable1/thread1]；
   </li>
   <li>等等……
   </li>
 </ul>
 
-<p>最终，在第 28 行之后，我们得到一个由 [nbRequests] 个在 [nbRequests] <strong>个不同线程上</strong>运行的可观察对象合并而成的可观察对象。并非所有调度器都按此方式工作，这一点我们将在测试过程中看到。</p>
-<p>让我们继续分析调用异步服务的代码：</p>
+<p>最终，在第28行之后，我们得到一个可观察对象，它是运行在<strong>不同[nbRequests]线程上的</strong>[nbRequests]可观察对象合并的结果。正如我们在测试中将看到的，并非所有调度器都以这种方式工作。</p>
+<p>让我们继续研究异步服务的调用代码：</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> doGenerateWithRxService() {</span></span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// start waiting</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// 开始等待</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">        beginWaiting();</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// we ask for the random numbers</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// 请求随机数</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        Observable&lt;UiResponse&gt; </span><span style="color:#6a3e3e">observables</span><span style="color:#000000"> = Observable.</span><span style="font-style:italic;color:#000000">empty</span><span style="color:#000000">();</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="font-weight:bold;color:#7f0055">for</span><span style="color:#000000"> (</span><span style="font-weight:bold;color:#7f0055">int</span><span style="color:#000000"> </span><span style="color:#6a3e3e">i</span><span style="color:#000000"> = 0; </span><span style="color:#6a3e3e">i</span><span style="color:#000000"> &lt; </span><span style="color:#0000c0">nbRequests</span><span style="color:#000000">; </span><span style="color:#6a3e3e">i</span><span style="color:#000000">++) {</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">        ...</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">        }</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// observer</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// 观察者</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#6a3e3e">observables</span><span style="color:#000000"> = </span><span style="color:#6a3e3e">observables</span><span style="color:#000000">.observeOn(SwingScheduler.</span><span style="font-style:italic;color:#000000">getInstance</span><span style="color:#000000">());</span></span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// these observables are executed</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// 执行这些可观察对象</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#0000c0">subscriptions</span><span style="color:#000000">.add(</span><span style="color:#6a3e3e">observables</span><span style="color:#000000">.subscribe(</span><span style="color:#6a3e3e">uiResponse</span><span style="color:#000000"> -&gt; {</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            updateUi(</span><span style="color:#6a3e3e">uiResponse</span><span style="color:#000000">);</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        } , </span><span style="color:#6a3e3e">th</span><span style="color:#000000"> -&gt; {</span></span></span>
@@ -1245,35 +1248,35 @@
 </code></pre></div>
 
 <ul>
-  <li>我们已经看到，当执行到第 10 行时，我们有一个单一的可观察对象，它是 [nbRequests] 个可观察对象的合并结果，这些可观察对象可能会在 [nbRequests] 个不同的线程上运行，也可能不会，这取决于用户选择的调度器；
+  <li>我们看到，当到达第 10 行时，存在一个单一的可观察对象，它是 [nbRequests] 个可观察对象的合并结果，这些对象可能在 [nbRequests] 个不同的线程上运行，也可能不在，这取决于用户选择的调度器；
   </li>
-  <li>第 10 行：[observeOn] 运算符允许我们指定从哪个线程检索可观察对象的数据，在本例中是类型为 [UiResponse] 的 [nbRequests] 对象。在 Swing 界面中，我们别无选择。 对界面的任何更新都必须在<i>事件循环</i>线程中进行。在此，可观察对象的数据将显示在 Swing JList 组件中。[SwingScheduler.getInstance()] 表示<i>事件循环</i>线程。[SwingScheduler] 类并非来自 RxJava 库，而是来自 RxSwing 库；
+  <li>第 10 行：[observeOn] 运算符用于指定从哪个线程获取来自可观察对象的数据，此处为 [nbRequests] 类型的对象。 在 Swing 界面中，我们别无选择。界面的任何更新都必须在<i>事件循环</i>线程中进行。在此，可观察对象的数据将显示在 Swing 组件 JList 中。 线程 [SwingScheduler.getInstance()]<i> 代表事件循环线程</i>。类 [SwingScheduler] 并非来自库 RxJava，而是来自其派生库 RxSwing；
   </li>
-  <li>当执行到第 12 行时，同步服务仍未被调用，因为第 10 行的可观察对象尚未拥有订阅者。第 12–17 行通过 [subscribe] 运算符提供了一个订阅者。该运算符的参数是三个 lambda 函数：
+  <li>当执行到第12行时，同步服务仍未被调用，因为第10行的可观察对象尚未拥有订阅者。第12至17行通过运算符[subscribe]为其添加了一个订阅者。该运算符的参数在此处是三个lambda函数：
     <ul>
-      <li>第一个 [<i>uiResponse -&gt; {updateUi(uiResponse);}</i>] 将可观察对象生成的 [UiResponse] 对象之一作为参数。请注意，此处将有 [nbRequests] 个此类对象。关联方法（本例中为<i> updateUi</i>）必须处理该结果；
+      <li>第一个 [uiResponse -&gt; {updateUi(uiResponse);}] 接受可观察对象生成的 [UiResponse] 对象作为参数。 需要提醒的是，此处将生成 [nbRequests] 个此类对象。关联的方法（此处为 <i>updateUi</i>）必须利用该结果；
       </li>
-      <li>第二个 [<i>th -&gt; {System.out.println(th);doCancel();}</i>] 将 [Throwable] 类型作为参数，此处指可观察对象执行过程中发生的异常。关联方法必须处理此信息。在此，我们将其显示在控制台上（第 15 行）并取消执行，这将更新 GUI 的某些元素；
+      <li>第二个 [th -&gt; {System.out.println(th);doCancel();}] 方法接受类型为 [Throwable] 的参数，此处表示在可观察对象执行过程中发生的异常。关联的方法必须利用此信息。 在此，我们将该信息显示在控制台上（第 15 行），并中止执行，这将导致图形用户界面的某些元素被更新；
       </li>
-      <li>第三个 [<i>this::doCancel</i>] 在可观察对象发出已无数据可传输的信号时被调用。此处，该可观察对象是 [nbRequests] 个可观察对象的并集。当构成它的所有可观察对象都已发出工作完成的信号时，该结果可观察对象将指示其已完成。 因此，当这个第三个 lambda 函数被执行时，我们已经接收到了所有数据。本地方法 [doCancel] 会更新 GUI 以反映执行已完成；
+      <li>当可观察对象报告已无数据可传输时，将调用第三个 [this::doCancel]。此处，该可观察对象是由 [nbRequests] 可观察对象组合而成的。 当所有组成它的可观察对象都已报告完成工作时，结果可观察对象才会指示其已完成。因此，当这个第三个lambda函数被执行时，意味着我们已接收到了所有数据。本地方法 [doCancel] 会更新图形界面，以反映执行已完成；
       </li>
     </ul>
   </li>
 </ul>
 
-<p>[subscriptions] 变量定义如下：</p>
+<p>变量 [subscriptions] 的定义如下：</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
-<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// les souscriptions aux observables</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// 对可观察量的订阅</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">protected</span><span style="color:#000000"> List&lt;Subscription&gt; </span><span style="color:#0000c0">subscriptions</span><span style="color:#000000"> = </span><span style="font-weight:bold;color:#7f0055">new</span><span style="color:#000000"> ArrayList&lt;Subscription&gt;();</span></span></span>
 </code></pre></div>
 
-<p>[Subscription] 类型表示一个订阅，即订阅者 [Subscriber] 与其所观察的对象 [Observable] 之间的关联。虽然本例中仅有一个订阅，但我们在此使用了订阅列表。当可观察对象发出已无数据可传输的信号时，将执行局部方法 [doCancel]，其实现如下：</p>
+<p>类型 [Subscription] 代表一个订阅，即订阅者 [Subscriber] 与其所观察对象 [Observable] 之间的关联。 此处我们使用了一个订阅列表，尽管在这个示例中只有一个订阅。当可观察对象报告已无数据可传输时，将执行本地方法 [doCancel]，其代码如下：</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-sql">
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#646464">@Override</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">protected</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> doCancel() {</span></span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// fin attente</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// 等待结束</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">        endWaiting();</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// dans le cas de souscriptions</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// 在订阅的情况下</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="font-weight:bold;color:#7f0055">if</span><span style="color:#000000"> (</span><span style="color:#0000c0">jCheckBoxRxSwing</span><span style="color:#000000">.isSelected() &amp;&amp; </span><span style="color:#0000c0">subscriptions</span><span style="color:#000000"> != </span><span style="font-weight:bold;color:#7f0055">null</span><span style="color:#000000">) {</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            </span><span style="color:#0000c0">subscriptions</span><span style="color:#000000">.forEach(Subscription::unsubscribe);</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">        }</span></span>
@@ -1285,25 +1288,25 @@
   </li>
 </ul>
 
-<p>通过这简短的说明，我们可以总结出以下要点：</p>
+<p>从这一简要说明中，我们可以总结出以下关键点：</p>
 <ul>
-  <li>类型 [Observable] 表示一个值流，这些值会逐个推送给订阅者或观察者；
+  <li>类型 [Observable] 表示一个值流，这些值会被逐个推送给订阅者或观察者；
   </li>
-  <li>类型 [Subscriber] 表示 [Observable] 类型的订阅者；
+  <li>类型 [Subscriber] 表示类型为 [Observable] 的订阅者；
   </li>
-  <li>[Subscription] 类型表示一个订阅，即 [Subscriber] 与 [Observable] 之间的关联；
+  <li>类型 [Subscription] 表示一个订阅，即 [Subscriber] 与 [Observable] 之间的关联；
   </li>
-  <li>[Observable] 类型支持 [<i>mergeWith, empty, subscribeOn, observeOn, ...</i>] 等操作符，其中大部分会生成可观察对象。这些操作符用于<b>在可观察对象运行前</b>对其<b>进行配置</b>： 
+  <li>类型 [Observable] 支持 [mergeWith, empty, subscribeOn, observeOn, ...] 操作符，其中大多数会生成可观测量。这些操作符用于<b>在</b>可观测量<b>执行前</b>对其<b>进行配置</b>： 
     <ul>
-      <li>观察什么；
+      <li>要观察的内容；
       </li>
       <li>可观察对象运行的线程；
       </li>
-      <li>订阅者从可观察对象接收数据的线程；
+      <li>订阅者接收可观察对象数据的线程；
       </li>
     </ul>
   </li>
-  <li>可观察对象有两种类型：[<b>cold</b>] 和 [hot]。冷可观察对象（<b>cold</b> observable）会为每个新订阅者完全执行一次。如果每次执行产生相同的数据，则每个新订阅者接收的数据与前一个订阅者相同。热可观察对象（<b>hot</b> observable）通常会持续产生数据。当订阅者订阅时，他们接收的是从订阅时刻起发出的数据，而不会接收之前可能已发出的数据。 在我们的示例中，该可观察对象是<b>冷的</b>：对于每个新订阅者，它都会被完全重新执行。我们的示例中实际执行了什么？要弄清楚这一点，我们需要回到被观察的可观察对象的定义：
+  <li>可区分两种类型的可观察对象：[froid / cold] 和 [chaud / hot]。<b>冷可观察</b>对象会在每个新订阅者加入时完全执行一次。如果每次执行产生相同的数据，则每个新订阅者接收的数据与前一个订阅者相同。 <b>热</b>可观察对象通常会持续生成数据。当订阅者订阅时，他将收到自订阅时间起发布的数据。他不会收到之前可能发布的数据。 在本例中，该可观察对象属于<b>冷可观察对象</b>：每次有新订阅者加入时，它都会被完全重新执行。本例中究竟执行了什么？要了解这一点，我们需要回顾被观察的可观察对象的定义：
   </li>
 </ul>
 
@@ -1323,152 +1326,152 @@
 <span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
 </code></pre></div>
 
-<p>对于每个新的订阅者，作为 [Observable.create] 方法参数的 lambda 函数（第 3 行）都会被重新执行。因此，第 4–11 行代码会针对每个新的订阅者 [subscriber] 执行；</p>
-<p><a id="refheading194761002124660"></a></p>
-<h2 id="28">2.8. <span style="color: #4f81bd">测试异步调用</span></h2>
-<p>首先，我们将演示不同调度程序的效果。为此，我们使用以下参数：</p>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000002E6000001E909429A6C.png" width="371" height="244" style="display:inline-block; margin:4px;width:9.811cm;height:6.466cm;" class="odt-zoomable" data-zoom-src="images/10000000000002E6000001E909429A6C.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
+<p>每当有新订阅者加入时，[Observable.create] 方法的参数（第 3 行）——该 lambda 函数——就会被重新执行。因此，对于每个新订阅者 [subscriber]，执行的都是第 4-11 行代码；</p>
+<p><span id="refheading194761002124660" name="refheading194761002124660" class="odt-bookmark-anchor"></span></p>
+<h2 id="28">2.8. <span style="color: #4f81bd">异步调用的测试</span></h2>
+<p>首先，我们将展示不同调度程序的效果。为此，我们使用以下参数：</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/10000000000002E6000001E909429A6C.png" width="371" height="245" style="display:inline-block; margin:4px;width:9.811cm;height:6.47cm;" class="odt-zoomable" data-zoom-src="images/10000000000002E6000001E909429A6C.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;">&nbsp;</td></tr></table>
 
-<p>我们将 [1-2] 设置为较小的数值，这样即使请求在同一个线程上执行，我们也不必等待太久。</p>
-<p><a id="refheading375671026374387"></a></p>
-<h3 id="281-schedulersio">2.8.1. <span style="color: #4f81bd"><strong><span style="color: #4f81bd">使用 [Schedulers.io] 调度器</span></strong></span></h3>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000002E6000001E9324768EB.png" width="519" height="342" style="display:inline-block; margin:4px;width:13.741cm;height:9.056cm;" class="odt-zoomable" data-zoom-src="images/10000000000002E6000001E9324768EB.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
+<p>我们在 [1-2] 中设置较小的数值，以便即使请求在同一个线程上执行，等待时间也不会过长。</p>
+<p><span id="refheading375671026374387" name="refheading375671026374387" class="odt-bookmark-anchor"></span></p>
+<h3 id="281-schedulersio">2.8.1. <span style="color: #4f81bd">使用调度器 [Schedulers.io]</span></h3>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/10000000000002E6000001E9324768EB.png" width="519" height="342" style="display:inline-block; margin:4px;width:13.741cm;height:9.051cm;" class="odt-zoomable" data-zoom-src="images/10000000000002E6000001E9324768EB.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;">&nbsp;</td></tr></table>
 
-<p>需要注意以下几点：</p>
+<p>可以注意到以下几点：</p>
 <ul>
-  <li>响应的接收顺序与请求的顺序不一致（参见 <i>idClient</i>）；
+  <li>响应的返回顺序与请求顺序不一致（参见 <i>idClient</i>）；
   </li>
-  <li>每个请求都在不同的线程中运行；
+  <li>每个请求都在不同的线程中执行；
   </li>
-  <li>此次 GUI 不再卡死：
+  <li>此次图形界面不再是静态的：
     <ul>
-      <li>可以切换标签页；
+      <li>可以在不同标签页之间切换；
       </li>
       <li>可以看到数据正在传入；
       </li>
-      <li>由于执行速度过快，来不及看到 [取消] 按钮。我们将在另一项测试中重点展示这一点；
+      <li>由于执行速度过快，来不及看到 [Annuler] 按钮。我们将在另一项测试中突出显示该按钮；
       </li>
     </ul>
   </li>
 </ul>
 
-<p><a id="refheading375691026374387"></a></p>
-<h3 id="282-schedulerscomputation">2.8.2. <span style="color: #4f81bd"><strong><span style="color: #4f81bd">使用 [Schedulers.computation] 调度器</span></strong></span></h3>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000002E6000001E9F9835147.png" width="519" height="342" style="display:inline-block; margin:4px;width:13.741cm;height:9.056cm;" class="odt-zoomable" data-zoom-src="images/10000000000002E6000001E9F9835147.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
+<p><span id="refheading375691026374387" name="refheading375691026374387" class="odt-bookmark-anchor"></span></p>
+<h3 id="282-schedulerscomputation">2.8.2. <span style="color: #4f81bd">使用调度程序 [Schedulers.computation]</span></h3>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/10000000000002E6000001E9F9835147.png" width="519" height="342" style="display:inline-block; margin:4px;width:13.741cm;height:9.051cm;" class="odt-zoomable" data-zoom-src="images/10000000000002E6000001E9F9835147.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;">&nbsp;</td></tr></table>
 
-<p>需要注意以下几点：</p>
+<p>可以注意到以下几点：</p>
 <ul>
-  <li>响应的接收顺序与请求的顺序不一致（参见 idClient）；
+  <li>响应的返回顺序与请求顺序不一致（参见 idClient）；
   </li>
-  <li>请求是在 8 个线程中执行的；
+  <li>请求在 8 个线程中执行；
   </li>
   <li>第 3 个线程用于处理请求 8 和 0；
   </li>
-  <li>线程 #4 用于处理请求 9 和 1；
+  <li>第4个线程用于处理第9和第1个请求；
   </li>
-  <li>其他请求各自都有一个不同的线程；
+  <li>其余请求各自分配了不同的线程；
   </li>
 </ul>
 
-<p>调度器 [Schedulers.computation] 使用的线程数等于当前机器的核心数。该信息通过表达式 [<em>Runtime.getRuntime().availableProcessors()</em>] 获取。</p>
-<p><a id="refheading375711026374387"></a></p>
-<h3 id="283-schedulersnewthread">2.8.3. <span style="color: #4f81bd"><strong>使用 [Schedulers.newThread] 调度器</strong></span></h3>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000002E6000001E9B2CF1823.png" width="519" height="342" style="display:inline-block; margin:4px;width:13.741cm;height:9.056cm;" class="odt-zoomable" data-zoom-src="images/10000000000002E6000001E9B2CF1823.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
+<p>调度程序 [Schedulers.computation] 使用的线程数与所用机器的核心数相同。该信息由表达式 [Runtime.getRuntime().availableProcessors()] 获取。</p>
+<p><span id="refheading375711026374387" name="refheading375711026374387" class="odt-bookmark-anchor"></span></p>
+<h3 id="283-schedulersnewthread">2.8.3. <span style="color: #4f81bd">使用调度程序 [Schedulers.newThread]</span></h3>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/10000000000002E6000001E9B2CF1823.png" width="519" height="342" style="display:inline-block; margin:4px;width:13.741cm;height:9.051cm;" class="odt-zoomable" data-zoom-src="images/10000000000002E6000001E9B2CF1823.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;">&nbsp;</td></tr></table>
 
-<p>其行为与 [Schedulers.io] 调度器类似。</p>
-<p><a id="refheading375731026374387"></a></p>
-<h3 id="284-schedulerstrampoline-schedulersimmediate">2.8.4. <span style="color: #4f81bd">使用调度器 [Schedulers.trampoline, Schedulers.immediate]</span></h3>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000002E6000001E9520BE310.png" width="519" height="342" style="display:inline-block; margin:4px;width:13.741cm;height:9.056cm;" class="odt-zoomable" data-zoom-src="images/10000000000002E6000001E9520BE310.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
+<p>其运行方式与调度程序 [Schedulers.io] 类似。</p>
+<p><span id="refheading375731026374387" name="refheading375731026374387" class="odt-bookmark-anchor"></span></p>
+<h3 id="284-schedulerstrampoline-schedulersimmediate">2.8.4. <span style="color: #4f81bd">配合调度程序 [Schedulers.trampoline, Schedulers.immediate]</span></h3>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/10000000000002E6000001E9520BE310.png" width="519" height="342" style="display:inline-block; margin:4px;width:13.741cm;height:9.051cm;" class="odt-zoomable" data-zoom-src="images/10000000000002E6000001E9520BE310.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;">&nbsp;</td></tr></table>
 
-<p>该行为是<strong>同步的</strong>。所有请求都在<em>事件循环</em>线程上执行。这一结果不应被泛化；它仅仅意味着在这个具体示例中，这两个调度器都以同步方式运行。</p>
-<p><a id="refheading104088374082361"></a></p>
-<h2 id="29">2.9. <span style="color: #4f81bd">边界情况</span></h2>
-<p>在此示例中，我们将使用支持异步操作的调度器。首先，我们使用 [Schedulers.computation] 调度器将请求数增加到 100 个，该调度器在此处运行于 8 个线程上。我们得到以下结果：</p>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000002E6000001E9751443A1.png" width="519" height="342" style="display:inline-block; margin:4px;width:13.741cm;height:9.056cm;" class="odt-zoomable" data-zoom-src="images/10000000000002E6000001E9751443A1.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
+<p>运行方式为<strong>同步</strong>。所有请求都在<em>事件循环</em>线程上执行。此结果不宜一概而论，仅说明在此具体示例中，这两个调度器以同步方式运行。</p>
+<p><span id="refheading104088374082361" name="refheading104088374082361" class="odt-bookmark-anchor"></span></p>
+<h2 id="29">2.9. <span style="color: #4f81bd">极限情况</span></h2>
+<p>接下来我们将使用支持异步运行的调度器进行测试。首先，我们将请求数量增加到100个，并使用调度器[Schedulers.computation]（该调度器在此使用8个线程）。结果如下：</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/10000000000002E6000001E9751443A1.png" width="519" height="342" style="display:inline-block; margin:4px;width:13.741cm;height:9.051cm;" class="odt-zoomable" data-zoom-src="images/10000000000002E6000001E9751443A1.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;">&nbsp;</td></tr></table>
 
 <ul>
-  <li>在 [1] 中，[取消] 按钮可见且可用（异步操作）；
+  <li>在 [1] 中，[Annuler] 按钮已显示且可使用（异步运行）；
   </li>
 </ul>
 
-<p>现在，让我们让执行过程运行到结束：</p>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000002E6000001E90BB9CC1A.png" width="519" height="342" style="display:inline-block; margin:4px;width:13.741cm;height:9.056cm;" class="odt-zoomable" data-zoom-src="images/10000000000002E6000001E90BB9CC1A.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
+<p>现在，让我们让执行过程进行到底：</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/10000000000002E6000001E90BB9CC1A.png" width="519" height="342" style="display:inline-block; margin:4px;width:13.741cm;height:9.051cm;" class="odt-zoomable" data-zoom-src="images/10000000000002E6000001E90BB9CC1A.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;">&nbsp;</td></tr></table>
 
-<p>我们在[2]中看到，执行这100个请求大约耗时4秒（由8个线程共同完成）。</p>
-<p>现在，让我们使用 [Schedulers.newThread] 调度器来运行这 100 个请求，该调度器会将每个请求分配到单独的线程中执行：</p>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000002E6000001E9586AD45E.png" width="519" height="342" style="display:inline-block; margin:4px;width:13.741cm;height:9.056cm;" class="odt-zoomable" data-zoom-src="images/10000000000002E6000001E9586AD45E.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
+<p>从 [2] 可以看出，执行这 100 个请求大约花了 4 秒钟（在 8 个线程上）。</p>
+<p>现在，让我们使用调度程序 [Schedulers.newThread] 执行这 100 个请求，该调度程序将每个请求分配到一个单独的线程上：</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/10000000000002E6000001E9586AD45E.png" width="519" height="342" style="display:inline-block; margin:4px;width:13.741cm;height:9.051cm;" class="odt-zoomable" data-zoom-src="images/10000000000002E6000001E9586AD45E.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;">&nbsp;</td></tr></table>
 
-<p>在[1]中，我们可以看到执行这100个请求（分布在100个线程上）仅耗时半秒。因此，这比使用[Schedulers.computation]调度器要快得多。</p>
-<p>现在，让我们在相同条件下发起800次请求，仍使用[Schedulers.newThread]调度器。我们得到以下结果：</p>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000002E6000001E9B2E24017.png" width="519" height="342" style="display:inline-block; margin:4px;width:13.741cm;height:9.056cm;" class="odt-zoomable" data-zoom-src="images/10000000000002E6000001E9B2E24017.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
+<p>在 [1] 中，我们可以看到执行这 100 个请求（在 100 个线程上）仅耗时半秒。因此，这比使用调度程序 [Schedulers.computation] 时快得多。</p>
+<p>现在，在相同条件下，使用调度器 [Schedulers.newThread] 执行 800 次请求。结果如下：</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/10000000000002E6000001E9B2E24017.png" width="519" height="342" style="display:inline-block; margin:4px;width:13.741cm;height:9.051cm;" class="odt-zoomable" data-zoom-src="images/10000000000002E6000001E9B2E24017.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;">&nbsp;</td></tr></table>
 
 <p>这800次请求大约在1秒内执行完毕。</p>
-<p>当我们增加这个数量（在我的机器上超过2,500个请求——耗时1.5秒——当然，这个数字在很大程度上取决于运行时环境）时，最终会出现以下异常：</p>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000010800000076BC601725.png" width="185" height="83" style="display:inline-block; margin:4px;width:4.89cm;height:2.185cm;" class="odt-zoomable" data-zoom-src="images/100000000000010800000076BC601725.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
+<p>当增加请求数量（在我的机器上超过 2500 次请求——耗时 1.5 秒——当然，这个数字很大程度上取决于执行时的运行环境）时，最终会出现以下异常：</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/100000000000010800000076BC601725.png" width="185" height="83" style="display:inline-block; margin:4px;width:4.89cm;height:2.191cm;" class="odt-zoomable" data-zoom-src="images/100000000000010800000076BC601725.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;">&nbsp;</td></tr></table>
 
-<p>因此，我们遇到了栈溢出。测试表明，[Schedulers.newThread] 调度器的行为是不确定的。您可能会遇到上述异常，运行新的测试，然后回到引发异常的配置，却不再遇到该异常。</p>
-<p><a id="refheading104090374082361"></a></p>
-<h2 id="210">2.10. <span style="color: #4f81bd">结论</span></h2>
-<p>我们演示了一个使用 Rx 库的示例。让我们总结一下所学内容：</p>
-<p>我们最初采用的是以下架构：</p>
-<p><img src="images/10000000000003680000015623D3D1A0.png" width="436" height="171" style="width:11.531cm;height:4.523cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000003680000015623D3D1A0.png" /></p>
+<p>这表明发生了栈溢出。测试表明，调度程序 [Schedulers.newThread] 的运行并非确定性的。可能先出现上述异常，进行新的测试，随后回到引发异常的配置时，却不再出现该异常。</p>
+<p><span id="refheading104090374082361" name="refheading104090374082361" class="odt-bookmark-anchor"></span></p>
+<h2 id="210-conclusion">2.10. <span style="color: #4f81bd">Conclusion</span></h2>
+<p>我们展示了一个使用 Rx 库的示例。让我们总结一下所学内容：</p>
+<p>我们基于以下架构开始：</p>
+<p><img src="images/10000000000003680000015623D3D1A0.png" width="436" height="171" style="width:11.531cm;height:4.521cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000003680000015623D3D1A0.png" /></p>
 <ul>
-  <li>在 [4] 中，[swing] 层向 [service] 层发起同步调用；
+  <li>在 [4] 中，[swing] 层对 [service] 层进行同步调用；
   </li>
-  <li>在 [5] 中，[swing] 层向 [rxService] 层发起异步调用，而 [rxService] 层随后向 [service] 层发起同步调用 [6]；
+  <li>在 [5] 中， [swing]层向[rxService]层发出异步调用，而[rxService]层又以同步方式调用[6]层来调用[service]层；
   </li>
 </ul>
 
-<p>我们首先注意到的是，Rx 库使得从同步的 [service] 接口创建异步的 [rxService] 接口变得非常简单（参见<a href="#refheading36591510222748"><u><span style="color: #0563c1">第 2.4</span></u></a> 节）。这是一个重要的启示，因为这意味着我们可以轻松地将同步应用程序演进为异步应用程序。</p>
+<p>我们首先注意到的是，Rx 库允许我们基于同步接口 [service] 轻松创建异步接口 [rxService]（参见第<a href="#refheading36591510222748"><u><span style="color: #0563c1"> 2.4</span></u></a> 节）。 这是一个重要的启示，因为这意味着我们可以轻松地将同步应用程序演进为异步应用程序。</p>
 <p>在 [swing] 层中，编写了两个独立的方法：</p>
 <ul>
   <li>一个用于对服务进行同步调用（参见<a href="#refheading36591510222748"><u><span style="color: #0563c1">第 2.4</span></u></a> 节）；
   </li>
-  <li>另一个用于对其进行异步调用（参见<a href="#refheading36611510222748"><u><span style="color: #0563c1">第 2.7</span></u></a> 节）；
+  <li>另一个用于对服务进行异步调用（参见第<a href="#refheading36611510222748"><u><span style="color: #0563c1"> 2.7</span></u></a> 节）；
   </li>
 </ul>
 
-<p>实践证明，编写异步调用比编写同步调用复杂得多。尽管如此，那些曾处理过涉及多线程且需要同步的并发编程的人会发现，Rx 解决方案更易于编写，并且能够避免所有棘手的同步和线程间通信问题。在本文中，我们强调了以下要点：</p>
+<p>事实证明，编写异步调用比编写同步调用复杂得多。不过，对于那些曾进行过多线程并发编程并需要处理同步问题的开发者来说，会发现 Rx 解决方案的编写更为简单，并且能避免所有棘手的线程同步和通信问题。在编写过程中，我们总结了以下要点：</p>
 <ul>
-  <li>[Observable] 类型表示一个事件（值）流，该流可能（但不必）是<b>异步的</b>，且可以被观察；
+  <li>类型 [Observable] 表示一个事件流（值），这些事件可能（但不一定）<b>是异步的</b>，并且可以被观察；
   </li>
-  <li>[Subscriber] 类型表示 [Observable] 类型的订阅者；
+  <li>类型 [Subscriber] 表示对类型 [Observable] 的订阅者；
   </li>
-  <li>[Subscription] 类型表示一个订阅，即 [Subscriber] 与 [Observable] 之间的关联；
+  <li>类型 [Subscription] 表示一个订阅，即 [Subscriber] 与 [Observable] 之间的关联；
   </li>
-  <li>[Observable] 类型支持 [<i>mergeWith、empty、subscribeOn、observeOn 等</i>] 运算符，这些运算符大多会生成可观察对象。这些运算符<b>用于在可观察对象运行前</b>对其<b>进行配置</b>： 
+  <li>类型 [Observable] 支持 [mergeWith, empty, subscribeOn, observeOn, ...] 操作符，其中大多数会生成可观测量。这些操作符用于<b>在</b>可观测量<b>执行前</b>对其<b>进行配置</b>： 
     <ul>
-      <li>观察什么；
+      <li>要观察的内容；
       </li>
       <li>可观察对象运行的线程；
       </li>
-      <li>订阅者从可观察对象接收数据所使用的线程；
+      <li>订阅者接收可观察对象数据的线程；
       </li>
     </ul>
   </li>
-  <li>可观察对象分为两种类型：[冷] 和 [热]。冷可观察对象会在每个新订阅者加入时完全重新执行一次。如果每次执行产生的数据相同，那么每个新订阅者收到的数据将与前一个订阅者相同。<b>热</b>可观察对象通常会持续产生数据。当订阅者订阅时，他们将收到从订阅时刻起发出的数据，而不会收到之前可能已发出的任何数据。 在我们的示例中，该可观察对象属于<b>冷可观察对象</b>：对于每个新订阅者，它都会被完全重新执行。
+  <li>可区分两种类型的可观察对象：[froid / cold] 和 [chaud / hot]。<b>冷可观察</b>对象会在每个新订阅者加入时完全执行一次。如果每次执行产生相同的数据，则每个新订阅者接收的数据与前一个订阅者相同。 <b>热</b>可观察对象通常会持续生成数据。当订阅者订阅时，他将收到自订阅时间起发布的数据。他不会收到之前可能已发布的数据。在我们的示例中，该可观察对象是<b>冷的</b>：每次有新订阅者时，它都会被完全重新执行。
   </li>
 </ul>
 
-<p>既然我们已经通过一个示例了解了 Rx 库的价值，接下来我们将对其进行更深入的探讨。</p>
-<p>Rx 库中有许多方法的签名中包含泛型参数。我们将简要回顾这些签名（<a href="#refheading2073011760159442"><u><span style="color: #0563c1">第 3</span></u></a> 节）。这些方法的参数大多是函数式接口（Java 8），即仅包含一个方法的接口。因此，实际参数必须是这些接口的实例。在 Java 8 之前，通常使用匿名类来实现接口。 在 Java 8 中，如果接口是函数式接口，使用 lambda 表达式来实现会更加简洁。因此，我们将介绍 lambda 表达式（<a href="#refheading2073031760159442"><u><span style="color: #0563c1">第 4</span></u></a> 节）。完成这一步后，我们将介绍 [Stream] 类（<a href="#refheading173491349222571"><u><span style="color: #0563c1">第 5</span></u></a> 节），它允许您使用 lambda 表达式处理 Java 集合。这个类之所以有趣，是因为 RxJava 的 [Observable] 类借用了：</p>
+<p>既然我们已经通过一个示例了解了 Rx 库的优势，接下来我们将对其进行更详细的介绍。</p>
+<p>Rx 库包含许多在方法签名中使用泛型参数的方法。我们将简要回顾这些签名（<a href="aningeieangaeianing.html#refheading2073011760159442"><u><span style="color: #0563c1">第 3</span></u></a> 节）。这些方法的参数大多是函数式接口（Java 8），即仅包含一个方法的接口。 因此，实际参数必须是这些接口的实例。在 Java 8 之前，通常通过匿名类来实现接口。而在 Java 8 中，如果接口是函数式接口，则使用 lambda 表达式来实现会更加简洁。因此，我们将介绍 lambda 表达式（<a href="java-8-e-lambda-iaoahi.html#refheading2073031760159442"><u><span style="color: #0563c1">第 4</span></u></a> 节）。 完成上述内容后，我们将介绍类 [Stream]（<a href="java-8-honge-streamt-eiing.html#refheading173491349222571"><u><span style="color: #0563c1">第 5</span></u></a> 节），该类允许使用 lambda 表达式处理 Java 集合。该类之所以值得关注，是因为 [Observable] 类从 RxJava 类借用了：</p>
 <ul>
   <li>某些方法；
   </li>
-  <li>将方法串联起来处理同一可观察对象的方式；
+  <li>处理同一可观察对象时，采用相同的方法链连接方式；
   </li>
 </ul>
 
-<p>随后我们将介绍 RxJava 库特有的函数式接口（<a href="#refheading2073051760159442"><u><span style="color: #0563c1">第 6</span></u></a> 节）。接着我们将继续讲解 Rx 库的主要元素 [Observable、Subscriber、Subscription、运算符]（<a href="#refheading2073071760159442"><u><span style="color: #0563c1">第 7</span></u></a> 节）。 [Observable] 类拥有数十个运算符，而这些运算符本身又被重载了多次。这最初会带来相当大的复杂性，因为这些运算符及其重载版本有时仅在某个细节上有所不同，若缺乏经验，很难判断该使用哪个运算符。我们将仅介绍数量有限的运算符，并且大多数情况下会忽略它们的重载版本。</p>
-<p>上一节的全部内容将通过在简单的控制台应用程序中使用 RxJava 库来讲解。掌握 RxJava 库后，我们将将其应用于两类图形化应用程序：</p>
+<p>接下来，我们将介绍 RxJava 库特有的函数式接口（第<a href="rxjava-ueongengieou.html#refheading2073051760159442"><u><span style="color: #0563c1"> 6</span></u></a> 段）。随后将探讨 Rx [Observable, Subscriber, Subscription, opérateurs] 库的主要组件（第<a href="u-rxjava.html#refheading2073071760159442"><u><span style="color: #0563c1"> 7</span></u></a> 段）。 [Observable] 类包含数十个运算符，这些运算符本身又被多次重载。这最初会带来极大的复杂性，因为这些运算符及其重载版本有时仅在细节上有所不同，若缺乏经验，很难判断应使用哪个运算符。 我们将仅介绍有限数量的运算符，并且大多数情况下会忽略它们的重载。</p>
+<p>前面的所有内容都将使用 RxJava 库在简单的控制台应用程序中完成。一旦掌握了 RxJava 库，我们将将其应用于两种类型的图形应用程序：</p>
 <ul>
-  <li>在<a href="#refheading2073091760159442"><u><span style="color: #0563c1">第 8</span></u></a> 节中，我们将重新审视那个 Swing 示例应用程序，并对其进行更深入的探讨。随后我们将使用 RxSwing 库；
+  <li>在<a href="swinguaninghongerxjava.html#refheading2073091760159442"><u><span style="color: #0563c1">第 8</span></u></a> 节中，我们将回顾 Swing 示例应用程序并进行更详细的说明。届时我们将使用 RxSwing 库；
   </li>
-  <li>在<a href="#refheading2073111760159442"><u><span style="color: #0563c1">第 9 节中，</span></u></a>我们将使用 RxAndroid 库创建一个 Android 应用程序；
+  <li>在<a href="rxjava-ai-android-uaninghong.html#refheading2073111760159442"><u><span style="color: #0563c1">第 9</span></u></a> 节中，我们将使用 RxAndroid 库创建一个 Android 应用程序；
   </li>
 </ul>
 
-<p>完成上述内容后，读者将掌握独立开发所需的工具。虽然要能直观地运用 Rx 库可能还需要一些时间，但我认为这个库特别有趣。不过，我发现它难以理解，学习曲线也相当陡峭。希望本文能帮助读者缩短这一学习曲线。在我看来，这绝对值得付出努力。</p>
+<p>完成上述步骤后，读者便掌握了独立操作所需的工具。不过，要能够直观地使用Rx库，可能还需要一段时间。我认为这个库特别有趣，但理解起来比较复杂，学习过程也比较漫长。 希望本文能帮助读者缩短这一过程。在我看来，这绝对是值得的。</p>
 
 
 

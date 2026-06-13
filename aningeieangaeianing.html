@@ -12,13 +12,13 @@
         <meta name="author" content="Serge Tahé">
       
       
-        <link rel="canonical" href="https://stahe.github.io/zh-rxjava-mai-2016/aningeiuangaeianing.html">
+        <link rel="canonical" href="https://stahe.github.io/zh-rxjava-mai-2016/aningeieangaeianing.html">
       
       
-        <link rel="prev" href="uenhii.html">
+        <link rel="prev" href="ieuenhii.html">
       
       
-        <link rel="next" href="java-8-lambda-iaoahi.html">
+        <link rel="next" href="java-8-e-lambda-iaoahi.html">
       
       
         
@@ -29,7 +29,7 @@
     
     
       
-        <title>3. 泛型类与方法的签名 - RxJava入门：Swing和Android环境中的应用</title>
+        <title>3. 泛型类和方法的签名 - RxJava入门：Swing和Android环境中的应用</title>
       
     
     
@@ -56,6 +56,8 @@
     
     
       <link rel="stylesheet" href="stylesheets/focus.css">
+    
+      <link rel="stylesheet" href="stylesheets/bidi.css">
     
     <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -128,7 +130,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              3. 泛型类与方法的签名
+              3. 泛型类和方法的签名
             
           </span>
         </div>
@@ -330,14 +332,14 @@
   
   
     <li class="md-nav__item">
-      <a href="uenhii.html" class="md-nav__link">
+      <a href="ieuenhii.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    2. 入门示例
+    2. 一个入门示例
   
 
     
@@ -366,14 +368,14 @@
         
       
       
-      <a href="aningeiuangaeianing.html" class="md-nav__link md-nav__link--active">
+      <a href="aningeieangaeianing.html" class="md-nav__link md-nav__link--active">
         
   
   
   <span class="md-ellipsis">
     
   
-    3. 泛型类与方法的签名
+    3. 泛型类和方法的签名
   
 
     
@@ -394,14 +396,14 @@
   
   
     <li class="md-nav__item">
-      <a href="java-8-lambda-iaoahi.html" class="md-nav__link">
+      <a href="java-8-e-lambda-iaoahi.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    4. Java 8 lambda 表达式
+    4. Java 8 的 lambda 表达式
   
 
     
@@ -475,14 +477,14 @@
   
   
     <li class="md-nav__item">
-      <a href="rxjava-u.html" class="md-nav__link">
+      <a href="u-rxjava.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    7. RxJava 库
+    7. 库 RxJava
   
 
     
@@ -502,14 +504,14 @@
   
   
     <li class="md-nav__item">
-      <a href="swing-uaninghonge-rxjava.html" class="md-nav__link">
+      <a href="swinguaninghongerxjava.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    8. Swing 环境中的 RxJava
+    8. Swing环境中的RxJava
   
 
     
@@ -529,14 +531,14 @@
   
   
     <li class="md-nav__item">
-      <a href="android-uaninghonge-rxjava.html" class="md-nav__link">
+      <a href="rxjava-ai-android-uaninghong.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    9. Android 环境中的 RxJava
+    9. RxJava 在 Android 环境中
   
 
     
@@ -593,11 +595,11 @@
 
 
 
-<p><a id="refheading2073011760159442"></a></p>
-<h1 id="3">3. <span style="color: #365f91">泛型类与方法的签名</span></h1>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000E0000000A22E7E1A87.png" width="157" height="113" style="display:inline-block; margin:4px;width:4.15cm;height:3cm;" class="odt-zoomable" data-zoom-src="images/10000000000000E0000000A22E7E1A87.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
+<p><span id="refheading2073011760159442" name="refheading2073011760159442" class="odt-bookmark-anchor"></span></p>
+<h1 id="3">3. <span style="color: #365f91">泛型类和方法的签名</span></h1>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/10000000000000E0000000A22E7E1A87.png" width="157" height="113" style="display:inline-block; margin:4px;width:4.15cm;height:3cm;" class="odt-zoomable" data-zoom-src="images/10000000000000E0000000A22E7E1A87.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;">&nbsp;</td></tr></table>
 
-<p>RxJava 库中有许多方法会将泛型接口的实例作为参数。有时，这些方法的签名比较复杂。以下是一些示例：</p>
+<p>RxJava 库包含许多将泛型接口实例作为参数的方法。有时，这些方法的签名较为复杂。以下是一些示例：</p>
 <div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span class="odt-code-line-content">public final &lt;R&gt; Observable&lt;R&gt; <span style="font-weight:bold">map</span>(Func1&lt;? super T,? extends R&gt; func)</span></span>
 </code></pre></div>
@@ -606,161 +608,161 @@
 <span class="odt-code-line"><span class="odt-code-line-content">public final &lt;R&gt; Observable&lt;R&gt; <span style="font-weight:bold">flatMap</span>(Func1&lt;? super T,? extends Observable&lt;? extends R&gt;&gt; func)</span></span>
 </code></pre></div>
 
-<p>这两个方法使用了两个泛型类型 T 和 R。但 map 方法的参数定义是什么意思呢？例如：<em>Func1&lt;? super T,? extends R&gt; func</em> ？</p>
-<p>有关泛型的信息可参见网址 [<a href="https://docs.oracle.com/javase/tutorial/java/generics/"><u><span style="color: #0563c1">https://docs.oracle.com/javase/tutorial/java/generics/</span></u></a>]。下文部分内容源自该网址。泛型功能于 Java 1.5 版本中引入。</p>
-<p>假设有一个提供各类信息的 Web 服务。该 Web 服务有时可能无法提供这些信息，此时必须向客户端报告错误。我们可以将 Web 服务的响应标准化为以下形式：</p>
+<p>这两个方法使用了两个泛型类型 T 和 R。但例如 <strong>map</strong> 方法的参数定义：<em>Func1&lt;? super T,? extends R&gt; func</em> 是什么意思呢？</p>
+<p>有关泛型的信息可查阅 URL [https://docs.oracle.com/javase/tutorial/java/generics/]。下文中的部分信息源自 URL。泛型自 Java 1.5 版本起引入。</p>
+<p>假设有一个提供不同类型信息的Web服务。该Web服务有时可能无法成功提供信息，此时必须向客户端报告错误。因此，我们可以将Web服务的响应标准化为以下形式：</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-csharp">
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">class</span><span style="color:#000000"> Response&lt;</span><span style="font-weight:bold;color:#000000">T</span><span style="color:#000000">&gt; {</span></span></span>
-<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// ----------------- properties</span></span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// operation status</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// ----------------- 属性</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// 操作状态</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">int</span><span style="color:#000000"> </span><span style="color:#0000c0">status</span><span style="color:#000000">;</span></span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// any error messages</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// 可能出现的错误信息</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> List&lt;String&gt; </span><span style="color:#0000c0">messages</span><span style="color:#000000">;</span></span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// the body of the reply</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// 响应正文</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> T </span><span style="color:#0000c0">body</span><span style="color:#000000">;</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">...</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
 </code></pre></div>
 
 <ul>
-  <li>第 1 行：[Response] 类由类型 T 泛型化；
+  <li>第 1 行：类 [Response] 由类型 T 进行参数化；
   </li>
-  <li>第 9 行：类型 T 是响应正文的类型，即客户端实际期望的内容；
+  <li>第 9 行：类型 T 是响应正文的类型，即客户端实际期望接收的内容；
   </li>
-  <li>第 5 行：一个错误代码，若无错误则为 0；
+  <li>第 5 行：错误代码，若无错误则为 0；
   </li>
   <li>第 7 行：解释错误的消息，若无错误则为 <i>null</i>；
   </li>
 </ul>
 
-<p>在客户端，我们可以编写如下代码：</p>
+<p>在客户端，我们可以这样编写：</p>
 <div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span class="odt-code-line-content">Response&lt;<span style="font-weight:bold">Product</span>&gt; product=getDataFromWebService(...) ;</span></span>
 </code></pre></div>
 
-<p>或者</p>
+<p>或</p>
 <div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span class="odt-code-line-content">Response&lt;<span style="font-weight:bold">List&lt;Product&gt;</span>&gt;=getDataFromWebService(...) ;</span></span>
 </code></pre></div>
 
-<p>形式类型 T 被实际类型替换，此处为 [Product] 或 [List&lt;Product&gt;]。泛型类 [Response&lt;T&gt;] 在此处非常有用，因为它允许我们处理标准响应。</p>
-<p>要使用 <strong>new</strong> 运算符创建 [Response] 类型，我们编写：</p>
+<p>形式类型 T 被替换为实际类型，此处为 [Product] 或 [List&lt;Product&gt;]。泛型类 [Response&lt;T&gt;] 在此处非常实用，因为它允许处理标准响应。</p>
+<p>若要使用 <strong>new</strong> 运算符创建类型 [Response]，应编写如下代码：</p>
 <div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span class="odt-code-line-content">Response&lt;<span style="font-weight:bold">List&lt;Product&gt;</span>&gt; response=<span style="font-weight:bold">new</span> Response&lt;<span style="font-weight:bold">List&lt;Product&gt;</span>&gt; (...) ;</span></span>
 </code></pre></div>
 
-<p>自 Java 1.8 起，上述语句可以写得更简洁：</p>
+<p>自 Java 1.8 版本起，上述语句可以更简洁地写为：</p>
 <div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span class="odt-code-line-content">Response&lt;<span style="font-weight:bold">List&lt;Product&gt;</span>&gt; response=new Response<span style="font-weight:bold">&lt;&gt;</span> (...) ;</span></span>
 </code></pre></div>
 
-<p>在等号右侧不再需要指定泛型参数的实际类型：取而代之的是使用等号左侧指定的形式类型。这被称为<strong>类型推断</strong>：编译器能够根据上下文自行确定泛型参数的实际类型。该特性在lambda表达式中被广泛使用，因为在lambda表达式中，方法的泛型参数的实际类型通常会被省略。</p>
-<p>现在，在客户端，[getDataFromWebService] 方法可以具有以下签名：</p>
+<p>现在，无需在等号右侧明确指定泛型参数的实际类型：系统将自动采用等号左侧指定的形式类型。 这被称为<strong>类型推断</strong>：编译器能够根据上下文自行推断泛型参数的实际类型。这一特性在lambda表达式中被广泛使用，因为在方法中，泛型参数的实际类型通常会被省略。</p>
+<p>现在在客户端，方法 [getDataFromWebService] 的签名可能如下所示：</p>
 <div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold">&lt;T1,T2&gt;</span> Response&lt;<span style="font-weight:bold">T1</span>&gt;  getDataFromWebService(String urlWebService, String httpMethod, <span style="font-weight:bold">T2</span> post)</span></span>
 </code></pre></div>
 
-<p>这里我们有一个由两个类型 T1 和 T2 泛型化的方法：</p>
+<p>这是一个由两个类型 T1 和 T2 参数化的泛型方法：</p>
 <ul>
   <li>T1 是预期响应正文的类型；
   </li>
-  <li>T2 是 POST 操作中提交的值的类型，对于 GET 操作则为 <i>null</i>；
+  <li>T2 是针对 POST 操作提交的值的<i>类型，null </i>是针对 GET 操作的类型；
   </li>
   <li>urlWebService：是 Web 服务的 URL；
   </li>
-  <li>httpMethod：是查询该 URL 时使用的 HTTP GET 或 POST 方法；
+  <li>httpMethod：是用于查询该 URL 的方法，可使用 HTTP、GET 或 POST；
   </li>
 </ul>
 
-<p>在客户端，我们可能会有以下调用：</p>
+<p>在客户端，可以调用以下方法：</p>
 <div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold">Long</span> id=... ;</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">Response&lt;<span style="font-weight:bold">Product</span>&gt; product=this.&lt;<span style="font-weight:bold">Product</span>,<span style="font-weight:bold">Long</span>&gt;getDataFromWebService(&#x27;http://localhost:8080/rest/product&#x27;,&#x27;POST&#x27;,id) ;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">Response&lt;Product&gt; product=this.&lt;Product,Long&gt;getDataFromWebService(&#x27;http://localhost:8080/rest/product&#x27;,&#x27;POST&#x27;,id) ;</span></span>
 </code></pre></div>
 
-<p>在此情况下，我们将有 <em>T1=Product</em> 和 <em>T2=Long</em>。</p>
-<p>借助 Java 8，我们可以利用类型推断，使代码写得更简洁：</p>
+<p>此时将得到 <em>T1=Product</em> 以及 <em>T2=Long</em>。</p>
+<p>在 Java 8 中，我们可以使用类型推断，写法会更简洁：</p>
 <div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold">Long</span> id=... ;</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">Response&lt;<span style="font-weight:bold">Product</span>&gt; product=getDataFromWebService(&#x27;http://localhost:8080/rest/product&#x27;,&#x27;POST&#x27;,id) ;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">Response&lt;Product&gt; product=getDataFromWebService(&#x27;http://localhost:8080/rest/product&#x27;,&#x27;POST&#x27;,id) ;</span></span>
 </code></pre></div>
 
-<p>这里是另一个可能的调用：</p>
+<p>以下是另一种可能的调用方式：</p>
 <div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold">Long[]</span> ids=... ;</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">Response&lt;<span style="font-weight:bold">List&lt;Product&gt;</span>&gt; product=getDataFromWebService(&#x27;http://localhost:8080/rest/products&#x27;,&#x27;POST&#x27;,ids) ;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">Response&lt;List&lt;Product&gt;&gt; product=getDataFromWebService(&#x27;http://localhost:8080/rest/products&#x27;,&#x27;POST&#x27;,ids) ;</span></span>
 </code></pre></div>
 
-<p>在此情况下，我们将得到 <em>T1=List&lt;Product&gt;</em> 和 <em>T2=Long[]</em>。</p>
-<p>泛型类或方法可以对其泛型参数施加约束。让我们重新审视 RxJava 中 [map] 方法的定义：</p>
+<p>在这种情况下，我们将得到 <em>T1=List&lt;Product&gt;</em> 和 <em>T2=Long[]</em>。</p>
+<p>泛型类或方法可以对其泛型参数施加约束。让我们回顾一下 RxJava 中 [map] 方法的定义：</p>
 <div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span class="odt-code-line-content">public final &lt;<span style="font-weight:bold">R</span>&gt; Observable&lt;<span style="font-weight:bold">R</span>&gt; <span style="font-weight:bold">map</span>(Func1&lt;? super T,? extends <span style="font-weight:bold">R</span>&gt; func)</span></span>
 </code></pre></div>
 
-<p>该方法接受两个参数类型：T 和 R。类型 [Func1] 是一个泛型接口：</p>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000027D000001854D86DED3.png" width="445" height="272" style="display:inline-block; margin:4px;width:11.786cm;height:7.197cm;" class="odt-zoomable" data-zoom-src="images/100000000000027D000001854D86DED3.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
+<p>该方法接受两个参数类型，T 和 R。类型 [Func1] 是一个泛型接口：</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/100000000000027D000001854D86DED3.png" width="445" height="272" style="display:inline-block; margin:4px;width:11.786cm;height:7.197cm;" class="odt-zoomable" data-zoom-src="images/100000000000027D000001854D86DED3.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;">&nbsp;</td></tr></table>
 
-<p><em>Func1</em> 定义了一个函数接口，即仅包含一个方法的接口。函数接口构成了 Java 8 lambda 表达式的基础。在此，该接口的方法定义如下：</p>
+<p><em>Func1</em> 定义了一个功能接口，即仅包含一个方法的接口。功能接口是 Java 8 lambda 表达式的基石。在此，该接口的方法定义如下：</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>R call(T t)
 </code></pre></div>
-<p>因此，<strong>T</strong> 是传递给 [call] 的参数类型，<strong>R 是</strong>获得的结果类型。让我们回到 [map] 方法的定义：</p>
+<p>因此<strong>，T</strong> 是传递给 [call] 的参数类型，<strong>R</strong> 是返回结果的类型。让我们回到 [map] 方法的定义：</p>
 <div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span class="odt-code-line-content">public final &lt;R&gt; Observable&lt;R&gt; <span style="font-weight:bold">map</span>(Func1&lt;? super T,? extends R&gt; func)</span></span>
 </code></pre></div>
 
 <ul>
-  <li>[map] 方法期望一个类型为 [Func1&lt;? super T,? extends R&gt;] 的参数，并返回类型 [Observable&lt;R&gt;]；
+  <li>方法 [map] 期望接收一个类型为 [Func1&lt;? super T,? extends R&gt;] 的参数，并返回类型为 [Observable&lt;R&gt;] 的结果；
   </li>
-  <li><b>? super T</b>：传递给 [Func1.call] 方法的参数必须是类型 T 或 T 的<b>超类型</b>；
+  <li><b>? super T</b>：传递给方法 [Func1.call] 的参数必须是类型 T 或 T 的<b>父类型</b>；
   </li>
-  <li><b>? extends R</b>：[call] 方法返回的结果类型必须是类型 R <b>或其子类型</b>（若 R 是类），或<b>实现 </b>R（若 R 是接口）；
+  <li><b>? extends R</b>：方法 [call] 返回的结果类型必须是 R<b> 类型或其派生</b>类型（若 R 为类），或<b>实现 </b>R 接口（若 R 为接口）；
   </li>
 </ul>
 
-<p>为了更好地理解上述两条约束，让我们参考 [<a href="https://docs.oracle.com/javase/tutorial/java/generics/bounded.html"><u><span style="color: #0563c1">https://docs.oracle.com/javase/tutorial/java/generics/bounded.html</span></u></a>] 中的示例：</p>
+<p>为了更好地理解上述两项约束，我们以 [https://docs.oracle.com/javase/tutorial/java/generics/bounded.html] 参考文档中的示例为例：</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">package</span><span style="color:#000000"> tests;</span></span></span>
-<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">class</span><span style="color:#000000"> Box&lt;T&gt; {</span></span></span>
-<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> T </span><span style="color:#0000c0">t</span><span style="color:#000000">;</span></span></span>
-<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> set(T </span><span style="color:#6a3e3e">t</span><span style="color:#000000">) {</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="font-weight:bold;color:#7f0055">this</span><span style="color:#000000">.</span><span style="color:#0000c0">t</span><span style="color:#000000"> = </span><span style="color:#6a3e3e">t</span><span style="color:#000000">;</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">    }</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> T get() {</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="font-weight:bold;color:#7f0055">return</span><span style="color:#000000"> </span><span style="color:#0000c0">t</span><span style="color:#000000">;</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">    }</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> &lt;U </span><span style="font-weight:bold;color:#7f0055">extends</span><span style="color:#000000"> Number&gt; </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> inspect(U </span><span style="color:#6a3e3e">u</span><span style="color:#000000">) {</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        System.</span><span style="font-weight:bold;font-style:italic;color:#0000c0">out</span><span style="color:#000000">.println(</span><span style="color:#2a00ff">&quot;T: &quot;</span><span style="color:#000000"> + </span><span style="color:#0000c0">t</span><span style="color:#000000">.getClass().getName());</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        System.</span><span style="font-weight:bold;font-style:italic;color:#0000c0">out</span><span style="color:#000000">.println(</span><span style="color:#2a00ff">&quot;U: &quot;</span><span style="color:#000000"> + </span><span style="color:#6a3e3e">u</span><span style="color:#000000">.getClass().getName());</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">    }</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">static</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> main(String[] </span><span style="color:#6a3e3e">args</span><span style="color:#000000">) {</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        Box&lt;Integer&gt; </span><span style="color:#6a3e3e">integerBox</span><span style="color:#000000"> = </span><span style="font-weight:bold;color:#7f0055">new</span><span style="color:#000000"> Box&lt;&gt;();</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#6a3e3e">integerBox</span><span style="color:#000000">.set(</span><span style="font-weight:bold;color:#7f0055">new</span><span style="color:#000000"> Integer(10));</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#6a3e3e">integerBox</span><span style="color:#000000">.inspect(</span><span style="font-weight:bold;color:#7f0055">new</span><span style="color:#000000"> Long(20));</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#6a3e3e">integerBox</span><span style="color:#000000">.inspect(</span><span style="font-weight:bold;color:#7f0055">new</span><span style="color:#000000"> Double(-1.78));</span></span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">//integerBox.inspect(&quot;some text&quot;); // error: this is still String!</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">//integerBox.inspect(&quot;some text&quot;); // 错误：这仍然是字符串！</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">    }</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
 </code></pre></div>
 
 <ul>
-  <li>第 3 行：[Box] 类由类型 T 泛型化，该类型即第 5 行字段的类型；
+  <li>第 3 行：类 [Box] 由类型 T 参数化，该类型即第 5 行字段的类型；
   </li>
-  <li>第 15 行：[inspect] 方法接受类型为 U 的参数。方法也可以具有泛型参数。此时，其声明如下：
+  <li>第 15 行：方法 [inspect] 接受类型为 U 的参数。方法也可以具有泛型参数。此时，其声明如下：
   </li>
 </ul>
 
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>&lt;T1, T2, ..., Tn&gt; TResult méthode(paramètres ...)
 </code></pre></div>
-<p>此处，U 被声明为该方法的泛型类型，使用 &lt;U&gt; 声明，但带有约束条件 &lt;U extends Number&gt;，即 U 必须继承 [Number] 类。由于此约束，编译器在第 25 行报告了错误；</p>
+<p>此处，U 通过 &lt;U&gt; 声明为方法的泛型类型，但带有 &lt;U extends Number&gt; 的约束，即 U 必须继承类 [Number]。由于此约束，编译器在第 25 行报告了错误；</p>
 <ul>
-  <li>第 23–24 行：对 [Number] 派生类型的 [inspect] 方法的调用；
+  <li>第 23-24 行：使用从 [Number] 派生的类型调用 [inspect] 方法；
   </li>
 </ul>
 
@@ -770,10 +772,10 @@
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>T: java.lang.Integer
 <a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>U: java.lang.Double
 </code></pre></div>
-<p><strong>注意</strong>：要在 IntelliJ 中运行该类，请按照以下步骤操作 [1, 2]：</p>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000209000001EAEA780CA8.png" width="327" height="307" style="display:inline-block; margin:4px;width:8.641cm;height:8.126cm;" class="odt-zoomable" data-zoom-src="images/1000000000000209000001EAEA780CA8.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
+<p><strong>注</strong>：要在 IntelliJ 中运行该类，请按以下步骤操作 [1, 2]：</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/1000000000000209000001EAEA780CA8.png" width="327" height="307" style="display:inline-block; margin:4px;width:8.641cm;height:8.126cm;" class="odt-zoomable" data-zoom-src="images/1000000000000209000001EAEA780CA8.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;">&nbsp;</td></tr></table>
 
-<p>现在，请看以下示例：</p>
+<p>现在，让我们来看以下示例：</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-bash">
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> addNumbers(List&lt;? </span><span style="font-weight:bold;color:#7f0055">super</span><span style="color:#000000"> Integer&gt; </span><span style="color:#6a3e3e">list</span><span style="color:#000000">) {</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="font-weight:bold;color:#7f0055">for</span><span style="color:#000000"> (</span><span style="font-weight:bold;color:#7f0055">int</span><span style="color:#000000"> </span><span style="color:#6a3e3e">i</span><span style="color:#000000"> = 1; </span><span style="color:#6a3e3e">i</span><span style="color:#000000"> &lt;= 3; </span><span style="color:#6a3e3e">i</span><span style="color:#000000">++) {</span></span></span>
@@ -782,22 +784,22 @@
 <span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
 </code></pre></div>
 
-<p>[<span style="color: #000000">addNumbers</span>] 方法接受一个 List&lt;T&gt; 作为参数，其中 T 是 [Integer] 类的超类。由于这一限制，<em>整数</em> 1 到 3 可以被添加到列表中（第 2–4 行），并且可以按以下方式调用该方法：</p>
+<p>方法 [addNumbers] 接受 List&lt;T&gt; 类型的参数，其中 T 是类 [Integer] 的父类。 由于这一限制，整数 <em>int</em> 1 到 3 可以添加到列表中（第 2-4 行），并且可以按以下方式调用该方法：</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    List&lt;Number&gt; </span><span style="color:#6a3e3e">numbers</span><span style="color:#000000">=</span><span style="font-weight:bold;color:#7f0055">new</span><span style="color:#000000"> ArrayList&lt;&gt;();</span></span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// ajout double Number &lt;-- Double</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// 添加双精度数 &lt;-- Double</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#6a3e3e">numbers</span><span style="color:#000000">.add(7.8);</span></span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// ajout Long Number &lt;-- Long</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// 添加 Long 类型数 &lt;-- Long</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#6a3e3e">numbers</span><span style="color:#000000">.add(1L);</span></span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// ajout List&lt;Number&gt; Number &lt;-- Integer</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// 添加 List&lt;Number&gt; 中的 Number &lt;-- Integer</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-style:italic;color:#000000">addNumbers</span><span style="color:#000000">(</span><span style="color:#6a3e3e">numbers</span><span style="color:#000000">);</span></span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// affichagede List&lt;Number&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// 显示 List&lt;Number&gt;</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">for</span><span style="color:#000000">(Number </span><span style="color:#6a3e3e">number</span><span style="color:#000000"> : </span><span style="color:#6a3e3e">numbers</span><span style="color:#000000">){</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      System.</span><span style="font-weight:bold;font-style:italic;color:#0000c0">out</span><span style="color:#000000">.println(</span><span style="color:#6a3e3e">number</span><span style="color:#000000">.getClass().getName());</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
 </code></pre></div>
 
-<p>这将产生以下结果：</p>
+<p>此时将得到以下结果：</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
 <span class="normal"><a href="#__codelineno-3-2">2</a></span>
 <span class="normal"><a href="#__codelineno-3-3">3</a></span>
@@ -808,14 +810,14 @@
 <a id="__codelineno-3-4" name="__codelineno-3-4"></a>java.lang.Integer
 <a id="__codelineno-3-5" name="__codelineno-3-5"></a>java.lang.Integer
 </code></pre></div></td></tr></table></div>
-<p>要扩展 Box&lt;T&gt; 类，我们会这样写：</p>
+<p>要扩展 Box&lt;T&gt; 类，应编写如下代码：</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">class</span><span style="color:#000000"> OtherBox&lt;T&gt; </span><span style="font-weight:bold;color:#7f0055">extends</span><span style="color:#000000"> Box&lt;T&gt; {</span></span></span>
-<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
 </code></pre></div>
 
-<p>子类本身可以引入新的泛型参数：</p>
+<p>子类本身也可以引入新的泛型参数：</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">class</span><span style="color:#000000"> AnotherBox&lt;T, T1&gt; </span><span style="font-weight:bold;color:#7f0055">extends</span><span style="color:#000000"> Box&lt;T&gt; {</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> consumer(T1 </span><span style="color:#6a3e3e">t1</span><span style="color:#000000">) {</span></span></span>
@@ -831,19 +833,19 @@
 <span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
 </code></pre></div>
 
-<p>要实现该接口，请使用以下语法：</p>
+<p>要实现它，使用以下语法：</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">class</span><span style="color:#000000"> A&lt;T&gt; </span><span style="font-weight:bold;color:#7f0055">implements</span><span style="color:#000000"> I&lt;T&gt; {</span></span></span>
-<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#646464">@Override</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> doSomethingWith(T </span><span style="color:#6a3e3e">t</span><span style="color:#000000">) {</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        System.</span><span style="font-weight:bold;font-style:italic;color:#0000c0">out</span><span style="color:#000000">.printf(</span><span style="color:#2a00ff">&quot;%s%n&quot;</span><span style="color:#000000">, </span><span style="color:#6a3e3e">t</span><span style="color:#000000">);</span></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">    }</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
 </code></pre></div>
 
-<p>现在我们对泛型已经有了足够的了解，可以开始学习lambda函数了。</p>
+<p>现在我们对泛型已经有了足够的了解，可以开始探讨lambda表达式了。</p>
 
 
 
